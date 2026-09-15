@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@glimmr/api-zod": "*",
-    "@glimmr/db": "*",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "drizzle-orm": "^0.45.2",

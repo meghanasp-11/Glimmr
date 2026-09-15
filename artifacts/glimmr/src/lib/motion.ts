@@ -31,12 +31,6 @@ export const scaleIn: Variants = {
   exit: { opacity: 0, scale: 0.98, transition: { duration: duration.interaction, ease } },
 };
 
-/** Stagger container: apply to a list wrapper, pair with fadeUp/StaggerItem children. */
-export const staggerContainer: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
-};
-
 /**
  * One shared reduced-motion source of truth. glimmr-preloader, text-loop and
  * route-three each used to poll matchMedia themselves — this replaces that

@@ -2,6 +2,10 @@ import type { PlannerRequest } from '@/types/glimmr';
 
 export { places, serviceAreas } from '@/data/places';
 
+/**
+ * Default planner request for development
+ * @deprecated Use OutingRequest schema instead
+ */
 export const defaultRequest: PlannerRequest = {
   from: 'Indiranagar',
   to: 'Church Street',

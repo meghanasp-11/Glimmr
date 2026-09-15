@@ -8,7 +8,7 @@ import {
   UploadMetadata,
   UploadTaskSnapshot,
 } from 'firebase/storage';
-import { storage } from '../lib/firebase';
+import { getStorageService } from '../lib/firebase';
 
 /**
  * Upload a file to Firebase Storage
@@ -22,7 +22,7 @@ export const uploadFile = async (
   path: string,
   metadata?: UploadMetadata
 ): Promise<string> => {
-  const storageRef = ref(storage, path);
+  const storageRef = ref(getStorageService(), path);
   const snapshot = await uploadBytes(storageRef, file, metadata);
   const downloadURL = await getDownloadURL(snapshot.ref);
   return downloadURL;
@@ -43,7 +43,7 @@ export const uploadFileWithProgress = (
   metadata?: UploadMetadata
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const storageRef = ref(storage, path);
+    const storageRef = ref(getStorageService(), path);
     const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
     uploadTask.on(
@@ -68,7 +68,7 @@ export const uploadFileWithProgress = (
  * @param path - Storage path to the file
  */
 export const deleteFile = async (path: string): Promise<void> => {
-  const storageRef = ref(storage, path);
+  const storageRef = ref(getStorageService(), path);
   await deleteObject(storageRef);
 };
 
@@ -78,7 +78,7 @@ export const deleteFile = async (path: string): Promise<void> => {
  * @returns Promise with download URL
  */
 export const getFileURL = async (path: string): Promise<string> => {
-  const storageRef = ref(storage, path);
+  const storageRef = ref(getStorageService(), path);
   return await getDownloadURL(storageRef);
 };
 
@@ -88,7 +88,7 @@ export const getFileURL = async (path: string): Promise<string> => {
  * @returns Promise with array of file references
  */
 export const listFiles = async (path: string) => {
-  const storageRef = ref(storage, path);
+  const storageRef = ref(getStorageService(), path);
   const result = await listAll(storageRef);
   return result.items;
 };

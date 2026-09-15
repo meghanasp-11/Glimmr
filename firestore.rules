@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function admin() { return signedIn() && request.auth.token.admin == true; }
+    function owner(userId) { return signedIn() && request.auth.uid == userId; }
+
+    match /places/{placeId} {
+      allow read: if true;
+      allow write: if admin();
+    }
+
+    match /outings/{outingId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read, delete: if admin() || owner(resource.data.userId);
+      allow update: if (admin() || owner(resource.data.userId))
+        && request.resource.data.userId == resource.data.userId;
+    }
+
+    match /plans/{planId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read, delete: if admin() || owner(resource.data.userId);
+      allow update: if (admin() || owner(resource.data.userId))
+        && request.resource.data.userId == resource.data.userId;
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if admin() || owner(userId);
+    }
+
+    match /savedPlans/{savedPlanId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read, delete: if admin() || owner(resource.data.userId);
+      allow update: if (admin() || owner(resource.data.userId))
+        && request.resource.data.userId == resource.data.userId;
+    }
+
+    match /userPreferences/{uid} {
+      allow read, write: if owner(uid) || admin();
+    }
+
+    match /userSavedPlaces/{savedPlaceId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read, delete: if admin() || owner(resource.data.userId);
+      allow update: if (admin() || owner(resource.data.userId))
+        && request.resource.data.userId == resource.data.userId;
+    }
+
+    match /{document=**} { allow read, write: if false; }
+  }
+}

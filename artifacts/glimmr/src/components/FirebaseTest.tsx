@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { db, storage } from '@/lib/firebase';
+import { getDb, getStorageService, isFirebaseConfigured } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { ref, listAll } from 'firebase/storage';
 
@@ -18,10 +18,11 @@ export function FirebaseTest() {
   useEffect(() => {
     const testConnection = async () => {
       try {
+        if (!isFirebaseConfigured) throw new Error('Firebase environment variables are not configured.');
         // Test Firestore connection
         let firestoreOk = false;
         try {
-          const testCollection = collection(db, '_test_connection');
+          const testCollection = collection(getDb(), '_test_connection');
           await getDocs(testCollection);
           firestoreOk = true;
         } catch (e: any) {
@@ -34,7 +35,7 @@ export function FirebaseTest() {
         // Test Storage connection
         let storageOk = false;
         try {
-          const storageRef = ref(storage, '/');
+          const storageRef = ref(getStorageService(), '/');
           await listAll(storageRef);
           storageOk = true;
         } catch (e: any) {
@@ -105,9 +106,6 @@ export function FirebaseTest() {
         </div>
       )}
 
-      <div className="mt-2 text-xs text-gray-500">
-        Project: glimmr-3b56a
-      </div>
     </div>
   );
 }

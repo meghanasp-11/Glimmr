@@ -11,21 +11,13 @@ import { Suspense, lazy } from 'react';
 const CARD_W = 240;
 const CARD_H = 220;
 
-// Simplified spiral configuration - removed non-essential parameters
+// Essential spiral configuration - core visual parameters only
 const SPIRAL_CONFIG = {
   speed: 0.32,
   radius: 1150,
   verticalSpacing: 160,
-  perspective: 4000,
   cardsPerTurn: 15,
-  rotation: -14,
-  cardTilt: 2,
-  cardRadius: 20,
   centerScale: 1.15,
-  edgeFade: 0.3,
-  edgeBlur: 6,
-  radiusCapFactor: 1.4,
-  maxFit: 1.8,
 } as const;
 
 export default function Home() {
@@ -97,14 +89,6 @@ export default function Home() {
             </div>
           </section>
         </main>
-
-        {/* Trust messaging strip */}
-        <div className="trust-strip trust-strip--overlay" aria-label="Key benefits">
-          <div className="container-shell trust-inner">
-            <span>ONE GOOD PLAN, NOT 40 TABS</span>
-            <span>MADE FOR LAST-MINUTE PEOPLE</span>
-          </div>
-        </div>
 
         {/* How it works section */}
         <section 

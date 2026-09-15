@@ -11,6 +11,7 @@ import Planner from '@/pages/planner';
 import Results from '@/pages/results';
 import PlanDetail from '@/pages/plan-detail';
 import Outing from '@/pages/outing';
+import Account from '@/pages/account';
 import {
   Route,
   Switch,
@@ -33,7 +34,8 @@ function Router() {
            <Route path="/results" component={Results} />
            <Route path="/plan/:id" component={PlanDetail} />
            <Route path="/outing/:id" component={Outing} />
-          <Route component={NotFound} />
+           <Route path="/account" component={Account} />
+           <Route component={NotFound} />
         </Switch>
       </PageTransition>
     </RoutedErrorBoundary>

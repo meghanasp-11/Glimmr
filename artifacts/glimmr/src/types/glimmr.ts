@@ -1,78 +1,110 @@
-export type TransportMode = 'walk' | 'bike' | 'transit' | 'drive';
-export type OutingType = 'Food crawl' | 'Low-key day' | 'Date night' | 'Arts & culture' | 'Fresh air';
-export type PlanStatus = 'idle' | 'loading' | 'ready' | 'editing' | 'adding' | 'deleting' | 'replacing' | 'regenerating' | 'recalculating' | 'success' | 'error';
-export type LocationStatus = 'idle' | 'loading' | 'permission-denied' | 'unavailable' | 'searching' | 'success' | 'empty' | 'error' | 'search-success' | 'search-empty' | 'search-error' | 'selected';
+/**
+ * GLIMMR TypeScript Types
+ * 
+ * All domain types are inferred from Zod schemas.
+ * Do not maintain duplicate type definitions.
+ */
 
-export interface Location {
-  label: string;
-  status: LocationStatus;
-  source: 'current' | 'search' | 'manual';
-}
+import type { z } from 'zod';
 
-export interface TravelInfo {
-  minutes: number;
-  distanceKm: number;
-  mode: TransportMode;
-}
+export type {
+  ServiceArea,
+  Place,
+  Location,
+  OutingRequest,
+  TravelInfo,
+  Stop,
+  Plan,
+  EditAction,
+  PlanConflict,
+  UserProfile,
+  UserPreferences,
+  SavedPlace,
+  SavedPlan,
+  OutingRecord,
+} from '@/schemas/glimmr.schema';
 
+export {
+  ServiceAreaSchema,
+  PlaceSchema,
+  LocationSchema,
+  OutingRequestSchema,
+  TravelInfoSchema,
+  StopSchema,
+  PlanSchema,
+  EditActionSchema,
+  PlanConflictSchema,
+  UserProfileSchema,
+  UserPreferencesSchema,
+  SavedPlaceSchema,
+  SavedPlanSchema,
+  OutingRecordSchema,
+  TransportModeSchema,
+  OutingTypeSchema,
+  PriceBasisSchema,
+  VerificationStatusSchema,
+  validateSchema,
+} from '@/schemas/glimmr.schema';
+
+// Type exports for enums
+export type TransportMode = z.infer<typeof import('@/schemas/glimmr.schema').TransportModeSchema>;
+export type OutingType = z.infer<typeof import('@/schemas/glimmr.schema').OutingTypeSchema>;
+
+// ============================================================================
+// UI-SPECIFIC TYPES (not part of domain model)
+// ============================================================================
+
+export type PlanStatus = 
+  | 'idle' 
+  | 'loading' 
+  | 'ready' 
+  | 'editing' 
+  | 'adding' 
+  | 'deleting' 
+  | 'replacing' 
+  | 'regenerating' 
+  | 'recalculating' 
+  | 'success' 
+  | 'error';
+
+export type LocationStatus = 
+  | 'idle' 
+  | 'loading' 
+  | 'permission-denied' 
+  | 'unavailable' 
+  | 'searching' 
+  | 'success' 
+  | 'empty' 
+  | 'error' 
+  | 'search-success' 
+  | 'search-empty' 
+  | 'search-error' 
+  | 'selected';
+
+// ============================================================================
+// LEGACY COMPATIBILITY (to be migrated)
+// ============================================================================
+
+/**
+ * @deprecated Use OutingRequest instead
+ */
 export interface PlannerRequest {
   from: string;
   to: string;
   availableMinutes: number;
   budget: number;
   people: number;
-  transport: TransportMode;
-  outingType: OutingType;
+  transport: 'walk' | 'bike' | 'transit' | 'drive';
+  outingType: 'Food crawl' | 'Low-key day' | 'Date night' | 'Arts & culture' | 'Fresh air';
   preference?: string;
 }
 
 /**
- * Coverage limit, not a hardcoded product limitation — see /areas/glimmr.md.
- * New areas are new rows here, never new branches in the recommendation
- * engine or frontend.
+ * @deprecated Legacy UI type
  */
-export interface ServiceArea {
-  id: string;
-  name: string;
-  city: string;
-  active: boolean;
-}
-
-export type PriceBasis = 'per_person' | 'per_group' | 'flat';
-export type VerificationStatus = 'verified' | 'unverified' | 'ai-suggested';
-
-export interface Place {
-  id: string;
-  name: string;
-  serviceArea: string; // ServiceArea['id']
-  category: string;
-  subcategory?: string;
-  address: string;
-  description: string;
-  lat: number;
-  lng: number;
-  priceMin: number;
-  priceMax: number;
-  priceBasis: PriceBasis;
-  openingHours: string; // MVP: human-readable, e.g. "11:00 AM – 11:30 PM"
-  typicalVisitDuration: number; // minutes
-  suitableFor: string[]; // e.g. 'friends', 'couple', 'solo', 'family'
-  activities: string[]; // tags used for preference matching, e.g. 'food', 'peaceful', 'photography'
-  vibe: string;
-  rating: number; // 0–5
-  reviewCount: number;
-  experienceScore: number; // 0–1, curated quality signal independent of raw rating
-  websiteUrl?: string;
-  mapsUrl?: string;
-  source: string; // provenance, e.g. 'web-research-2026-09'
-  verificationStatus: VerificationStatus;
-  lastVerified: string; // ISO date
-  confidence: number; // 0–1
-}
-
 export interface PlanStep {
   id: string;
-  place: Place;
+  place: import('@/schemas/glimmr.schema').Place;
   arrival: string;
   durationMinutes: number;
   travelMinutes: number;
@@ -80,7 +112,10 @@ export interface PlanStep {
   note?: string;
 }
 
-export interface Plan {
+/**
+ * @deprecated Legacy UI type
+ */
+export interface LegacyPlan {
   id: string;
   title: string;
   subtitle: string;
@@ -99,6 +134,9 @@ export interface Plan {
   request: PlannerRequest;
 }
 
+/**
+ * @deprecated Legacy UI type
+ */
 export interface PlanEdit {
   type: 'replace' | 'edit' | 'delete' | 'add';
   stepId?: string;
@@ -107,6 +145,9 @@ export interface PlanEdit {
   instruction?: string;
 }
 
+/**
+ * @deprecated Legacy UI type
+ */
 export interface Outing {
   id: string;
   planId: string;

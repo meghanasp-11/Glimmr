@@ -31,7 +31,7 @@ This guide will help you set up Firebase for the Glimmr project.
 
 2. Open `.env` and fill in your Firebase config values:
    ```env
-   VITE_FIREBASE_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   VITE_FIREBASE_API_KEY=your_restricted_firebase_web_api_key
    VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
    VITE_FIREBASE_PROJECT_ID=your-project-id
    VITE_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
@@ -40,7 +40,7 @@ This guide will help you set up Firebase for the Glimmr project.
    VITE_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
    ```
 
-3. **Important**: Add `.env` to `.gitignore` (already done)
+3. **Important**: `.env` is already ignored. Do not put server secrets or service-account credentials in `VITE_*` variables: those values are visible in the browser bundle.
 
 ---
 
@@ -48,25 +48,11 @@ This guide will help you set up Firebase for the Glimmr project.
 
 1. In Firebase Console, go to **"Firestore Database"**
 2. Click **"Create database"**
-3. Choose **"Start in test mode"** (for development)
-   - Test mode allows read/write access for 30 days
-   - You'll update security rules later for production
+3. Choose **"Start in production mode"** and deploy this repository's `firestore.rules` before using the app.
 4. Select a location (choose closest to your users)
 5. Click **"Enable"**
 
-### Firestore Security Rules (for development):
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Allow read/write access for development
-    match /{document=**} {
-      allow read, write: if request.time < timestamp.date(2025, 12, 31);
-    }
-  }
-}
-```
+Do not use an open or time-limited development rule with a deployed project.
 
 ### Production Security Rules (update before launch):
 
@@ -95,22 +81,11 @@ service cloud.firestore {
 
 1. In Firebase Console, go to **"Storage"**
 2. Click **"Get started"**
-3. Choose **"Start in test mode"** (for development)
+3. Choose **"Start in production mode"** and deploy this repository's `storage.rules` before using the app.
 4. Select the same location as Firestore
 5. Click **"Done"**
 
-### Storage Security Rules (for development):
-
-```javascript
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.time < timestamp.date(2025, 12, 31);
-    }
-  }
-}
-```
+Do not use an open or time-limited development rule with a deployed project.
 
 ### Production Storage Rules:
 

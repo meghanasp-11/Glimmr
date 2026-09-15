@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() { return request.auth != null; }
+    function admin() { return signedIn() && request.auth.token.admin == true; }
+    function imageUpload() {
+      return request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /places/images/{imageId} {
+      allow read: if true;
+      allow write: if admin() && imageUpload();
+    }
+
+    match /users/{userId}/{allPaths=**} {
+      allow read, delete: if signedIn() && request.auth.uid == userId;
+      allow create, update: if signedIn() && request.auth.uid == userId && imageUpload();
+    }
+
+    match /{allPaths=**} { allow read, write: if false; }
+  }
+}

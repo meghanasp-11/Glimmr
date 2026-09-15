@@ -15,7 +15,7 @@ V1 covers **Indiranagar, Bengaluru**.
 
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Wouter, Framer Motion
 - **Backend**: Express 5, Node.js (currently only a health check endpoint)
-- **Database**: PostgreSQL + Drizzle ORM (schema in progress)
+- **Database**: Firebase Firestore, with Firebase Authentication for per-user data access and Firebase Storage for files
 - **Tooling**: npm workspaces, Orval (API codegen from OpenAPI spec), esbuild
 
 ## Project structure
@@ -26,7 +26,8 @@ artifacts/api-server/   # Express API
 lib/api-spec/           # OpenAPI spec + Orval config
 lib/api-client-react/   # Generated React Query hooks
 lib/api-zod/            # Generated Zod schemas
-lib/db/                 # Drizzle schema + connection
+firestore.rules          # Firestore access controls
+storage.rules            # Firebase Storage access controls
 scripts/                # Workspace utility scripts
 ```
 
@@ -66,9 +67,9 @@ npm run build
 
 | Variable       | Required | Description                        |
 |----------------|----------|------------------------------------|
-| `DATABASE_URL` | Yes      | PostgreSQL connection string       |
 | `PORT`         | No       | Port for frontend/API (default: 5173) |
 | `BASE_PATH`    | No       | Vite base path (default: `/`)      |
+| `CORS_ORIGIN`  | API only | Comma-separated browser-origin allowlist |
 
 ## Key files
 
@@ -84,6 +85,7 @@ npm run build
 
 ## Notes
 
-- The frontend runs entirely on mock data for now. The service layer in `glimmrService.ts` is designed to be replaced with real API calls without touching the page components.
+- When Firebase is configured, places, plans, and outings are read from and persisted to Firestore. The bundled places data is a local development fallback only.
 - Plan edits recalculate cost, duration, travel time, distance, and feasibility in one place.
 - The 3D landing visual (`route-three.tsx`) uses React Three Fiber with a plain SVG fallback for environments without WebGL.
+- See [SECURITY.md](SECURITY.md) before deploying Firebase or the API.

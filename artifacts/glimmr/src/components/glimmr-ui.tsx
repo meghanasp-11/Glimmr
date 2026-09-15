@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Clock3, Footprints, MapPin, RefreshCw, Route, Sparkles, Trash2, X } from 'lucide-react';
-import { Link } from 'wouter';
+import { ArrowRight, Check, Clock3, Footprints, MapPin, RefreshCw, Route, Sparkles, Trash2, User, X } from 'lucide-react';
+import { Link, useLocation } from 'wouter';
+import { useAuth } from '@/lib/auth';
 import { places } from '@/data/mockData';
 import type { LocationStatus, Plan, PlanStep } from '@/types/glimmr';
 import { formatDuration, formatINR, placePrice } from '@/lib/glimmr-format';
@@ -12,13 +13,35 @@ export function Logo() {
 }
 
 export function Header({ compact = false }: { compact?: boolean }) {
+  const { user, profile } = useAuth();
+  const [, setLocation] = useLocation();
+
   return <header className="container-shell topbar">
     <Logo />
     {!compact && <nav className="nav-links" aria-label="Primary navigation">
       <Link href="/planner" data-testid="link-plan-a-day">Plan a day</Link>
       <a href="#how-it-works" data-testid="link-how-it-works">How it works</a>
     </nav>}
-    <Link href="/planner" className="btn btn-primary" data-testid="button-header-start">Plan an Outing <ArrowRight size={15} /></Link>
+    <div className="flex items-center gap-2">
+      {user ? (
+        <>
+          <button
+            className="btn btn-ghost flex items-center gap-2"
+            onClick={() => setLocation('/account')}
+            data-testid="link-account"
+            aria-label="Go to account"
+          >
+            <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
+              {profile?.displayName?.[0] ?? user.email?.[0]?.toUpperCase() ?? 'G'}
+            </div>
+            <span className="hidden sm:inline">{profile?.displayName ?? user.email?.split('@')[0]}</span>
+          </button>
+          <Link href="/planner" className="btn btn-primary" data-testid="button-header-start">Plan an Outing <ArrowRight size={15} /></Link>
+        </>
+      ) : (
+        <Link href="/planner" className="btn btn-primary" data-testid="button-header-start">Plan an Outing <ArrowRight size={15} /></Link>
+      )}
+    </div>
   </header>;
 }
 
@@ -98,7 +121,7 @@ export function PlanCard({ plan }: { plan: Plan }) {
       <ul className="mini-timeline">
         {plan.steps.map((step) => <li key={step.id}><span className="mini-dot" />{step.place.name}</li>)}
       </ul>
-      <div className="plan-reason"><strong>Why we picked this</strong><ul>{plan.recommendationReason.slice(0, 3).map((reason) => <li key={reason}>✓ {reason}</li>)}</ul></div>
+      <div className="plan-reason"><strong>Why we picked this</strong><ul>{plan.recommendationReason?.slice(0, 3).map((reason) => <li key={reason}>✓ {reason}</li>)}</ul></div>
     </div>
     <div className="plan-footer">
       <Link href={`/plan/${plan.id}`} className={`btn ${plan.recommendationLabel === 'Best fit' ? 'btn-blue' : 'btn-soft'}`} data-testid={`button-view-plan-${plan.id}`}>View Plan <ArrowRight size={15} /></Link>
