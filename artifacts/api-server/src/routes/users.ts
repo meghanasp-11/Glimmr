@@ -1,4 +1,9 @@
 import { Router, type IRouter } from "express";
+import {
+  defaultPreferences,
+  getPreferences,
+  setPreferences,
+} from "../lib/preferencesStore";
 
 const router: IRouter = Router();
 
@@ -16,7 +21,7 @@ interface UserProfile {
 const userStore = new Map<string, UserProfile>();
 
 // GET /users/profile/:uid
-router.get("/profile/:uid", (_req, res) => {
+router.get("/profile/:uid", (req, res) => {
   const { uid } = req.params;
   const profile = userStore.get(uid);
   if (!profile) {
@@ -50,37 +55,22 @@ router.put("/profile/:uid", (req, res) => {
 });
 
 // GET /users/preferences/:uid
-router.get("/preferences/:uid", (req, res) => {
+router.get("/preferences/:uid", async (req, res) => {
   const { uid } = req.params;
-  const key = `prefs:${uid}`;
-  const prefs = (globalThis as any)[key];
-  if (!prefs) {
-    const defaultPrefs = {
-      id: `prefs-${uid}`,
-      uid,
-      defaultTransport: undefined as string | undefined,
-      defaultBudget: undefined as number | undefined,
-      defaultTime: undefined as number | undefined,
-      dietaryRestrictions: [] as string[],
-      accessibilityNeeds: [] as string[],
-      favoriteCategories: [] as string[],
-      notificationsEnabled: true,
-      emailUpdates: false,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    };
-    (globalThis as any)[key] = defaultPrefs;
-    res.json(defaultPrefs);
+  const existing = await getPreferences(uid);
+  if (!existing) {
+    const defaults = defaultPreferences(uid);
+    await setPreferences(defaults);
+    res.json(defaults);
     return;
   }
-  res.json(prefs);
+  res.json(existing);
 });
 
 // PUT /api/users/preferences/:uid
-router.put("/users/preferences/:uid", (req, res) => {
+router.put("/preferences/:uid", async (req, res) => {
   const { uid } = req.params;
-  const key = `prefs:${uid}`;
-  const existing = (globalThis as any)[key];
+  const existing = await getPreferences(uid);
   if (!existing) {
     res.status(404).json({ error: "Preferences not found" });
     return;
@@ -89,11 +79,11 @@ router.put("/users/preferences/:uid", (req, res) => {
   const updated = { ...existing };
   for (const field of allowed) {
     if (req.body[field] !== undefined) {
-      updated[field] = req.body[field];
+      (updated as Record<string, unknown>)[field] = req.body[field];
     }
   }
   updated.updatedAt = new Date().toISOString();
-  (globalThis as any)[key] = updated;
+  await setPreferences(updated);
   res.json(updated);
 });
 

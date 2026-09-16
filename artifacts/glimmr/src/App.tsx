@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { AuthProvider } from '@/lib/auth';
 import { PageTransition } from '@/components/motion/PageTransition';
 // import { FirebaseTest } from '@/components/FirebaseTest';
 import NotFound from '@/pages/not-found';
@@ -50,6 +51,7 @@ function RoutedErrorBoundary({ children }: { children: ReactNode }) {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <AuthProvider>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
           <Router />
@@ -58,6 +60,7 @@ function App() {
         {/* Firebase connection status - disabled to improve load time */}
         {/* {import.meta.env.DEV && <FirebaseTest />} */}
       </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

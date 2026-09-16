@@ -13,7 +13,7 @@ import {
   EmailAuthProvider,
   type Auth
 } from 'firebase/auth';
-import { getAuthService, ensureFirebaseUser } from './firebase';
+import { getAuthService, ensureFirebaseUser, isFirebaseConfigured } from './firebase';
 import { getUserProfile, ensureUserProfile as ensureFirestoreProfile, type UserProfile } from '@/services/firebaseService';
 
 interface AuthContextType {
@@ -44,12 +44,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    if (!isFirebaseConfigured) {
+      setLoading(false);
+      return;
+    }
     const auth = getAuthService();
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      if (currentUser) {
-        await loadProfile(currentUser.uid);
-      } else {
+      try {
+        if (currentUser) {
+          await loadProfile(currentUser.uid);
+        } else {
+          setProfile(null);
+        }
+      } catch {
         setProfile(null);
       }
       setLoading(false);

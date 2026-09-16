@@ -70,6 +70,8 @@ npm run build
 | `PORT`         | No       | Port for frontend/API (default: 5173) |
 | `BASE_PATH`    | No       | Vite base path (default: `/`)      |
 | `CORS_ORIGIN`  | API only | Comma-separated browser-origin allowlist |
+| `FIREBASE_PROJECT_ID` | API only | Firebase project for Firestore (Glimmr project: `glimmr-3b56a`) |
+| `GOOGLE_APPLICATION_CREDENTIALS` | API only | Absolute path to a service-account JSON key (outside the repo, never committed) |
 
 ## Key files
 

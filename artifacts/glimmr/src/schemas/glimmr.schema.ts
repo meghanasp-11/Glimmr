@@ -304,8 +304,6 @@ export type PlanConflict = z.infer<typeof PlanConflictSchema>;
 // USER ACCOUNT SCHEMAS
 // ============================================================================
 
-export const TransportModeSchema = z.enum(['walk', 'bike', 'transit', 'drive']);
-
 export const UserProfileSchema = z.object({
   id: z.string().min(1),
   uid: z.string().min(1),

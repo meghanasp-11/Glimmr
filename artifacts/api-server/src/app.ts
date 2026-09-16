@@ -11,6 +11,12 @@ const allowedOrigins = new Set(
     .map((origin) => origin.trim())
     .filter(Boolean),
 );
+// Local development convenience: the Vite dev server origin is trusted
+// outside production. Production stays fail-closed on the explicit
+// CORS_ORIGIN allowlist above.
+if (process.env["NODE_ENV"] !== "production") {
+  allowedOrigins.add("http://localhost:5173");
+}
 const requests = new Map<string, { count: number; resetAt: number }>();
 
 app.disable("x-powered-by");

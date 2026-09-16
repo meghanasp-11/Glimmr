@@ -3,6 +3,8 @@ import { Plus, Save, MapPin, Calendar, Heart, ListCheck, User, Settings, ArrowLe
 import { useLocation } from 'wouter';
 import { Header } from '@/components/glimmr-ui';
 import { useAuth } from '@/lib/auth';
+import { getUserProfile as fetchUserProfile, updateUserProfile as saveUserProfile, getUserPreferences as fetchUserPreferences, updateUserPreferences as saveUserPreferences } from '@glimmr/api-client-react';
+import type { UserProfile as ApiUserProfile, UserPreferences as ApiUserPreferences } from '@glimmr/api-client-react';
 import { toast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -80,14 +82,38 @@ export default function Account() {
 }
 
 function AccountProfile() {
-  const { user, profile, updateDisplayName, refreshProfile } = useAuth();
+  const { user, profile } = useAuth();
+  const [apiProfile, setApiProfile] = useState<ApiUserProfile | null>(null);
   const [name, setName] = useState(profile?.displayName ?? user?.displayName ?? '');
   const [saving, setSaving] = useState(false);
 
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    fetchUserProfile(user.uid)
+      .then((fetched) => {
+        if (cancelled) return;
+        setApiProfile(fetched);
+        setName(fetched.displayName);
+      })
+      .catch(() => {
+        // No API profile yet (or API unreachable): keep auth values.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
   const handleSave = async () => {
+    if (!user) return;
     setSaving(true);
     try {
-      await updateDisplayName(name);
+      const updated = await saveUserProfile(user.uid, {
+        displayName: name,
+        ...(user.email ? { email: user.email } : {}),
+      });
+      setApiProfile(updated);
+      setName(updated.displayName);
       toast({ title: 'Profile updated' });
     } catch {
       toast({ title: 'Failed to update profile', description: 'Please try again' });
@@ -275,40 +301,101 @@ function OutingHistory() {
 }
 
 function AccountPreferences() {
-  const { profile, refreshProfile } = useAuth();
-  const [prefs, setPrefs] = useState<any>(null);
+  const { user } = useAuth();
+  const uid = user?.uid;
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [notifications, setNotifications] = useState(true);
   const [emailUpdates, setEmailUpdates] = useState(false);
+  const [budget, setBudget] = useState('');
+  const [categories, setCategories] = useState('');
+  const [dietary, setDietary] = useState('');
+  const [accessibility, setAccessibility] = useState('');
 
   useEffect(() => {
-    const load = async () => {
-      if (!profile?.uid) return;
-      const { getUserPreferences } = await import('@/services/firebaseService');
-      const p = await getUserPreferences(profile.uid);
-      setPrefs(p);
-      setNotifications(p?.notificationsEnabled ?? true);
-      setEmailUpdates(p?.emailUpdates ?? false);
-      setLoading(false);
+    if (!uid) return;
+    let cancelled = false;
+    setLoading(true);
+    fetchUserPreferences(uid)
+      .then((p: ApiUserPreferences) => {
+        if (cancelled) return;
+        setNotifications(p.notificationsEnabled);
+        setEmailUpdates(p.emailUpdates);
+        setBudget(p.defaultBudget !== undefined ? String(p.defaultBudget) : '');
+        setCategories(p.favoriteCategories.join(', '));
+        setDietary(p.dietaryRestrictions.join(', '));
+        setAccessibility(p.accessibilityNeeds.join(', '));
+      })
+      .catch(() => {
+        if (!cancelled) {
+          toast({ title: 'Failed to load preferences', description: 'Please try again' });
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
     };
-    load();
-  }, [profile]);
+  }, [uid]);
 
   if (loading) return <Card><CardContent className="py-8"><div className="animate-pulse bg-primary/10 h-32 rounded" /></CardContent></Card>;
 
+  const parseList = (value: string): string[] =>
+    value.split(',').map((item) => item.trim()).filter(Boolean);
+
+  const persist = async (patch: Partial<ApiUserPreferences>) => {
+    if (!uid) return;
+    const updated = await saveUserPreferences(uid, patch);
+    setNotifications(updated.notificationsEnabled);
+    setEmailUpdates(updated.emailUpdates);
+    setBudget(updated.defaultBudget !== undefined ? String(updated.defaultBudget) : '');
+    setCategories(updated.favoriteCategories.join(', '));
+    setDietary(updated.dietaryRestrictions.join(', '));
+    setAccessibility(updated.accessibilityNeeds.join(', '));
+  };
+
   const handleToggleNotifications = async (value: boolean) => {
     setNotifications(value);
-    if (profile?.uid) {
-      const { updateUserPreferences } = await import('@/services/firebaseService');
-      await updateUserPreferences(profile.uid, { notificationsEnabled: value });
+    try {
+      await persist({ notificationsEnabled: value });
+    } catch {
+      setNotifications(!value);
+      toast({ title: 'Failed to update preferences', description: 'Please try again' });
     }
   };
 
   const handleToggleEmail = async (value: boolean) => {
     setEmailUpdates(value);
-    if (profile?.uid) {
-      const { updateUserPreferences } = await import('@/services/firebaseService');
-      await updateUserPreferences(profile.uid, { emailUpdates: value });
+    try {
+      await persist({ emailUpdates: value });
+    } catch {
+      setEmailUpdates(!value);
+      toast({ title: 'Failed to update preferences', description: 'Please try again' });
+    }
+  };
+
+  const handleSave = async () => {
+    if (!uid) return;
+    const trimmedBudget = budget.trim();
+    const parsedBudget = trimmedBudget === '' ? undefined : Number(trimmedBudget);
+    if (parsedBudget !== undefined && Number.isNaN(parsedBudget)) {
+      toast({ title: 'Invalid budget', description: 'Please enter a valid number' });
+      return;
+    }
+    setSaving(true);
+    try {
+      await persist({
+        ...(parsedBudget === undefined ? {} : { defaultBudget: parsedBudget }),
+        favoriteCategories: parseList(categories),
+        dietaryRestrictions: parseList(dietary),
+        accessibilityNeeds: parseList(accessibility),
+      });
+      toast({ title: 'Preferences saved' });
+    } catch {
+      toast({ title: 'Failed to update preferences', description: 'Please try again' });
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -344,13 +431,46 @@ function AccountPreferences() {
           />
         </div>
         <div className="space-y-2">
+          <label className="field-label">Budget per person (₹)</label>
+          <input
+            className="input"
+            type="number"
+            min="0"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
+            placeholder="e.g. 500"
+          />
+        </div>
+        <div className="space-y-2">
+          <label className="field-label">Favorite Categories</label>
+          <input
+            className="input"
+            value={categories}
+            onChange={(e) => setCategories(e.target.value)}
+            placeholder="cafes, parks, museums"
+          />
+        </div>
+        <div className="space-y-2">
           <label className="field-label">Dietary Restrictions</label>
-          <input className="input" placeholder="vegetarian, gluten-free, vegan" />
+          <input
+            className="input"
+            value={dietary}
+            onChange={(e) => setDietary(e.target.value)}
+            placeholder="vegetarian, gluten-free, vegan"
+          />
         </div>
         <div className="space-y-2">
           <label className="field-label">Accessibility Needs</label>
-          <input className="input" placeholder="wheelchair accessible, quiet, etc." />
+          <input
+            className="input"
+            value={accessibility}
+            onChange={(e) => setAccessibility(e.target.value)}
+            placeholder="wheelchair accessible, quiet, etc."
+          />
         </div>
+        <button className="btn btn-blue" onClick={() => void handleSave()} disabled={saving}>
+          {saving ? 'Saving...' : <><Save size={14} /> Save Changes</>}
+        </button>
       </CardContent>
     </Card>
   );

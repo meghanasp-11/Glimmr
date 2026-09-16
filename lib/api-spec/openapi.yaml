@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: users
+    description: User operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,122 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /users/profile/{uid}:
+    get:
+      operationId: getUserProfile
+      tags: [users]
+      summary: Get user profile
+      description: Returns the user profile for the given uid
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+        "404":
+          description: User profile not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    put:
+      operationId: updateUserProfile
+      tags: [users]
+      summary: Create or update user profile
+      description: Upserts the user profile for the given uid
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateUserProfile"
+      responses:
+        "200":
+          description: Updated user profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /users/preferences/{uid}:
+    get:
+      operationId: getUserPreferences
+      tags: [users]
+      summary: Get user preferences
+      description: Returns the user preferences for the given uid, creating defaults on first read
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: User preferences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPreferences"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    put:
+      operationId: updateUserPreferences
+      tags: [users]
+      summary: Update user preferences
+      description: Updates the user preferences for the given uid
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateUserPreferences"
+      responses:
+        "200":
+          description: Updated user preferences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPreferences"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Preferences not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +151,115 @@ components:
           type: string
       required:
         - status
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        uid:
+          type: string
+        displayName:
+          type: string
+        email:
+          type: string
+        photoURL:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        lastActiveAt:
+          type: string
+      required:
+        - id
+        - uid
+        - displayName
+        - email
+        - createdAt
+        - updatedAt
+        - lastActiveAt
+    UpdateUserProfile:
+      type: object
+      properties:
+        displayName:
+          type: string
+        email:
+          type: string
+        photoURL:
+          type: string
+    UserPreferences:
+      type: object
+      properties:
+        id:
+          type: string
+        uid:
+          type: string
+        defaultTransport:
+          type: string
+        defaultBudget:
+          type: number
+        defaultTime:
+          type: number
+        dietaryRestrictions:
+          type: array
+          items:
+            type: string
+        accessibilityNeeds:
+          type: array
+          items:
+            type: string
+        favoriteCategories:
+          type: array
+          items:
+            type: string
+        notificationsEnabled:
+          type: boolean
+        emailUpdates:
+          type: boolean
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - id
+        - uid
+        - dietaryRestrictions
+        - accessibilityNeeds
+        - favoriteCategories
+        - notificationsEnabled
+        - emailUpdates
+        - createdAt
+        - updatedAt
+    UpdateUserPreferences:
+      type: object
+      properties:
+        defaultTransport:
+          type: string
+        defaultBudget:
+          type: number
+        defaultTime:
+          type: number
+        dietaryRestrictions:
+          type: array
+          items:
+            type: string
+        accessibilityNeeds:
+          type: array
+          items:
+            type: string
+        favoriteCategories:
+          type: array
+          items:
+            type: string
+        notificationsEnabled:
+          type: boolean
+        emailUpdates:
+          type: boolean
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
 
