@@ -1,0 +1,12 @@
+# Vercel build – keep slugs small, never upload secrets or local build output.
+node_modules
+artifacts/*/dist
+lib/*/dist
+.git
+.env
+.env.*
+!.env.example
+artifacts/glimmr/.env
+artifacts/glimmr/.env.local
+artifacts/api-server/.env
+*.tsbuildinfo
