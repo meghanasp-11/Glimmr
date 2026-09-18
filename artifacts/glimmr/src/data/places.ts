@@ -5,6 +5,9 @@ import type { Place, ServiceArea } from '@/types/glimmr';
  * 
  * Coverage is DATA, not code branches. Adding a city or neighbourhood
  * means adding a row here, not touching the recommendation engine.
+ * All three V1 areas are active; the Firestore `serviceAreas` collection
+ * (see scripts/src/data/places.seed.json) carries the same rows when
+ * Firebase is configured. This local array is the safe fallback.
  */
 export const serviceAreas: ServiceArea[] = [
   {
@@ -23,7 +26,7 @@ export const serviceAreas: ServiceArea[] = [
     id: 'koramangala',
     name: 'Koramangala',
     city: 'Bengaluru',
-    active: false,
+    active: true,
     bounds: {
       north: 12.9450,
       south: 12.9250,
@@ -35,7 +38,7 @@ export const serviceAreas: ServiceArea[] = [
     id: 'church-street',
     name: 'Church Street',
     city: 'Bengaluru',
-    active: false,
+    active: true,
     bounds: {
       north: 12.9750,
       south: 12.9700,

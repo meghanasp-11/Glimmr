@@ -1,0 +1,11 @@
+{
+  "$comment": "PRODUCTION DATA HOME — Koramangala. Add verified real place records to 'places' following scripts/PLACES_IMPORT_FORMAT.md. Do not invent businesses: every record needs a sourceUrl proving its facts. Validate with: npm run merge:production -w @glimmr/scripts -- --dry-run",
+  "serviceArea": {
+    "id": "koramangala",
+    "name": "Koramangala",
+    "city": "Bengaluru",
+    "active": true,
+    "bounds": { "north": 12.945, "south": 12.925, "east": 77.625, "west": 77.61 }
+  },
+  "places": []
+}

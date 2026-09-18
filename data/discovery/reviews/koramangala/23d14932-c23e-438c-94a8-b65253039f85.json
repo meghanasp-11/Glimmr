@@ -1,0 +1,155 @@
+{
+  "overture_id": "23d14932-c23e-438c-94a8-b65253039f85",
+  "service_area": "koramangala",
+  "dossier_rank": 4,
+  "dossier_completeness": 0.2222222222222222,
+  "dossier_flags": [
+    "possibly-closed"
+  ],
+  "evidence": {
+    "source_url": "https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook",
+    "fetched_at_utc": "2026-09-17T13:55:50.444Z",
+    "page_title": "Best Coffee house Cafe in Koramangala | Third Wave Coffee",
+    "website_reachable": true
+  },
+  "fields": {
+    "id": {
+      "value": "ov-23d14932-c23e-438c-94a8-b65253039f85",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "name": {
+      "value": "Third Wave Coffee",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook"
+    },
+    "serviceArea": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"koramangala\" — confirm, do not assume. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "category": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"Cafe\" — confirm, do not assume. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "address": {
+      "value": "Shop No 25, Ganapathi Temple Rd",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook"
+    },
+    "lat": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports 12.93962749 — confirm, do not assume. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "lng": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports 77.61941179 — confirm, do not assume. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "description": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "subcategory": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "priceMin": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "priceMax": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "priceBasis": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "openingHours": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "typicalVisitDuration": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "suitableFor": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "activities": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "vibe": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "rating": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "reviewCount": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "experienceScore": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "websiteUrl": {
+      "value": "https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook"
+    },
+    "mapsUrl": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "source": {
+      "value": "overture:2026-08-19.0",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "sourceUrl": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    },
+    "verificationStatus": {
+      "value": "unverified",
+      "status": "rejected",
+      "reason": "Permanently closed per official store page https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook. Exclude from promotion."
+    },
+    "confidence": {
+      "value": 0.999380867767334,
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "lastVerified": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook."
+    }
+  },
+  "rejected": true,
+  "rejection_reason": "Permanently closed — the official Third Wave store page states 'Permanently Closed' (https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook). Exclude from promotion.",
+  "reviewed_at": "2026-09-17"
+}

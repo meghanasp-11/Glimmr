@@ -1,6 +1,9 @@
 {
   "name": "glimmr",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
   "description": "Local outing planner for Bengaluru",
   "author": "Meghana",
   "license": "MIT",

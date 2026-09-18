@@ -1,3 +1,6 @@
+import { existsSync } from "node:fs";
+import { homedir } from "node:os";
+import { join } from "node:path";
 import type { Firestore } from "firebase-admin/firestore";
 import { logger } from "./logger";
 
@@ -33,6 +36,39 @@ function resolveProjectId(): string | undefined {
   );
 }
 
+// The Admin SDK resolves credentials lazily: missing credentials do NOT fail
+// `initializeApp()` — they fail later, inside google-auth-library promise
+// machinery that surfaces as an uncaught exception and kills the process
+// (verified: it cannot be caught around the Firestore call). So check for a
+// usable credential source BEFORE touching the Admin SDK.
+function resolveCredentials(): { ok: true } | { ok: false; reason: string } {
+  if (process.env["FIRESTORE_EMULATOR_HOST"]) {
+    return { ok: true }; // Emulator needs no credentials.
+  }
+  const keyFile = process.env["GOOGLE_APPLICATION_CREDENTIALS"];
+  if (keyFile) {
+    if (!existsSync(keyFile)) {
+      return {
+        ok: false,
+        reason: `GOOGLE_APPLICATION_CREDENTIALS points at "${keyFile}", which does not exist.`,
+      };
+    }
+    return { ok: true };
+  }
+  // Well-known ADC location from `gcloud auth application-default login`.
+  const adcFile = process.env["APPDATA"]
+    ? join(process.env["APPDATA"], "gcloud", "application_default_credentials.json")
+    : join(homedir(), ".config", "gcloud", "application_default_credentials.json");
+  if (existsSync(adcFile)) {
+    return { ok: true };
+  }
+  return {
+    ok: false,
+    reason:
+      "no Firestore credential source found (set GOOGLE_APPLICATION_CREDENTIALS to a service-account key file, run `gcloud auth application-default login`, or set FIRESTORE_EMULATOR_HOST).",
+  };
+}
+
 async function getFirestore(): Promise<Firestore | null> {
   if (firestore) return firestore;
   if (firestoreUnavailable) return null;
@@ -42,6 +78,15 @@ async function getFirestore(): Promise<Firestore | null> {
     firestoreUnavailable = true;
     logger.warn(
       "FIREBASE_PROJECT_ID is not set; user preferences use in-memory storage and will not persist across restarts.",
+    );
+    return null;
+  }
+
+  const credentials = resolveCredentials();
+  if (!credentials.ok) {
+    firestoreUnavailable = true;
+    logger.warn(
+      `${credentials.reason} User preferences use in-memory storage and will not persist across restarts.`,
     );
     return null;
   }
@@ -94,12 +139,46 @@ function stripUndefined(value: UserPreferences): Record<string, unknown> {
   );
 }
 
+function isCredentialsError(err: unknown): boolean {
+  const message = err instanceof Error ? err.message : String(err);
+  const code =
+    typeof err === "object" && err !== null
+      ? (err as { code?: unknown }).code
+      : undefined;
+  return (
+    message.includes("Could not load the default credentials") ||
+    code === 16 ||
+    code === "UNAUTHENTICATED"
+  );
+}
+
+function degradeToMemory(err: unknown, operation: "read" | "write"): void {
+  // Missing/unusable credentials never recover without new config + restart,
+  // so stop hitting Firestore (each attempt waits on slow metadata lookups
+  // and can surface outside the request handler). Other failures may be
+  // transient: serve this request from memory but retry Firestore next time.
+  if (isCredentialsError(err)) {
+    firestoreUnavailable = true;
+  }
+  logger.warn(
+    { err },
+    `Firestore ${operation} failed; serving user preferences from in-memory storage.`,
+  );
+}
+
 export async function getPreferences(uid: string): Promise<UserPreferences | null> {
   const store = await getFirestore();
   if (!store) return memoryStore.get(uid) ?? null;
-  const snapshot = await store.collection(COLLECTION).doc(uid).get();
-  if (!snapshot.exists) return null;
-  return snapshot.data() as UserPreferences;
+  try {
+    const snapshot = await store.collection(COLLECTION).doc(uid).get();
+    if (!snapshot.exists) return null;
+    const prefs = snapshot.data() as UserPreferences;
+    memoryStore.set(uid, prefs);
+    return prefs;
+  } catch (err) {
+    degradeToMemory(err, "read");
+    return memoryStore.get(uid) ?? null;
+  }
 }
 
 export async function setPreferences(prefs: UserPreferences): Promise<void> {
@@ -108,7 +187,13 @@ export async function setPreferences(prefs: UserPreferences): Promise<void> {
     memoryStore.set(prefs.uid, prefs);
     return;
   }
-  // Firestore rejects `undefined` field values; the API contract omits them
-  // from JSON responses anyway.
-  await store.collection(COLLECTION).doc(prefs.uid).set(stripUndefined(prefs));
+  // Keep the in-memory copy warm so a later degradation serves fresh data.
+  memoryStore.set(prefs.uid, prefs);
+  try {
+    // Firestore rejects `undefined` field values; the API contract omits them
+    // from JSON responses anyway.
+    await store.collection(COLLECTION).doc(prefs.uid).set(stripUndefined(prefs));
+  } catch (err) {
+    degradeToMemory(err, "write");
+  }
 }

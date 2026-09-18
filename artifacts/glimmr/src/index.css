@@ -480,6 +480,10 @@ textarea.input { padding-top: 13px; min-height: 92px; resize: vertical; }
 .feasibility { margin: 20px 0; padding: 13px; color: #17633b; background: #dcf7e8; border-radius: 13px; font-size: .75rem; font-weight: 700; }
 .route-preview { height: 140px; background: #111; border-radius: 16px; margin-top: 18px; overflow: hidden; position: relative; }
 .route-preview svg { width: 100%; height: 100%; }
+/* Live stop map (Leaflet + OpenStreetMap). Same footprint as the decorative preview it replaces. */
+.plan-map { height: 220px; border-radius: 16px; margin-top: 18px; overflow: hidden; position: relative; z-index: 0; background: #e8e4da; }
+.plan-map-pin { background: transparent; border: none; }
+.plan-map-pin span { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #3b82f6; color: #fff; font: 700 .72rem var(--app-font-display); border: 2px solid #fff; box-shadow: 0 2px 8px rgb(0 0 0 / .3); }
 .outing-layout { display: grid; grid-template-columns: 1fr 360px; gap: 26px; }
 .map-panel { min-height: 580px; background: #111; border-radius: var(--surface-radius); overflow: hidden; position: relative; box-shadow: var(--content-shadow); }
 .map-panel::before { content: ''; position: absolute; inset: 0; opacity: .11; background-image: linear-gradient(30deg, transparent 48%, #fff 49%, transparent 50%), linear-gradient(120deg, transparent 48%, #fff 49%, transparent 50%); background-size: 82px 82px; }

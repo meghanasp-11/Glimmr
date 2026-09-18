@@ -1,0 +1,11 @@
+{
+  "$comment": "PRODUCTION DATA HOME — Indiranagar. Add verified real place records to 'places' following scripts/PLACES_IMPORT_FORMAT.md. Do not invent businesses: every record needs a sourceUrl proving its facts. Validate with: npm run merge:production -w @glimmr/scripts -- --dry-run",
+  "serviceArea": {
+    "id": "indiranagar",
+    "name": "Indiranagar",
+    "city": "Bengaluru",
+    "active": true,
+    "bounds": { "north": 12.985, "south": 12.97, "east": 77.645, "west": 77.635 }
+  },
+  "places": []
+}

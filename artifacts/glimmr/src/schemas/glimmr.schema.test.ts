@@ -72,23 +72,23 @@ const testCases: TestCase[] = [
       {
         id: 'p-test',
         name: 'Test Place',
-        serviceAreaId: 'indiranagar',
+        serviceArea: 'indiranagar',
         category: 'Cafe',
         address: '123 Test St',
-        latitude: 12.9784,
-        longitude: 77.6408,
+        lat: 12.9784,
+        lng: 77.6408,
         priceMin: 100,
         priceMax: 300,
         priceBasis: 'per_person',
         openingHours: '9:00 AM – 5:00 PM',
-        typicalVisitDurationMinutes: 45,
+        typicalVisitDuration: 45,
         suitableFor: ['solo', 'couple'],
         activities: ['coffee'],
         vibe: 'Cozy',
         rating: 4.5,
         reviewCount: 100,
         experienceScore: 0.8,
-        sourceType: 'manual',
+        source: 'manual',
         verificationStatus: 'verified',
         lastVerified: '2026-09-14',
         confidence: 0.9,
@@ -99,50 +99,50 @@ const testCases: TestCase[] = [
         data: {
           id: 'p-test',
           name: 'Test',
-          serviceAreaId: 'test',
+          serviceArea: 'test',
           category: 'Cafe',
           address: '123 Test',
-          latitude: 200, // invalid
-          longitude: 77.6408,
+          lat: 200, // invalid
+          lng: 77.6408,
           priceMin: 100,
           priceMax: 300,
           priceBasis: 'per_person',
           openingHours: '9-5',
-          typicalVisitDurationMinutes: 45,
+          typicalVisitDuration: 45,
           suitableFor: ['solo'],
           activities: [],
           vibe: 'Test',
           rating: 4.5,
           reviewCount: 100,
           experienceScore: 0.8,
-          sourceType: 'manual',
+          source: 'manual',
           verificationStatus: 'verified',
           lastVerified: '2026-09-14',
           confidence: 0.9,
         },
-        expectedError: 'latitude',
+        expectedError: 'lat',
       },
       {
         data: {
           id: 'p-test',
           name: 'Test',
-          serviceAreaId: 'test',
+          serviceArea: 'test',
           category: 'Cafe',
           address: '123 Test',
-          latitude: 12.9784,
-          longitude: 77.6408,
+          lat: 12.9784,
+          lng: 77.6408,
           priceMin: 300, // max < min
           priceMax: 100,
           priceBasis: 'per_person',
           openingHours: '9-5',
-          typicalVisitDurationMinutes: 45,
+          typicalVisitDuration: 45,
           suitableFor: ['solo'],
           activities: [],
           vibe: 'Test',
           rating: 4.5,
           reviewCount: 100,
           experienceScore: 0.8,
-          sourceType: 'manual',
+          source: 'manual',
           verificationStatus: 'verified',
           lastVerified: '2026-09-14',
           confidence: 0.9,
@@ -153,23 +153,23 @@ const testCases: TestCase[] = [
         data: {
           id: 'p-test',
           name: 'Test',
-          serviceAreaId: 'test',
+          serviceArea: 'test',
           category: 'Cafe',
           address: '123 Test',
-          latitude: 12.9784,
-          longitude: 77.6408,
+          lat: 12.9784,
+          lng: 77.6408,
           priceMin: -100, // negative
           priceMax: 100,
           priceBasis: 'per_person',
           openingHours: '9-5',
-          typicalVisitDurationMinutes: 45,
+          typicalVisitDuration: 45,
           suitableFor: ['solo'],
           activities: [],
           vibe: 'Test',
           rating: 4.5,
           reviewCount: 100,
           experienceScore: 0.8,
-          sourceType: 'manual',
+          source: 'manual',
           verificationStatus: 'verified',
           lastVerified: '2026-09-14',
           confidence: 0.9,
@@ -398,8 +398,13 @@ console.log(`${'='.repeat(60)}\n`);
 
 if (failCount === 0) {
   console.log('✨ All tests passed!\n');
-  process.exit(0);
 } else {
   console.log('❌ Some tests failed\n');
-  process.exit(1);
+}
+// process.exit would abort a test-runner worker, so only exit when this
+// file runs standalone (e.g. `npx tsx src/schemas/glimmr.schema.test.ts`).
+if (!process.env.VITEST) {
+  process.exit(failCount === 0 ? 0 : 1);
+} else if (failCount > 0) {
+  throw new Error(`${failCount} schema checks failed`);
 }

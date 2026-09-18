@@ -1,0 +1,151 @@
+{
+  "overture_id": "b4c6442a-5bf8-4a88-80eb-8c1a25882f4c",
+  "service_area": "koramangala",
+  "dossier_rank": 1,
+  "dossier_completeness": 0.2222222222222222,
+  "dossier_flags": [],
+  "evidence": {
+    "source_url": "http://www.thereservoire.com/",
+    "fetched_at_utc": "2026-09-17T13:55:39.604Z",
+    "page_title": "The Reservoire Bengaluru | India's Largest Cocktail Bar in Koramangala &amp; Indiranagar",
+    "website_reachable": true
+  },
+  "fields": {
+    "id": {
+      "value": "ov-b4c6442a-5bf8-4a88-80eb-8c1a25882f4c",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "name": {
+      "value": "The Reservoire",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "serviceArea": {
+      "value": "koramangala",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "category": {
+      "value": "Drinks",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "address": {
+      "value": "No. 15, 5th 'A' Block, 17th Main Road, JNC Road, Koramangala, Bengaluru - 560095",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "lat": {
+      "value": 12.93333603,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "lng": {
+      "value": 77.62222148,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "description": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "subcategory": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "priceMin": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "priceMax": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "priceBasis": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "openingHours": {
+      "value": "11:30 AM - 1:00 AM",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "typicalVisitDuration": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "suitableFor": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "activities": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "vibe": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "rating": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "reviewCount": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "experienceScore": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.thereservoire.com/."
+    },
+    "websiteUrl": {
+      "value": "http://www.thereservoire.com/",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "mapsUrl": {
+      "value": "https://www.openstreetmap.org/#map=19/12.93333603/77.62222148",
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "source": {
+      "value": "overture:2026-08-19.0",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "sourceUrl": {
+      "value": "http://www.thereservoire.com/",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    },
+    "verificationStatus": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"unverified\" — confirm, do not assume. check http://www.thereservoire.com/."
+    },
+    "confidence": {
+      "value": 0.9958279192447662,
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "lastVerified": {
+      "value": "2026-09-17",
+      "status": "verified",
+      "source": "http://www.thereservoire.com/"
+    }
+  },
+  "reviewed_at": "2026-09-17"
+}

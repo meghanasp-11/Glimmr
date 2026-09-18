@@ -5,10 +5,32 @@
   "type": "module",
   "scripts": {
     "hello": "tsx ./src/hello.ts",
+    "seed:places": "tsx ./src/seed-places.ts",
+    "seed:places:prod": "tsx ./src/seed-places.ts --production",
+    "seed:places:dry-run": "tsx ./src/seed-places.ts --dry-run",
+    "merge:production": "tsx ./src/merge-production.ts",
+    "discovery:download": "python ./src/discovery/download_overture.py",
+    "discovery:normalize": "tsx ./src/discovery/normalize-discovery.ts",
+    "discovery:curate": "tsx ./src/discovery/curate-candidates.ts",
+    "discovery:shortlist": "tsx ./src/discovery/shortlist-candidates.ts",
+    "discovery:verify": "tsx ./src/discovery/verify-candidates.ts",
+    "discovery:queue": "tsx ./src/discovery/build-queue.ts",
+    "discovery:evidence": "tsx ./src/discovery/collect-evidence.ts",
+    "discovery:dossier": "tsx ./src/discovery/build-dossier.ts",
+    "discovery:readiness": "tsx ./src/discovery/readiness-check.ts",
+    "discovery:batch": "tsx ./src/discovery/build-batch.ts",
+    "discovery:propose": "tsx ./src/discovery/propose-curation.ts",
+    "discovery:promote": "tsx ./src/discovery/promote-places.ts",
+    "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.4.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^25.3.3",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "vitest": "^5.0.1"
   }
 }

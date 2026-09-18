@@ -1,0 +1,151 @@
+{
+  "overture_id": "debcb6e0-1cb7-49ea-bc85-77009d6626c4",
+  "service_area": "koramangala",
+  "dossier_rank": 2,
+  "dossier_completeness": 0.2222222222222222,
+  "dossier_flags": [],
+  "evidence": {
+    "source_url": "http://www.shadescreativegallery.com/",
+    "fetched_at_utc": "2026-09-17T13:56:31.778Z",
+    "page_title": "SHADESCREATIVEGALLERY &#8211; Art Gallery, Art consultants, Art Museum",
+    "website_reachable": true
+  },
+  "fields": {
+    "id": {
+      "value": "ov-debcb6e0-1cb7-49ea-bc85-77009d6626c4",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "name": {
+      "value": "Shades Creative Gallery",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "serviceArea": {
+      "value": "koramangala",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "category": {
+      "value": "Culture",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "address": {
+      "value": "Second floor, #50, 7th Block, 1st 'A' Main, Koramangala, Bangalore - 560095",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "lat": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports 12.93674583 — confirm, do not assume. check http://www.shadescreativegallery.com/."
+    },
+    "lng": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports 77.61517604 — confirm, do not assume. check http://www.shadescreativegallery.com/."
+    },
+    "description": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "subcategory": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "priceMin": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "priceMax": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "priceBasis": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "openingHours": {
+      "value": "11:00 AM - 7:00 PM",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "typicalVisitDuration": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "suitableFor": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "activities": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "vibe": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "rating": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "reviewCount": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "experienceScore": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "websiteUrl": {
+      "value": "http://www.shadescreativegallery.com/",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "mapsUrl": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+    },
+    "source": {
+      "value": "overture:2026-08-19.0",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "sourceUrl": {
+      "value": "http://www.shadescreativegallery.com/",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    },
+    "verificationStatus": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"unverified\" — confirm, do not assume. check http://www.shadescreativegallery.com/."
+    },
+    "confidence": {
+      "value": 0.9939979493618012,
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "lastVerified": {
+      "value": "2026-09-17",
+      "status": "verified",
+      "source": "http://www.shadescreativegallery.com/"
+    }
+  },
+  "reviewed_at": "2026-09-17"
+}

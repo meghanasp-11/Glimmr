@@ -10,11 +10,17 @@ import { serviceAreas } from '@/data/places';
  * same plans, and every plan carries the reasons it was picked. Scoring
  * weights are centralised here so they're easy to tune as the dataset grows.
  *
- * This module selects and ranks combinations of places from data/places.ts.
- * It never invents a place, price, or opening hour. Distance is approximated
- * with straight-line (Haversine) geometry — a deliberate, isolated stand-in
- * for a real routing API; swapping one in later means changing estimateTravel
- * and nothing else.
+ * This module selects and ranks combinations of places from the place
+ * catalog (Firestore primary, local data fallback). It never invents a
+ * place, price, or opening hour. Distance is approximated with straight-line
+ * (Haversine) geometry — a deliberate, isolated stand-in for a real routing
+ * API; swapping one in later means changing estimateTravel and nothing else.
+ *
+ * Scheduling is time-aware but uses only the request and the catalog:
+ * the outing start comes from request.startTimeMinutes when provided,
+ * otherwise from the catalog's own opening hours. A place is preferred
+ * when the planned visit fits inside its listed hours; places with
+ * unparseable hours are never excluded on hours grounds.
  * ============================================================================
  */
 
@@ -145,7 +151,7 @@ const PLAN_TEMPLATES: { label: string; buckets: (keyof typeof BUCKETS)[]; sort: 
   { label: 'Most adventurous', buckets: ['activity', 'main', 'evening'], sort: 'score' },
 ];
 
-const START_TIME_MINUTES = 18 * 60; // 6:00 PM, matches the existing mock's evening-outing framing
+const START_TIME_MINUTES_FALLBACK = 9 * 60; // 9:00 AM, last resort only: no request start and no parseable hours anywhere in the catalog
 
 function formatOverBudget(price: number, budget: number): string {
   return formatINR(price - budget);
@@ -159,47 +165,167 @@ function formatClock(totalMinutes: number): string {
   return `${hour12}:${minute.toString().padStart(2, '0')} ${suffix}`;
 }
 
-function buildSteps(sequence: Place[], request: PlannerRequest): PlanStep[] {
+// ============================================================================
+// Opening hours (parsed from each place's own openingHours string)
+// ============================================================================
+
+export interface OpeningWindow {
+  /** Minutes since midnight the place opens. */
+  open: number;
+  /** Minutes since midnight it closes; may exceed 1440 for overnight hours. */
+  close: number;
+}
+
+function toMinutesSinceMidnight(hours: number, minutes: number, meridiem: string): number {
+  const hour12 = hours % 12;
+  return hour12 * 60 + minutes + (meridiem.toLowerCase() === 'pm' ? 12 * 60 : 0);
+}
+
+/**
+ * Parse common opening-hours strings ("8:00 AM – 9:00 PM", "12:00 PM - 1:00 AM",
+ * "Always open") into a minute window. Returns null when the string carries
+ * no parseable window — callers must treat null as "unknown", never as closed.
+ */
+export function parseOpeningHours(openingHours: string): OpeningWindow | null {
+  const text = openingHours.trim().toLowerCase();
+  if (/always\s+open|24\s*hours?|24\s*\/\s*7|open\s*24/.test(text)) {
+    return { open: 0, close: 2 * 1440 };
+  }
+  const match = text.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*[–—-]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)/);
+  if (!match) return null;
+  const open = toMinutesSinceMidnight(Number(match[1]), Number(match[2] ?? 0), match[3]);
+  let close = toMinutesSinceMidnight(Number(match[4]), Number(match[5] ?? 0), match[6]);
+  // A closing time at or before opening means overnight hours (e.g. 12 PM – 1 AM).
+  if (close <= open) close += 1440;
+  return { open, close };
+}
+
+/**
+ * Whether a [arrival, departure] visit (absolute minutes from start-day
+ * midnight) fits inside the place's window. Overnight visits are checked
+ * against the window shifted one day forward as well.
+ */
+export function isOpenForVisit(window: OpeningWindow | null, arrival: number, departure: number): boolean {
+  if (!window) return true;
+  if (window.open <= arrival && departure <= window.close) return true;
+  return window.open + 1440 <= arrival && departure <= window.close + 1440;
+}
+
+// ============================================================================
+// Outing start time (request context first, catalog data second)
+// ============================================================================
+
+function normalizeStartTime(value: unknown): number | null {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return null;
+  const minutes = Math.floor(value);
+  if (minutes < 0 || minutes >= 1440) return null;
+  return minutes;
+}
+
+/**
+ * Resolve the outing start in minutes since midnight:
+ * 1. request.startTimeMinutes when it is a usable clock time;
+ * 2. the earliest opening among starter-bucket candidates (the outing opens
+ *    with its first stop), else the earliest opening among all candidates;
+ * 3. a documented last-resort morning default (only reachable when no place
+ *    in the catalog has parseable hours).
+ */
+export function resolveStartTime(request: PlannerRequest, candidates: Place[]): number {
+  const fromRequest = normalizeStartTime(request.startTimeMinutes);
+  if (fromRequest !== null) return fromRequest;
+
+  const openings = (places: Place[]): number[] => {
+    const result: number[] = [];
+    for (const place of places) {
+      const window = parseOpeningHours(place.openingHours);
+      if (window) result.push(window.open);
+    }
+    return result;
+  };
+
+  const starterOpenings = openings(candidates.filter((place) => bucketOf(place) === 'starter'));
+  if (starterOpenings.length) return Math.min(...starterOpenings);
+  const allOpenings = openings(candidates);
+  if (allOpenings.length) return Math.min(...allOpenings);
+  return START_TIME_MINUTES_FALLBACK;
+}
+
+interface StopInput {
+  place: Place;
+  durationMinutes: number;
+}
+
+/**
+ * Lay a sequence of stops onto the clock: each stop's arrival is the start
+ * (first stop) or the previous departure plus travel, using actual visit
+ * durations and Haversine travel estimates. Pure and deterministic.
+ */
+function scheduleSequence(items: StopInput[], transport: TransportMode, start: number, idPrefix = 'step'): PlanStep[] {
   const steps: PlanStep[] = [];
-  let clock = START_TIME_MINUTES;
+  let clock = start;
   let previous: Place | null = null;
-  for (const place of sequence) {
-    const travel = previous ? estimateTravel(previous, place, request.transport) : { minutes: 0, distanceKm: 0 };
+  for (const item of items) {
+    const travel = previous ? estimateTravel(previous, item.place, transport) : { distanceKm: 0, minutes: 0 };
     clock += travel.minutes;
     steps.push({
-      id: `step-${place.id}-${steps.length}`,
-      place,
+      id: `${idPrefix}-${item.place.id}-${steps.length}`,
+      place: item.place,
       arrival: formatClock(clock),
-      durationMinutes: place.typicalVisitDuration,
+      durationMinutes: item.durationMinutes,
       travelMinutes: travel.minutes,
       distanceKm: travel.distanceKm,
     });
-    clock += place.typicalVisitDuration;
-    previous = place;
+    clock += item.durationMinutes;
+    previous = item.place;
   }
   return steps;
 }
 
-/** Recalculate travel and arrival times after a user changes a route. */
-export function recalculateRoute(steps: PlanStep[], request: PlannerRequest): PlanStep[] {
-  const recalculated: PlanStep[] = [];
-  let clock = START_TIME_MINUTES;
-  let previous: Place | null = null;
+function buildSteps(sequence: Place[], request: PlannerRequest, start: number): PlanStep[] {
+  return scheduleSequence(
+    sequence.map((place) => ({ place, durationMinutes: place.typicalVisitDuration })),
+    request.transport,
+    start,
+  );
+}
 
-  for (const step of steps) {
-    const travel = previous ? estimateTravel(previous, step.place, request.transport) : { minutes: 0, distanceKm: 0 };
-    clock += travel.minutes;
-    recalculated.push({
+/** One travel leg between consecutive stops (e.g. from the Maps service). */
+export interface TravelLeg {
+  distanceKm: number;
+  durationMinutes: number;
+}
+
+/**
+ * Lay existing steps onto the clock using caller-supplied legs (legs[i]
+ * covers steps[i] → steps[i + 1]). Pure and provider-agnostic: legs may come
+ * from the Haversine estimator or a road-routing provider. Step identity,
+ * durations, and notes are preserved; only clock-derived fields refresh.
+ */
+export function scheduleStepsWithLegs(steps: PlanStep[], legs: TravelLeg[], start: number): PlanStep[] {
+  let clock = start;
+  return steps.map((step, index) => {
+    const leg = index === 0 ? { distanceKm: 0, durationMinutes: 0 } : legs[index - 1];
+    clock += leg?.durationMinutes ?? 0;
+    const scheduled: PlanStep = {
       ...step,
       arrival: formatClock(clock),
-      travelMinutes: travel.minutes,
-      distanceKm: travel.distanceKm,
-    });
+      travelMinutes: leg?.durationMinutes ?? 0,
+      distanceKm: leg?.distanceKm ?? 0,
+    };
     clock += step.durationMinutes;
-    previous = step.place;
-  }
+    return scheduled;
+  });
+}
 
-  return recalculated;
+/** Recalculate travel and arrival times after a user changes a route. */
+export function recalculateRoute(steps: PlanStep[], request: PlannerRequest): PlanStep[] {
+  const start = resolveStartTime(request, steps.map((step) => step.place));
+  const legs: TravelLeg[] = [];
+  for (let i = 1; i < steps.length; i += 1) {
+    const travel = estimateTravel(steps[i - 1].place, steps[i].place, request.transport);
+    legs.push({ distanceKm: travel.distanceKm, durationMinutes: travel.minutes });
+  }
+  return scheduleStepsWithLegs(steps, legs, start);
 }
 
 function totalsFor(steps: PlanStep[]) {
@@ -222,10 +348,18 @@ export function generatePlans(request: PlannerRequest, allPlaces: Place[]): Plan
   const serviceArea = resolveServiceArea(request);
   const candidates = allPlaces.filter((place) => place.serviceArea === serviceArea);
 
+  // The resolved start travels with the plan so edits reschedule on the same
+  // clock. The caller's request object is never mutated.
+  const plannedRequest: PlannerRequest = {
+    ...request,
+    startTimeMinutes: resolveStartTime(request, candidates),
+  };
+  const start = plannedRequest.startTimeMinutes as number;
+
   const tags = new Set([...parsePreferenceTags(request.preference), ...OUTING_TYPE_TAGS[request.outingType]]);
   const scored = candidates
     .map((place) => scorePlace(place, request, tags))
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => b.score - a.score || (a.place.id < b.place.id ? -1 : a.place.id > b.place.id ? 1 : 0));
 
   const byBucket = new Map<keyof typeof BUCKETS, ScoredPlace[]>();
   for (const entry of scored) {
@@ -239,42 +373,74 @@ export function generatePlans(request: PlannerRequest, allPlaces: Place[]): Plan
   const plans: Plan[] = [];
 
   for (const template of PLAN_TEMPLATES) {
-    const chosen: ScoredPlace[] = [];
-    let runningPrice = 0;
-    for (const bucket of template.buckets) {
+    const poolFor = (bucket: keyof typeof BUCKETS): ScoredPlace[] => {
       const pool = [...(byBucket.get(bucket) ?? [])];
-      if (template.sort === 'price') pool.sort((a, b) => placePrice(a.place) - placePrice(b.place));
-      // Budget-aware pick: prefer the best-ranked candidate that still fits
-      // the remaining per-person budget. Falls back to top-ranked regardless
-      // of price — a plan that runs over budget and says so is more useful
-      // than a silently dropped stop.
-      const remaining = request.budget - runningPrice;
+      if (template.sort === 'price') {
+        pool.sort(
+          (a, b) => placePrice(a.place) - placePrice(b.place) || b.score - a.score || (a.place.id < b.place.id ? -1 : 1),
+        );
+      }
+      return pool;
+    };
+
+    // Sequential, clock-aware selection: each slot's arrival is known when
+    // the pick is made, so opening hours and the remaining time budget can
+    // prefer better-fitting candidates. Preference order per slot:
+    // open + within budget + within time, then open + within budget, then
+    // open, then the legacy budget-first order (a full-shaped plan built
+    // from the catalog beats a dropped stop).
+    const chosen: ScoredPlace[] = [];
+    let clock = start;
+    let runningPrice = 0;
+    let runningMinutes = 0;
+    let previous: Place | null = null;
+    for (const bucket of template.buckets) {
+      const pool = poolFor(bucket);
       const unused = pool.filter((entry) => !usedPlaceIds.has(entry.place.id));
-      const withinBudget = unused.find((entry) => placePrice(entry.place) <= remaining);
-      const pick = withinBudget ?? unused[0] ?? pool[0];
+      const rankedPool = unused.length ? unused : pool;
+      const arrivalFor = (entry: ScoredPlace): number =>
+        clock + (previous ? estimateTravel(previous, entry.place, request.transport).minutes : 0);
+      const fitsTime = (entry: ScoredPlace): boolean => {
+        const travel = previous ? estimateTravel(previous, entry.place, request.transport).minutes : 0;
+        return runningMinutes + travel + entry.place.typicalVisitDuration <= request.availableMinutes;
+      };
+      const openRank = rankedPool.filter((entry) => {
+        const window = parseOpeningHours(entry.place.openingHours);
+        const arrival = arrivalFor(entry);
+        return isOpenForVisit(window, arrival, arrival + entry.place.typicalVisitDuration);
+      });
+      const remaining = request.budget - runningPrice;
+      const pick =
+        openRank.find((entry) => placePrice(entry.place) <= remaining && fitsTime(entry)) ??
+        openRank.find((entry) => placePrice(entry.place) <= remaining) ??
+        openRank[0] ??
+        rankedPool.find((entry) => placePrice(entry.place) <= remaining) ??
+        rankedPool[0];
       if (pick) {
-        chosen.push(pick);
+        const travel = previous ? estimateTravel(previous, pick.place, request.transport).minutes : 0;
+        clock += travel + pick.place.typicalVisitDuration;
+        runningMinutes += travel + pick.place.typicalVisitDuration;
         runningPrice += placePrice(pick.place);
+        previous = pick.place;
+        chosen.push(pick);
       }
     }
     if (!chosen.length) continue;
 
-    let steps = buildSteps(chosen.map((entry) => entry.place), request);
+    let picked = [...chosen];
+    let steps = buildSteps(picked.map((entry) => entry.place), request, start);
     let totals = totalsFor(steps);
 
-    // If the full combination doesn't fit the time window, drop the
-    // lowest-scored stop and recheck once, rather than silently ignoring
-    // the overage or discarding the whole plan outright.
-    if (totals.totalMinutes > request.availableMinutes && chosen.length > 2) {
-      const trimmed = [...chosen].sort((a, b) => a.score - b.score).slice(1);
-      const trimmedSteps = buildSteps(trimmed.map((entry) => entry.place), request);
-      const trimmedTotals = totalsFor(trimmedSteps);
-      if (trimmedTotals.totalMinutes <= request.availableMinutes) {
-        steps = trimmedSteps;
-        totals = trimmedTotals;
-        chosen.length = 0;
-        chosen.push(...trimmed);
-      }
+    // If the combination doesn't fit the window, iteratively drop the
+    // lowest-scored stop (deterministic tiebreak on id) and reschedule —
+    // travel legs change when a middle stop leaves — until it fits or a
+    // single stop remains. A short feasible plan beats a long impossible one;
+    // a plan that still overruns says so instead of silently dropping stops.
+    while (totals.totalMinutes > request.availableMinutes && picked.length > 1) {
+      const ordered = [...picked].sort((a, b) => a.score - b.score || (a.place.id < b.place.id ? -1 : 1));
+      picked = picked.filter((entry) => entry !== ordered[0]);
+      steps = buildSteps(picked.map((entry) => entry.place), request, start);
+      totals = totalsFor(steps);
     }
 
     let feasibilityNote: string | undefined;
@@ -287,25 +453,25 @@ export function generatePlans(request: PlannerRequest, allPlaces: Place[]): Plan
         : `This plan runs ${formatOverBudget(totals.pricePerPerson, request.budget)} over your budget per person.`;
     }
 
-    chosen.forEach((entry) => usedPlaceIds.add(entry.place.id));
+    picked.forEach((entry) => usedPlaceIds.add(entry.place.id));
 
     // Reasons are derived from the final combined plan, not per-place scores.
     // A plan flagged infeasible never also claims "fits your budget".
     const reasons: string[] = [];
     if (totals.pricePerPerson <= request.budget) reasons.push('Fits your budget');
     if (totals.totalMinutes <= request.availableMinutes) reasons.push('Fits your time');
-    if (chosen.every((entry) => entry.reasons.includes('Works for your group'))) reasons.push('Works for your group');
-    const avgPreferenceMatch = chosen.reduce((sum, entry) => sum + (tags.size ? entry.place.activities.filter((a) => tags.has(a)).length / tags.size : 0), 0) / chosen.length;
+    if (picked.every((entry) => entry.reasons.includes('Works for your group'))) reasons.push('Works for your group');
+    const avgPreferenceMatch = picked.reduce((sum, entry) => sum + (tags.size ? entry.place.activities.filter((a) => tags.has(a)).length / tags.size : 0), 0) / picked.length;
     if (avgPreferenceMatch >= 0.4) reasons.push('Matches what you asked for');
-    const avgExperience = chosen.reduce((sum, entry) => sum + entry.place.experienceScore, 0) / chosen.length;
+    const avgExperience = picked.reduce((sum, entry) => sum + entry.place.experienceScore, 0) / picked.length;
     if (avgExperience >= 0.75) reasons.push('Highly rated stops');
     if (template.sort === 'price') reasons.push('Keeps spend predictable');
 
     plans.push({
       id: `plan-${template.label.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}-${plans.length}`,
-      title: chosen.map((entry) => entry.place.name).slice(0, 2).join(' → '),
-      subtitle: chosen.map((entry) => entry.place.subcategory ?? entry.place.category).join(', '),
-      vibe: chosen[0]?.place.vibe ?? '',
+      title: picked.map((entry) => entry.place.name).slice(0, 2).join(' → '),
+      subtitle: picked.map((entry) => entry.place.subcategory ?? entry.place.category).join(', '),
+      vibe: picked[0]?.place.vibe ?? '',
       totalMinutes: totals.totalMinutes,
       pricePerPerson: totals.pricePerPerson,
       groupTotal: totals.pricePerPerson * request.people,
@@ -317,7 +483,7 @@ export function generatePlans(request: PlannerRequest, allPlaces: Place[]): Plan
       recommendationReason: reasons.length ? reasons : ['A different shape of outing than the other two'],
       status: 'ready',
       steps,
-      request,
+      request: plannedRequest,
     });
   }
 

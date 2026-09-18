@@ -1,0 +1,272 @@
+{
+  "overture_id": "b94e53f6-057c-450f-a33b-6dbd6a047fc2",
+  "service_area": "indiranagar",
+  "verification_status": "pending",
+  "place_draft": {
+    "id": "ov-b94e53f6-057c-450f-a33b-6dbd6a047fc2",
+    "name": "Sri Poleramma Temple",
+    "serviceArea": "indiranagar",
+    "category": "Culture",
+    "address": "NEW ANDHRA BLOCK, Chinmaya Mission Hospital Rd",
+    "lat": 12.97835354,
+    "lng": 77.63756212,
+    "description": null,
+    "subcategory": null,
+    "priceMin": null,
+    "priceMax": null,
+    "priceBasis": null,
+    "openingHours": null,
+    "typicalVisitDuration": null,
+    "suitableFor": [],
+    "activities": [],
+    "vibe": null,
+    "rating": null,
+    "reviewCount": null,
+    "experienceScore": null,
+    "websiteUrl": "https://sripolerammatemple.com/",
+    "mapsUrl": null,
+    "source": "overture:2026-08-19.0",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "lastVerified": null,
+    "confidence": 0.6400920152664185
+  },
+  "field_sources": {
+    "id": "glimmr",
+    "name": "overture",
+    "serviceArea": "overture",
+    "category": "glimmr",
+    "address": "overture",
+    "lat": "overture",
+    "lng": "overture",
+    "description": "unknown",
+    "subcategory": "unknown",
+    "priceMin": "unknown",
+    "priceMax": "unknown",
+    "priceBasis": "unknown",
+    "openingHours": "unknown",
+    "typicalVisitDuration": "unknown",
+    "suitableFor": "unknown",
+    "activities": "unknown",
+    "vibe": "unknown",
+    "rating": "unknown",
+    "reviewCount": "unknown",
+    "experienceScore": "unknown",
+    "websiteUrl": "overture",
+    "mapsUrl": "unknown",
+    "source": "glimmr",
+    "sourceUrl": "unknown",
+    "verificationStatus": "glimmr",
+    "lastVerified": "unknown",
+    "confidence": "overture"
+  },
+  "checklist": [
+    {
+      "field": "id",
+      "status": "sourced",
+      "required": true,
+      "action": "Stable derived id — no action needed."
+    },
+    {
+      "field": "name",
+      "status": "sourced",
+      "required": true,
+      "action": "Confirm the Overture name against the source."
+    },
+    {
+      "field": "serviceArea",
+      "status": "sourced",
+      "required": true,
+      "action": "Confirm the record sits in this area."
+    },
+    {
+      "field": "category",
+      "status": "sourced",
+      "required": true,
+      "action": "Confirm the mapped Glimmr category fits the real place."
+    },
+    {
+      "field": "address",
+      "status": "sourced",
+      "required": true,
+      "action": "Verify the street address on a map or the venue site."
+    },
+    {
+      "field": "lat",
+      "status": "sourced",
+      "required": true,
+      "action": "Verify the pin location."
+    },
+    {
+      "field": "lng",
+      "status": "sourced",
+      "required": true,
+      "action": "Verify the pin location."
+    },
+    {
+      "field": "priceMin",
+      "status": "unknown",
+      "required": true,
+      "action": "Check a menu or guide for the per-person price band."
+    },
+    {
+      "field": "priceMax",
+      "status": "unknown",
+      "required": true,
+      "action": "Check a menu or guide for the per-person price band."
+    },
+    {
+      "field": "priceBasis",
+      "status": "unknown",
+      "required": true,
+      "action": "Confirm per_person, per_group, or flat pricing."
+    },
+    {
+      "field": "openingHours",
+      "status": "unknown",
+      "required": true,
+      "action": "Verify hours in engine format, e.g. 9:00 AM - 9:00 PM."
+    },
+    {
+      "field": "typicalVisitDuration",
+      "status": "unknown",
+      "required": true,
+      "action": "Estimate a typical visit length in minutes."
+    },
+    {
+      "field": "suitableFor",
+      "status": "unknown",
+      "required": true,
+      "action": "Record who the place suits (solo, couple, friends, family)."
+    },
+    {
+      "field": "activities",
+      "status": "unknown",
+      "required": true,
+      "action": "Record at least one activity tag (coffee, food, art, …)."
+    },
+    {
+      "field": "vibe",
+      "status": "unknown",
+      "required": true,
+      "action": "Summarize the vibe in a few words after verification."
+    },
+    {
+      "field": "experienceScore",
+      "status": "unknown",
+      "required": true,
+      "action": "Score 0–1 only after verifying quality signals."
+    },
+    {
+      "field": "rating",
+      "status": "unknown",
+      "required": false,
+      "action": "Record a verified rating 0–5 if available."
+    },
+    {
+      "field": "reviewCount",
+      "status": "unknown",
+      "required": false,
+      "action": "Record a verified review count if available."
+    },
+    {
+      "field": "websiteUrl",
+      "status": "sourced",
+      "required": false,
+      "action": "Confirm the venue website."
+    },
+    {
+      "field": "mapsUrl",
+      "status": "unknown",
+      "required": false,
+      "action": "Add a map link if useful."
+    },
+    {
+      "field": "description",
+      "status": "unknown",
+      "required": false,
+      "action": "Write a one-line description after verification."
+    },
+    {
+      "field": "subcategory",
+      "status": "unknown",
+      "required": false,
+      "action": "Add a subcategory if useful."
+    },
+    {
+      "field": "source",
+      "status": "sourced",
+      "required": true,
+      "action": "Provenance label — no action needed."
+    },
+    {
+      "field": "sourceUrl",
+      "status": "unknown",
+      "required": true,
+      "action": "Add the URL the facts were verified against."
+    },
+    {
+      "field": "verificationStatus",
+      "status": "unknown",
+      "required": true,
+      "action": "Flip to verified only after checking every required field."
+    },
+    {
+      "field": "confidence",
+      "status": "sourced",
+      "required": true,
+      "action": "Re-score 0–1 based on verification strength."
+    },
+    {
+      "field": "lastVerified",
+      "status": "unknown",
+      "required": true,
+      "action": "Stamp the verification date (YYYY-MM-DD)."
+    }
+  ],
+  "incomplete_fields": [
+    "priceMin",
+    "priceMax",
+    "priceBasis",
+    "openingHours",
+    "typicalVisitDuration",
+    "suitableFor",
+    "activities",
+    "vibe",
+    "experienceScore",
+    "sourceUrl",
+    "verificationStatus",
+    "lastVerified"
+  ],
+  "production_ready": false,
+  "provenance": {
+    "overture_release": "2026-08-19.0",
+    "overture_confidence": 0.6400920152664185,
+    "sources": [
+      {
+        "property": "",
+        "dataset": "meta",
+        "license": "CDLA-Permissive-2.0",
+        "record_id": "364315636765847",
+        "update_time": "2026-08-10T00:00:00.000Z",
+        "confidence": 0.6400920152664185,
+        "between": null,
+        "provider": "meta",
+        "resource": "meta",
+        "version": "2026-08-10"
+      },
+      {
+        "property": "/properties/confidence",
+        "dataset": "Overture",
+        "license": "CDLA-Permissive-2.0",
+        "record_id": null,
+        "update_time": "2026-08-14T19:46:07Z",
+        "confidence": null,
+        "between": null,
+        "provider": "overture",
+        "resource": "confidence_calculation",
+        "version": "2026-08-14"
+      }
+    ]
+  }
+}

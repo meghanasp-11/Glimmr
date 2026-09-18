@@ -1,9 +1,11 @@
-import { places as localPlaces } from '@/data/mockData';
+import { places as localPlaces, serviceAreas as localServiceAreas } from '@/data/mockData';
 import { ensureFirebaseUser, isFirebaseConfigured } from '@/lib/firebase';
 import { placePrice } from '@/lib/glimmr-format';
-import { generatePlans, parsePreferenceTags, recalculateRoute } from '@/lib/recommendationEngine';
-import { getDocument, getPlaces, setDocument } from '@/services/firebaseService';
-import type { Outing, Place, Plan, PlanEdit, PlannerRequest, PlanStep } from '@/types/glimmr';
+import { generatePlans, parsePreferenceTags, recalculateRoute, resolveStartTime, scheduleStepsWithLegs } from '@/lib/recommendationEngine';
+import { mapsService } from '@/lib/maps';
+import { getDocument, getPlaces, getServiceAreas, setDocument } from '@/services/firebaseService';
+import type { Outing, Place, Plan, PlanEdit, PlannerRequest, PlanStep, ServiceArea } from '@/types/glimmr';
+import { PlaceSchema, ServiceAreaSchema } from '@/types/glimmr';
 
 const wait = (ms = 220) => new Promise((resolve) => window.setTimeout(resolve, ms));
 const planStore = new Map<string, Plan>();
@@ -29,9 +31,60 @@ function firestorePayload<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T;
 }
 
+function invalidRecordLabel(doc: unknown): string {
+  return typeof doc === 'object' && doc !== null
+    ? String((doc as { id?: unknown }).id ?? '(missing id)')
+    : '(missing id)';
+}
+
+/**
+ * Primary catalog: Firestore `places` when Firebase is configured.
+ * Documents that fail PlaceSchema are dropped with a warning so one bad
+ * record cannot break planning. Falls back to the local catalog when
+ * Firebase is unconfigured, unreachable, or yields zero valid places.
+ */
 async function catalog(): Promise<Place[]> {
   if (!isFirebaseConfigured) return localPlaces;
-  return getPlaces() as Promise<Place[]>;
+  try {
+    const remote: Place[] = [];
+    for (const doc of await getPlaces()) {
+      const parsed = PlaceSchema.safeParse(doc);
+      if (parsed.success) {
+        remote.push(parsed.data);
+      } else {
+        console.warn('[glimmr] Ignoring invalid place record:', invalidRecordLabel(doc));
+      }
+    }
+    if (remote.length > 0) return remote;
+    console.warn('[glimmr] Firestore places catalog is empty; using local fallback catalog.');
+  } catch (err) {
+    console.warn('[glimmr] Firestore places unavailable; using local fallback catalog.', err);
+  }
+  return localPlaces;
+}
+
+/**
+ * Service areas, Firestore-first with the same local-fallback contract as
+ * the places catalog. Areas stay data-driven: no area ids branch in code.
+ */
+export async function serviceAreasCatalog(): Promise<ServiceArea[]> {
+  if (!isFirebaseConfigured) return localServiceAreas;
+  try {
+    const remote: ServiceArea[] = [];
+    for (const doc of await getServiceAreas()) {
+      const parsed = ServiceAreaSchema.safeParse(doc);
+      if (parsed.success) {
+        remote.push(parsed.data);
+      } else {
+        console.warn('[glimmr] Ignoring invalid serviceArea record:', invalidRecordLabel(doc));
+      }
+    }
+    if (remote.length > 0) return remote;
+    console.warn('[glimmr] Firestore serviceAreas catalog is empty; using local fallback areas.');
+  } catch (err) {
+    console.warn('[glimmr] Firestore serviceAreas unavailable; using local fallback areas.', err);
+  }
+  return localServiceAreas;
 }
 
 async function persistPlan(plan: Plan): Promise<void> {
@@ -53,6 +106,31 @@ export function calculatePlanTotals(plan: Plan, status: Plan['status'] = plan.st
   planStore.set(updated.id, updated);
   persistLocalPlans();
   return updated;
+}
+
+/**
+ * Reschedule edited steps on the same clock the engine uses, upgrading the
+ * Haversine legs to road-routing legs from the Maps service when reachable.
+ * Any failure (offline, timeout, malformed payload) keeps the engine's own
+ * numbers — an edit never fails because routing did.
+ */
+export async function recalculateRouteWithMaps(steps: PlanStep[], request: PlannerRequest): Promise<PlanStep[]> {
+  const base = recalculateRoute(steps, request);
+  if (steps.length < 2) return base;
+  try {
+    const legs = await mapsService.routeLegs(
+      steps.map((step) => step.place),
+      request.transport,
+    );
+    if (legs.length !== steps.length - 1) return base;
+    return scheduleStepsWithLegs(
+      steps,
+      legs,
+      resolveStartTime(request, steps.map((step) => step.place)),
+    );
+  } catch {
+    return base;
+  }
 }
 
 export async function createPlans(request: PlannerRequest): Promise<Plan[]> {
@@ -130,7 +208,7 @@ export async function editPlan(plan: Plan, edit: PlanEdit): Promise<Plan> {
     const place = edit.placeId ? places.find((item) => item.id === edit.placeId) : places.find((item) => item.serviceArea === plan.steps[0]?.place.serviceArea && tags.some((tag) => item.activities.includes(tag)));
     if (place) steps = [...steps, { id: `step-${place.id}-${Date.now()}`, place, arrival: '', durationMinutes: place.typicalVisitDuration, travelMinutes: 0, distanceKm: 0, note: edit.instruction || 'Added to your route.' } satisfies PlanStep];
   }
-  const routedSteps = recalculateRoute(steps, plan.request);
+  const routedSteps = await recalculateRouteWithMaps(steps, plan.request);
   const updated = calculatePlanTotals({ ...plan, steps: routedSteps, title: routedSteps.map((step) => step.place.name).slice(0, 2).join(' → '), subtitle: routedSteps.map((step) => step.place.subcategory ?? step.place.category).join(', '), vibe: routedSteps[0]?.place.vibe ?? plan.vibe }, 'success');
   await persistPlan(updated);
   return updated;

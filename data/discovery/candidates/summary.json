@@ -1,0 +1,62 @@
+{
+  "overture_release": "2026-08-19.0",
+  "totals": {
+    "fetched": 3925,
+    "kept": 3236,
+    "mapped": 1736,
+    "unmapped": 1500,
+    "dropped_duplicates": 0,
+    "dropped_non_outing": 689
+  },
+  "byCategory": {
+    "Dinner": 770,
+    "Cafe": 298,
+    "Activity": 207,
+    "unmapped": 1500,
+    "Outdoor": 31,
+    "Dessert": 94,
+    "Drinks": 196,
+    "Culture": 140
+  },
+  "areas": {
+    "church-street": {
+      "candidates": 623,
+      "byCategory": {
+        "Dinner": 132,
+        "Cafe": 60,
+        "Activity": 26,
+        "unmapped": 315,
+        "Outdoor": 3,
+        "Dessert": 19,
+        "Drinks": 45,
+        "Culture": 23
+      }
+    },
+    "indiranagar": {
+      "candidates": 1053,
+      "byCategory": {
+        "Drinks": 55,
+        "Dinner": 232,
+        "unmapped": 530,
+        "Outdoor": 15,
+        "Cafe": 81,
+        "Dessert": 28,
+        "Activity": 72,
+        "Culture": 40
+      }
+    },
+    "koramangala": {
+      "candidates": 1560,
+      "byCategory": {
+        "unmapped": 655,
+        "Dinner": 406,
+        "Cafe": 157,
+        "Outdoor": 13,
+        "Culture": 77,
+        "Activity": 109,
+        "Drinks": 96,
+        "Dessert": 47
+      }
+    }
+  }
+}

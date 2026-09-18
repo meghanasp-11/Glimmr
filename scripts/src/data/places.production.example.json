@@ -1,0 +1,80 @@
+{
+  "$comment": "TEMPLATE ONLY — replace every placeholder with verified facts about a REAL place before importing with --production. Nothing in this file is a real business. See scripts/PLACES_IMPORT_FORMAT.md.",
+  "serviceAreas": [
+    {
+      "id": "indiranagar",
+      "name": "Indiranagar",
+      "city": "Bengaluru",
+      "active": true,
+      "bounds": { "north": 12.985, "south": 12.97, "east": 77.645, "west": 77.635 }
+    },
+    {
+      "id": "koramangala",
+      "name": "Koramangala",
+      "city": "Bengaluru",
+      "active": true,
+      "bounds": { "north": 12.945, "south": 12.925, "east": 77.625, "west": 77.61 }
+    },
+    {
+      "id": "church-street",
+      "name": "Church Street",
+      "city": "Bengaluru",
+      "active": true,
+      "bounds": { "north": 12.975, "south": 12.97, "east": 77.61, "west": 77.6 }
+    }
+  ],
+  "places": [
+    {
+      "id": "p-REPLACE-ME-1",
+      "name": "REPLACE WITH REAL PLACE NAME",
+      "serviceArea": "indiranagar",
+      "category": "Cafe",
+      "subcategory": "REPLACE OR DELETE THIS LINE",
+      "address": "REPLACE WITH REAL STREET ADDRESS",
+      "description": "REPLACE WITH A REAL ONE-LINE DESCRIPTION OR DELETE THIS LINE",
+      "lat": 12.978,
+      "lng": 77.64,
+      "priceMin": 100,
+      "priceMax": 250,
+      "priceBasis": "per_person",
+      "openingHours": "9:00 AM - 9:00 PM",
+      "typicalVisitDuration": 35,
+      "suitableFor": ["solo", "couple"],
+      "activities": ["coffee"],
+      "vibe": "REPLACE WITH REAL VIBE",
+      "rating": 4.0,
+      "reviewCount": 0,
+      "experienceScore": 0.5,
+      "source": "field-research",
+      "sourceUrl": "https://REPLACE-WITH-VERIFICATION-SOURCE-URL",
+      "verificationStatus": "verified",
+      "lastVerified": "2026-09-16",
+      "confidence": 0.9
+    },
+    {
+      "id": "p-REPLACE-ME-2",
+      "name": "REPLACE WITH ANOTHER REAL PLACE NAME",
+      "serviceArea": "koramangala",
+      "category": "Dinner",
+      "address": "REPLACE WITH ANOTHER REAL STREET ADDRESS",
+      "lat": 12.935,
+      "lng": 77.617,
+      "priceMin": 300,
+      "priceMax": 600,
+      "priceBasis": "per_person",
+      "openingHours": "12:00 PM - 11:00 PM",
+      "typicalVisitDuration": 70,
+      "suitableFor": ["couple", "friends"],
+      "activities": ["food"],
+      "vibe": "REPLACE WITH REAL VIBE",
+      "rating": 4.0,
+      "reviewCount": 0,
+      "experienceScore": 0.5,
+      "source": "field-research",
+      "sourceUrl": "https://REPLACE-WITH-VERIFICATION-SOURCE-URL",
+      "verificationStatus": "verified",
+      "lastVerified": "2026-09-16",
+      "confidence": 0.9
+    }
+  ]
+}

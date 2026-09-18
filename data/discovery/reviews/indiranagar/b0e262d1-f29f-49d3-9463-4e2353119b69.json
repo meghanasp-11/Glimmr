@@ -1,0 +1,151 @@
+{
+  "overture_id": "b0e262d1-f29f-49d3-9463-4e2353119b69",
+  "service_area": "indiranagar",
+  "dossier_rank": 5,
+  "dossier_completeness": 0.2222222222222222,
+  "dossier_flags": [],
+  "evidence": {
+    "source_url": "https://www.theamazingescape.in/",
+    "fetched_at_utc": "2026-09-17T13:57:04.668Z",
+    "page_title": "Best Escape Room in Bangalore | The Amazing Escape",
+    "website_reachable": true
+  },
+  "fields": {
+    "id": {
+      "value": "ov-b0e262d1-f29f-49d3-9463-4e2353119b69",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "name": {
+      "value": "The Amazing Escape - Escape Room Adventure",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "serviceArea": {
+      "value": "indiranagar",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "category": {
+      "value": "Activity",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "address": {
+      "value": "#838, 3rd floor, 7th Main Rd, Indiranagar, Bengaluru, Karnataka 560038",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "lat": {
+      "value": 12.9725739,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "lng": {
+      "value": 77.6398663,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "description": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "subcategory": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "priceMin": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "priceMax": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "priceBasis": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "openingHours": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "typicalVisitDuration": {
+      "value": 60,
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "suitableFor": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "activities": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "vibe": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "rating": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "reviewCount": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "experienceScore": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+    },
+    "websiteUrl": {
+      "value": "https://www.theamazingescape.in/",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "mapsUrl": {
+      "value": "https://www.openstreetmap.org/#map=19/12.9725739/77.6398663",
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "source": {
+      "value": "overture:2026-08-19.0",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "sourceUrl": {
+      "value": "https://www.theamazingescape.in/",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    },
+    "verificationStatus": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"unverified\" — confirm, do not assume. check https://www.theamazingescape.in/."
+    },
+    "confidence": {
+      "value": 0.9734644770622254,
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "lastVerified": {
+      "value": "2026-09-17",
+      "status": "verified",
+      "source": "https://www.theamazingescape.in/"
+    }
+  },
+  "reviewed_at": "2026-09-17"
+}

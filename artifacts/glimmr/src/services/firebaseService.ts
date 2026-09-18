@@ -19,6 +19,7 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { getDb } from '../lib/firebase';
+import { ServiceAreaSchema } from '../schemas/glimmr.schema';
 
 /**
  * Firestore service for managing data
@@ -152,19 +153,36 @@ export const savePlace = async (placeData: any) => {
 };
 
 /**
- * Get all places
+ * Get all places (raw documents; callers validate against PlaceSchema).
  */
 export const getPlaces = async () => {
   return await getDocuments('places');
 };
 
 /**
- * Get places by area
+ * Get places by service area.
  */
-export const getPlacesByArea = async (area: string) => {
+export const getPlacesByArea = async (serviceAreaId: string) => {
   return await queryDocuments('places', [
-    { field: 'area', operator: '==', value: area },
+    { field: 'serviceArea', operator: '==', value: serviceAreaId },
   ]);
+};
+
+/**
+ * Get service areas, dropping documents that fail ServiceAreaSchema so one
+ * bad record cannot break area resolution. Returns only schema-valid areas.
+ */
+export const getServiceAreas = async () => {
+  const valid = [];
+  for (const doc of await getDocuments('serviceAreas')) {
+    const parsed = ServiceAreaSchema.safeParse(doc);
+    if (parsed.success) {
+      valid.push(parsed.data);
+    } else {
+      console.warn('[glimmr] Ignoring invalid serviceArea record:', (doc as { id?: unknown }).id ?? '(missing id)');
+    }
+  }
+  return valid;
 };
 
 /**

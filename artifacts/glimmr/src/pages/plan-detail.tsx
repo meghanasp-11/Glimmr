@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Plus, RefreshCw } from 'lucide-react';
 import { Link, useParams, useLocation } from 'wouter';
-import { EditDialog, Header, RouteLegend, RouteVisual, TimelineStep } from '@/components/glimmr-ui';
+import { EditDialog, Header, RouteLegend, TimelineStep } from '@/components/glimmr-ui';
+import { PlanMap } from '@/components/plan-map';
 import { ValueTransition } from '@/components/motion/ValueTransition';
 import { duration as motionDuration, ease } from '@/lib/motion';
 import { editPlan, getPlanById } from '@/services/glimmrService';
@@ -99,7 +100,7 @@ export default function PlanDetail() {
       </div>
       <RouteLegend />
     </section>
-     <aside className="surface summary-card"><h3>Plan math</h3><div className="summary-stat"><span>Per person</span><strong data-testid="text-plan-cost"><ValueTransition value={formatINR(plan.pricePerPerson)} /></strong></div><div className="summary-stat"><span>Group total</span><strong data-testid="text-plan-group-total"><ValueTransition value={formatINR(plan.groupTotal)} /></strong></div><div className="summary-stat"><span>Total time</span><strong data-testid="text-plan-duration"><ValueTransition value={formatDuration(plan.totalMinutes)} /></strong></div><div className="summary-stat"><span>Travel time</span><strong data-testid="text-plan-travel"><ValueTransition value={`${plan.travelMinutes} min`} /></strong></div><div className="summary-stat"><span>Route distance</span><strong data-testid="text-plan-distance"><ValueTransition value={`${plan.totalDistanceKm} km`} /></strong></div><div className={`feasibility ${plan.feasible ? '' : 'warning'}`} data-testid="status-feasibility">{plan.feasible ? 'Fits your window with room to breathe.' : `This adds ${formatDuration(plan.totalMinutes - plan.request.availableMinutes)} beyond your available time. Trim a stop or widen your window.`}</div><RouteVisual small /></aside></div>
+     <aside className="surface summary-card"><h3>Plan math</h3><div className="summary-stat"><span>Per person</span><strong data-testid="text-plan-cost"><ValueTransition value={formatINR(plan.pricePerPerson)} /></strong></div><div className="summary-stat"><span>Group total</span><strong data-testid="text-plan-group-total"><ValueTransition value={formatINR(plan.groupTotal)} /></strong></div><div className="summary-stat"><span>Total time</span><strong data-testid="text-plan-duration"><ValueTransition value={formatDuration(plan.totalMinutes)} /></strong></div><div className="summary-stat"><span>Travel time</span><strong data-testid="text-plan-travel"><ValueTransition value={`${plan.travelMinutes} min`} /></strong></div><div className="summary-stat"><span>Route distance</span><strong data-testid="text-plan-distance"><ValueTransition value={`${plan.totalDistanceKm} km`} /></strong></div><div className={`feasibility ${plan.feasible ? '' : 'warning'}`} data-testid="status-feasibility">{plan.feasible ? 'Fits your window with room to breathe.' : `This adds ${formatDuration(plan.totalMinutes - plan.request.availableMinutes)} beyond your available time. Trim a stop or widen your window.`}</div><PlanMap steps={plan.steps} /></aside></div>
     <AnimatePresence>
       {dialog && <EditDialog step={dialog.step} mode={dialog.mode} onClose={() => setDialog(null)} onSave={(value) => void applyEdit(value)} />}
     </AnimatePresence>

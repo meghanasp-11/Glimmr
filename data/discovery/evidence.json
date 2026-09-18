@@ -1,0 +1,1003 @@
+{
+  "source": "glimmr_place_evidence",
+  "overture_release": "2026-08-19.0",
+  "fetched": 40,
+  "evidence": [
+    {
+      "name": "Domino's Pizza | Garuda Mall, Bangalore, Karnataka",
+      "service_area": "church-street",
+      "overture_id": "8c723c0f-8463-49de-9d39-d71d6ad53471",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-17T13:52:28.309Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Domino's Pizza | M.G Road, Bangalore",
+      "service_area": "church-street",
+      "overture_id": "924377cd-2db0-40c9-ae31-764ee81fe71a",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-17T13:52:30.422Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Domino's Pizza | Jyoti Niwas College, Kormangala, Bangalore",
+      "service_area": "koramangala",
+      "overture_id": "b30c3421-99c3-489a-994a-39039c9b16b2",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-17T13:52:32.668Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Domino's Pizza | Indira Nagar, Bangalore",
+      "service_area": "indiranagar",
+      "overture_id": "b77815cd-c5af-4aa7-9c4a-4d893c1b837e",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-17T13:52:34.774Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Domino's Pizza | Koramangla, 6Th Block, Bangalore",
+      "service_area": "koramangala",
+      "overture_id": "c590e210-c813-41fa-95e8-708dff8414cc",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-17T13:52:36.870Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Burger King",
+      "service_area": "indiranagar",
+      "overture_id": "a7258898-9ce2-473f-9069-0de015f703b8",
+      "url_type": "official-website",
+      "source_url": "http://restaurants.burgerking.in/burger-king-indira-nagar-bangalore-fast-food-restaurant-indira-nagar-bengaluru-81552/Home?utm_source=locator&utm_medium=facebook",
+      "fetched_at_utc": "2026-09-17T13:53:13.422Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "KFC",
+      "service_area": "indiranagar",
+      "overture_id": "f38bbb0f-f0aa-4aff-bf32-0574565b169b",
+      "url_type": "official-website",
+      "source_url": "http://kfc.co.in/",
+      "fetched_at_utc": "2026-09-17T13:53:49.984Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Burger King",
+      "service_area": "koramangala",
+      "overture_id": "dfb12318-71b0-47d7-9df6-e455c677016d",
+      "url_type": "official-website",
+      "source_url": "http://restaurants.burgerking.in/burger-king-koramangala-bangalore-fast-food-restaurant-koramangala-bengaluru-81553/Home?utm_source=locator&utm_medium=facebook",
+      "fetched_at_utc": "2026-09-17T13:54:26.538Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Karavalli",
+      "service_area": "church-street",
+      "overture_id": "7a293bd6-bcfe-40d1-a434-2b03a3948d6f",
+      "url_type": "official-website",
+      "source_url": "https://www.vivantahotels.com/en-in/vivanta-bengaluru-residency-road/",
+      "fetched_at_utc": "2026-09-17T13:54:28.663Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "http-error",
+        "detail": "HTTP 403",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "KFC",
+      "service_area": "koramangala",
+      "overture_id": "e2992924-01c8-4e6b-b1f2-dcc028b7caff",
+      "url_type": "official-website",
+      "source_url": "http://kfc.co.in/",
+      "fetched_at_utc": "2026-09-17T13:55:05.221Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "KFC",
+      "service_area": "church-street",
+      "overture_id": "c544304d-77b0-40fc-bbe4-d08701d79d57",
+      "url_type": "official-website",
+      "source_url": "https://restaurants.kfc.co.in/kfc-garuda-mall-restaurants-ashok-nagar-bengaluru-307014/Home?utm_source=locator&utm_medium=bing",
+      "fetched_at_utc": "2026-09-17T13:55:12.694Z",
+      "http_status": 200,
+      "page_title": "KFC Ashok Nagar, Bengaluru | Fried Chicken, Chicken Wings & Burgers Near me",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Fried Chicken, Chicken Wings & Burgers Near me Find A KFC Start My Order Home Map Find A KFC Start My Order Restaurants near me Restaurants in Karnataka Restaurants in Bengaluru Restaurants in Ashok Nagar 12.97026915 77.60995279 KFC, Ashok Nagar - Fried Chicken, Wings & Burger Restaurant in Bengalur…",
+          "KFC Menu in Ashok Nagar Double Chicken Dynamite Wednesday Specials Buckets Gold Edition Burgers Rice Bowlz Box-Meals Rolls Snacks Beverages & Deserts Double Chicken Dynamite Double chicken-loaded Dynamite burger with bold flav...",
+          "Double Chicken Dynamite Box Meal &#8377; 569.00 Order Now Wednesday Specials Enjoy upto 42% off on a delicious combo of 7 Strips,...",
+          "Wednesday Specials 15 pc Bucket Meal &#8377; 699.00 Order Now Save upto 36% on 10 juicy pieces of Hot & Crispy –...",
+          "Wednesday Special 10 pc Hot & Crispy &#8377; 649.00 Order Now Relish upto 48% savings on 7 Strips, 6 Wings, and 2 ..."
+        ],
+        "pricing": [
+          "KFC Menu in Ashok Nagar Double Chicken Dynamite Wednesday Specials Buckets Gold Edition Burgers Rice Bowlz Box-Meals Rolls Snacks Beverages & Deserts Double Chicken Dynamite Double chicken-loaded Dynamite burger with bold flav...",
+          "Double Chicken Dynamite &#8377; 349.00 Order Now Double Chicken Dynamite paired with a Pepsi PET.",
+          "Double Chicken Dynamite Combo &#8377; 399.00 Order Now Double Chicken Dynamite with Medium Fries and Pepsi ...",
+          "Double Chicken Dynamite Meal &#8377; 489.00 Order Now Double Chicken Dynamite with Regular Popcorn and Pep...",
+          "Double Chicken Dynamite Snack Box &#8377; 499.00 Order Now Double Chicken Dynamite with 2 Hot Wings, Medium Fri..."
+        ],
+        "address": [
+          "KFC Ashok Nagar, Bengaluru |",
+          "Fried Chicken, Chicken Wings & Burgers Near me Find A KFC Start My Order Home Map Find A KFC Start My Order Restaurants near me Restaurants in Karnataka Restaurants in Bengaluru Restaurants in Ashok Nagar 12.97026915 77.60995279 KFC, Ashok Nagar - Fried Chicken, Wings & Burger Restaurant in Bengalur…",
+          "Delicious Chicken Burgers & Meals at KFC Bengaluru Enjoy a variety of mouth-watering chicken burgers and combo meals, perfect for a quick bite or a hearty meal with family and friends.",
+          "The address of this restaurant is Level 3, Garuda Mall, Pitstop Food Court, Magrath Road, Ashok Nagar, Bengaluru, Karnataka.",
+          "Ratings 4 Reviews HARSHAVARDHAN N Posted on : 16-09-2026 Rated 5 Good Blessy Y Posted on : 05-09-2026 Rated 5 Taste was just amazing 🤤 Submit a Review View All Discover More With Us Business Hours Mon 11:00 AM - 11:00 PM Tue 11:00 AM - 11:00 PM Wed 11:00 AM - 11:00 PM Thu 11:00 AM - 11:00 PM Fri 11…"
+        ],
+        "status": [
+          "Fried Chicken, Chicken Wings & Burgers Near me Find A KFC Start My Order Home Map Find A KFC Start My Order Restaurants near me Restaurants in Karnataka Restaurants in Bengaluru Restaurants in Ashok Nagar 12.97026915 77.60995279 KFC, Ashok Nagar - Fried Chicken, Wings & Burger Restaurant in Bengalur…",
+          "Order Online or Visit Us for Dine-in & Takeaway Get your favorite KFC meals delivered to your doorstep or enjoy them at our outlet with dine-in and takeaway options for your convenience."
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "KFC",
+      "service_area": "church-street",
+      "overture_id": "b1bd4507-60a7-4be8-8b24-74efa9d7a37a",
+      "url_type": "official-website",
+      "source_url": "https://restaurants.kfc.co.in/kfc-ashok-nagar-restaurants-ashok-nagar-bengaluru-186445/Home?utm_source=locator&utm_medium=bing",
+      "fetched_at_utc": "2026-09-17T13:55:17.526Z",
+      "http_status": 200,
+      "page_title": "KFC Ashok Nagar, Bengaluru | Fried Chicken, Chicken Wings & Burgers Near me",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Fried Chicken, Chicken Wings & Burgers Near me Find A KFC Start My Order Home Map Find A KFC Start My Order Restaurants near me Restaurants in Karnataka Restaurants in Bengaluru Restaurants in Ashok Nagar 12.97327501 77.60760336 KFC, Ashok Nagar - Fried Chicken, Wings & Burger Restaurant in Bengalur…",
+          "KFC Menu in Ashok Nagar Double Chicken Dynamite Wednesday Specials Buckets Gold Edition Burgers Rice Bowlz Box-Meals Rolls Snacks Beverages & Deserts Double Chicken Dynamite Double chicken-loaded Dynamite burger with bold flav...",
+          "Double Chicken Dynamite Box Meal &#8377; 569.00 Order Now Wednesday Specials Enjoy upto 42% off on a delicious combo of 7 Strips,...",
+          "Wednesday Specials 15 pc Bucket Meal &#8377; 699.00 Order Now Save upto 36% on 10 juicy pieces of Hot & Crispy –...",
+          "Wednesday Special 10 pc Hot & Crispy &#8377; 649.00 Order Now Relish upto 48% savings on 7 Strips, 6 Wings, and 2 ..."
+        ],
+        "pricing": [
+          "KFC Menu in Ashok Nagar Double Chicken Dynamite Wednesday Specials Buckets Gold Edition Burgers Rice Bowlz Box-Meals Rolls Snacks Beverages & Deserts Double Chicken Dynamite Double chicken-loaded Dynamite burger with bold flav...",
+          "Double Chicken Dynamite &#8377; 349.00 Order Now Double Chicken Dynamite paired with a Pepsi PET.",
+          "Double Chicken Dynamite Combo &#8377; 399.00 Order Now Double Chicken Dynamite with Medium Fries and Pepsi ...",
+          "Double Chicken Dynamite Meal &#8377; 489.00 Order Now Double Chicken Dynamite with Regular Popcorn and Pep...",
+          "Double Chicken Dynamite Snack Box &#8377; 499.00 Order Now Double Chicken Dynamite with 2 Hot Wings, Medium Fri..."
+        ],
+        "address": [
+          "KFC Ashok Nagar, Bengaluru |",
+          "Fried Chicken, Chicken Wings & Burgers Near me Find A KFC Start My Order Home Map Find A KFC Start My Order Restaurants near me Restaurants in Karnataka Restaurants in Bengaluru Restaurants in Ashok Nagar 12.97327501 77.60760336 KFC, Ashok Nagar - Fried Chicken, Wings & Burger Restaurant in Bengalur…",
+          "Delicious Chicken Burgers & Meals at KFC Bengaluru Enjoy a variety of mouth-watering chicken burgers and combo meals, perfect for a quick bite or a hearty meal with family and friends.",
+          "The address of this restaurant is Ground & 1st Floor, Brigade Road, Shanthala Nagar, Next to MC Donalds, Ashok Nagar, Bengaluru, Karnataka.",
+          "Ratings 3.9 Reviews Biku love dhari Posted on : 16-09-2026 Rated 5 Good Service Pooja D Posted on : 16-09-2026 Rated 5 Good Submit a Review View All Discover More With Us Business Hours Mon 11:00 AM - 11:00 PM Tue 11:00 AM - 11:00 PM Wed 11:00 AM - 11:00 PM Thu 11:00 AM - 11:00 PM Fri 11:00 AM - 11:…"
+        ],
+        "status": [
+          "Fried Chicken, Chicken Wings & Burgers Near me Find A KFC Start My Order Home Map Find A KFC Start My Order Restaurants near me Restaurants in Karnataka Restaurants in Bengaluru Restaurants in Ashok Nagar 12.97327501 77.60760336 KFC, Ashok Nagar - Fried Chicken, Wings & Burger Restaurant in Bengalur…",
+          "Order Online or Visit Us for Dine-in & Takeaway Get your favorite KFC meals delivered to your doorstep or enjoy them at our outlet with dine-in and takeaway options for your convenience."
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "Jukebox",
+      "service_area": "koramangala",
+      "overture_id": "b9fafb88-e879-4de9-a884-23fecece0f56",
+      "url_type": "official-website",
+      "source_url": "http://www.elongos.com/jukebox/",
+      "fetched_at_utc": "2026-09-17T13:55:24.114Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "McDonald's",
+      "service_area": "church-street",
+      "overture_id": "c6025da7-dbe4-4921-9eea-d28d440b676b",
+      "url_type": "official-website",
+      "source_url": "https://mcdindia.com/",
+      "fetched_at_utc": "2026-09-17T13:55:26.314Z",
+      "http_status": 200,
+      "page_title": "McDonald&#039;s® India - Delivering Happiness to Your Doorstep",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Delivery-only in Select Areas Select City 0 Results in New Delhi , India Store Type Restaurant Locator McDonald’s Family Restaurant, Ground floor, Beekay Tower, Ganesh Guri Dine-in: Open Delivery: Open 8130816668 Get Directions 558, Newslive Building, GS Road, Christian Basti, Dispur, Dine-in: Open …",
+          "Sector- 22C, Chandigarh- 160022 Dine-in: Open Delivery: Open 8283808158 Get Directions Shop No. - 001 (Ground Floor) DLF City Centre, Plot no: 1 & 2, IT Park, Kishangarh Dine-in: Open Delivery: Open 9815706255 Get Directions Elante Mall, Plot No. 178-178A.",
+          "Phase-1, Dine-in: Open Delivery: Open 9876896969 Get Directions Fun Republic, Dhillon Complex, Manimarja, Chandigarh- 160101 Dine-in: Open Delivery: Open 9878622219 Get Directions Unit N0.",
+          "FC 12,13 AND TF 303C At 302 3rd Floor, Nexus Elante, Industrial Area Phase-1 Chandigarh-160002 Dine-in: Open Delivery: Open 9876896969 Get Directions Shop No. 11, 11A, 17-37 and 12, 12A, 14, 15 & 38 Plus Additional area on GF, International Trade Tower, S.A.S.",
+          "Nagar, Mohali, New Chandigarh Dine-in: Open Delivery: Open 9289087593 Get Directions SCO 457-458, Sector-35 C, Chandigarh-160035 Dine-in: Open Delivery: Open 9878622299 Get Directions Unit No.M7,Ground Floor,4,WorldMark Asset Area LP-1B-04,Aerocity, NR Indira Gandhi International Airport New Delhi-1…"
+        ],
+        "pricing": [
+          "McDonald&#039;s® India - Delivering Happiness to Your Doorstep Menu McDelivery News Birthday Party Careers McCafe MFY Menu McDelivery News Birthday Party Careers McCafe MFY Summer, served chilled.",
+          "Fun awaits in your Happy Meal Breakfast Menu Start your day with McDonald's Breakfast Happy Birthday Celebrate your child's birthday with us Notice Beware of Scams McCafé Sip Pass More Sips with Savings upto 61% Burgers & Wraps |",
+          "View Menu Veg Surprise Burger A surprise that will leave you wide-eyed.",
+          "Order now Now also on: News & Highlights McDonald&#8217;s to hire 5,000 people, double stores in North, East India Read more McDonald’s India – North &#038; East strikes a chord with its new campaign “We Get It” February 6, 2023 Read more McDonald’s eyes 5-fold rise in no. of city outlets January 20…"
+        ],
+        "address": [],
+        "status": [
+          "Dine-in: Open Delivery: Closed 9711958884, 9711400760 Get Directions BG-02, HUDCO Place, Ansal Plaza Khel Gaon Road New Delhi- 110049 Dine-in: Open Delivery: Open 9711882104 Get Directions Upper Ground Floor, B1/34, Phase-II, Ashok Vihar, Delhi-110052 Dine-in: Open Delivery: Open 7303228300 Get Dire…",
+          "New Delhi- 110037 Dine-in: Open Delivery: Closed 9873162931 Get Directions Plot no:- 15, Ground Floor, Shop no:- 3, Sector:- 5, Raj Laxmi Plaza (MLU) Dwarka Dine-in: Open Delivery: Open 9899730908 Get Directions Shop No.",
+          "Part-1, New Delhi-110049 Dine-in: Open Delivery: Open 9711882134 Get Directions Store No. 16, Domestic Departure (Food Court area) Level 5, New Terminal -1,IGI Airport New Delhi - 110037 Dine-in: Open Delivery: Open 9560526800 Get Directions IN-50 INDIRA GANDHI INTERNATIONAL AIRPORT TERMINAL -3 NEW …",
+          "Plot No. 12, District Center, Laxmi Nagar, Delhi- 110092 Dine-in: Open Delivery: Open 9873402910 Get Directions 1st Floor, DLF Food Court, DLF Promenade, Vasant Kunj, New Delhi- 110070 Dine-in: Open Delivery: Closed 9711882108 Get Directions Ground floor, Block-B Plot no-6, Dwarka Sec-14, New Delhi …",
+          "Solan (H.P)- 173209 Dine-in: Open Delivery: Closed 9816023651 Get Directions Ground floor, Ritz Building, Khata Khatoni, No. 154 min/219, min khasra No. 597, UP Mohal Ridge, Tehsil Shimla Dine-in: Open Delivery: Open 9599943614 Get Directions Centre Prime Square Private Limited Mohal Basal Patti Kha…"
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "Street Storyss",
+      "service_area": "indiranagar",
+      "overture_id": "d28a9d30-c205-4240-9395-ff99b81eeded",
+      "url_type": "official-website",
+      "source_url": "http://www.streetstoryss.in/",
+      "fetched_at_utc": "2026-09-17T13:55:30.601Z",
+      "http_status": 200,
+      "page_title": "Home | Street Storyss | Vegetarian Restaurant| Indiranagar, Bengaluru",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Connect Indiranagar | 073494 00235 Forum South Bengaluru | 072048 92041 Forum Rex Walk | 089049 14690 Visit Mon - Sun: 12 pm - 11pm ​ FAQ bottom of page"
+        ],
+        "pricing": [
+          "Indiranagar, Bengaluru top of page Home Our Story Reservations Featured Blogs Experiences More Use tab to navigate through the menu items.",
+          "Experience Our Special Jain & Vegan Menu Indulge in a culinary celebration of Jain and Vegan specialties with our exclusive special menu.",
+          "There are great menu options."
+        ],
+        "address": [
+          "Indiranagar, Bengaluru top of page Home Our Story Reservations Featured Blogs Experiences More Use tab to navigate through the menu items.",
+          "Forum Rex Walk Forum South Bengaluru Indiranagar Forum Rex Walk 1/15 At Street Storyss, sustainability and freshness are at the heart of every culinary masterpiece.",
+          "Connect Indiranagar | 073494 00235 Forum South Bengaluru | 072048 92041 Forum Rex Walk | 089049 14690 Visit Mon - Sun: 12 pm - 11pm ​ FAQ bottom of page"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "The Reservoire",
+      "service_area": "koramangala",
+      "overture_id": "b4c6442a-5bf8-4a88-80eb-8c1a25882f4c",
+      "url_type": "official-website",
+      "source_url": "http://www.thereservoire.com/",
+      "fetched_at_utc": "2026-09-17T13:55:39.604Z",
+      "http_status": 200,
+      "page_title": "The Reservoire Bengaluru | India's Largest Cocktail Bar in Koramangala &amp; Indiranagar",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "READ MORE Reservoire Experience Reservoire Signatures press to zoom press to zoom press to zoom press to zoom press to zoom press to zoom press to zoom press to zoom press to zoom 1/1 Sunday Brunch Sunday Brunch & Bubbles Experience a Rooftop Brunch at India&#39;s Largest and Fanciest Cocktail Bar.",
+          "Be flabbergasted and enjoy the scrumptious Sunday Brunch with us.",
+          "Music MUSIC A juxtapose of Retro and Hip Hop with new age Video Set is a Saturday Night you cannot miss on.",
+          "NEXT SHOW :HIP HOP/COMMERCIAL ​ Instagram #ReservoireExperience Contact CONTACT US The Reservoire - Koramangala ​ Location: No. 15, 5th &lsquo;A&rsquo; Block, 17th Main Road, JNC Road, Koramangala, Bengaluru - 560095 ​ Call us: +91 9148909148 / 9148409148 ​ Open Everyday Timings: 11:30 am to 1:00 am…"
+        ],
+        "pricing": [
+          "India's Largest Cocktail Bar in Koramangala & Indiranagar top of page Home Locations Koramangala Indiranagar Our Story Awards Menu Drinks Menu Food Menu Gallery Food and Drinks Ambience Reserve Now More Use tab to navigate through the menu items.",
+          "Bringing New York&rsquo;s buzzing bar culture to Namma Bengaluru with its decor and bar menu, The Reservoire is all set to educate and encourage a cocktail culture not only in Bangalore but also across India.",
+          "NEXT SHOW :HIP HOP/COMMERCIAL ​ Instagram #ReservoireExperience Contact CONTACT US The Reservoire - Koramangala ​ Location: No. 15, 5th &lsquo;A&rsquo; Block, 17th Main Road, JNC Road, Koramangala, Bengaluru - 560095 ​ Call us: +91 9148909148 / 9148409148 ​ Open Everyday Timings: 11:30 am to 1:00 am…"
+        ],
+        "address": [
+          "The Reservoire Bengaluru |",
+          "Indiranagar Bengaluru, India Reserve a table About India&#39;s Largest and Most Awarded Cocktail Bar Bringing a Manhattan style cocktail culture to India, The Reservoire in Koramangala does more than 200 kinds of cocktails!",
+          "Bringing New York&rsquo;s buzzing bar culture to Namma Bengaluru with its decor and bar menu, The Reservoire is all set to educate and encourage a cocktail culture not only in Bangalore but also across India.",
+          "NEXT SHOW :HIP HOP/COMMERCIAL ​ Instagram #ReservoireExperience Contact CONTACT US The Reservoire - Koramangala ​ Location: No. 15, 5th &lsquo;A&rsquo; Block, 17th Main Road, JNC Road, Koramangala, Bengaluru - 560095 ​ Call us: +91 9148909148 / 9148409148 ​ Open Everyday Timings: 11:30 am to 1:00 am…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Third Wave Coffee",
+      "service_area": "indiranagar",
+      "overture_id": "ecd46ce8-af8c-49a5-820e-9c19777ecd40",
+      "url_type": "official-website",
+      "source_url": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB",
+      "fetched_at_utc": "2026-09-17T13:55:43.680Z",
+      "http_status": 200,
+      "page_title": "Best Coffee house Cafe in Bengaluru East | Third Wave Coffee",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Third Wave Coffee HOME (current) TIMELINE GALLERY MAP CONTACT US Third Wave Coffee 12th Main, Indiranagar Bengaluru 12th Main Road, HAL 2nd Stage, Appareddipalya, Indiranagar, Bengaluru East, Bengaluru, Karnataka 560008 0761 9373 964 08:00 AM to 11:00 PM Open Now Get Direction Add to your contacts B…"
+        ],
+        "pricing": [],
+        "address": [
+          "Best Coffee house Cafe in Bengaluru East |",
+          "Third Wave Coffee HOME (current) TIMELINE GALLERY MAP CONTACT US Third Wave Coffee 12th Main, Indiranagar Bengaluru 12th Main Road, HAL 2nd Stage, Appareddipalya, Indiranagar, Bengaluru East, Bengaluru, Karnataka 560008 0761 9373 964 08:00 AM to 11:00 PM Open Now Get Direction Add to your contacts B…",
+          "Uday Pratap Posted On: 08-02-2024 Mandira Ravindran Posted On: 06-02-2024 SUBMIT A REVIEW View All Nearby Locality Bengaluru North Koramangala Bengaluru East Bengaluru South Get Directions Call Us Other Cities States: Chandigarh / Delhi / Haryana / Karnataka / Maharashtra / Tamil Nadu / Telangana / …"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Dyu Art Cafe",
+      "service_area": "koramangala",
+      "overture_id": "282cffac-5afb-41f7-9e3b-536e9aed9681",
+      "url_type": "official-website",
+      "source_url": "http://www.dyuartcafe.com/",
+      "fetched_at_utc": "2026-09-17T13:55:46.146Z",
+      "http_status": 200,
+      "page_title": "Dyu Art Cafe",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Get Direction Escape the Koramangala Hustle Opening hours: Mon - Sun: 10:00 AM - 10:30 PM Phone: +91-96113 19774 +91-98956 74244 Location: Dyu Art Café 23 MIG, KHB Colony Koramangala 5th Block, Bangalore, Karnataka 560095, IN Designed By Pixelizt - Message Us Escape the Koramangala Hustle Opening ho…"
+        ],
+        "pricing": [
+          "Dyu Art Cafe Menu Menu Gallery Gallery Order Now Order Now Google: (4.4) Brewed to Inspire Brewed to Inspire Brewed to Inspire Your perfect spot for coffee, creativity, and relaxation.",
+          "Explore menu Busy Mornings?",
+          "Get Direction Get Direction Our Menu Hot Beverages Hot Chocolate Fresh cocoa, melted chocolate and hot milk."
+        ],
+        "address": [
+          "Get Direction Get Direction Our Menu Hot Beverages Hot Chocolate Fresh cocoa, melted chocolate and hot milk.",
+          "Load More Load More Load More Load More Load More Brewed To Inspire Brewed To Inspire Brewed To Inspire Taste the Love in Every Bite Every bite is made with care, offering rich flavors and fresh ingredients to delight your senses and leave you craving more. ')\"> ')\"> ')\"> ')\"> Eat,Drink & Ideate Dyu…",
+          "Get Direction Eat,Drink & Ideate Dyu Art Cafe, located in the vibrant neighborhood of Koramangala in Bangalore, is a space where art, food, and coffee come together.",
+          "Get Direction Escape the Koramangala Hustle Opening hours: Mon - Sun: 10:00 AM - 10:30 PM Phone: +91-96113 19774 +91-98956 74244 Location: Dyu Art Café 23 MIG, KHB Colony Koramangala 5th Block, Bangalore, Karnataka 560095, IN Designed By Pixelizt - Message Us Escape the Koramangala Hustle Opening ho…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Third Wave Coffee",
+      "service_area": "koramangala",
+      "overture_id": "23d14932-c23e-438c-94a8-b65253039f85",
+      "url_type": "official-website",
+      "source_url": "https://cafe.thirdwavecoffee.in/coffee-cafe-bengaluru-31998/home?utm_source=facebook",
+      "fetched_at_utc": "2026-09-17T13:55:50.444Z",
+      "http_status": 200,
+      "page_title": "Best Coffee house Cafe in Koramangala | Third Wave Coffee",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Third Wave Coffee Third Wave Coffee Koramangala, Bengaluru Bengaluru Shop No 575, Ground Floor, Block 8, Koramangala, Bengaluru, Karnataka 560034 0805 0003 490 08:00 AM to 03:00 AM Permanently Closed Get Direction Add to your contacts Business Hours Sunday : 8:00 am - 3:00 am Monday : 8:00 am - 3:00…"
+        ],
+        "pricing": [],
+        "address": [
+          "Third Wave Coffee Third Wave Coffee Koramangala, Bengaluru Bengaluru Shop No 575, Ground Floor, Block 8, Koramangala, Bengaluru, Karnataka 560034 0805 0003 490 08:00 AM to 03:00 AM Permanently Closed Get Direction Add to your contacts Business Hours Sunday : 8:00 am - 3:00 am Monday : 8:00 am - 3:00…"
+        ],
+        "status": [
+          "Third Wave Coffee Third Wave Coffee Koramangala, Bengaluru Bengaluru Shop No 575, Ground Floor, Block 8, Koramangala, Bengaluru, Karnataka 560034 0805 0003 490 08:00 AM to 03:00 AM Permanently Closed Get Direction Add to your contacts Business Hours Sunday : 8:00 am - 3:00 am Monday : 8:00 am - 3:00…"
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "Starbucks",
+      "service_area": "church-street",
+      "overture_id": "ffd91163-9766-48aa-b09e-00a0f8dd4145",
+      "url_type": "official-website",
+      "source_url": "http://www.starbucks.in/",
+      "fetched_at_utc": "2026-09-17T13:55:57.311Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "The Balcony Bar",
+      "service_area": "indiranagar",
+      "overture_id": "dad85d48-6431-4925-bc5c-b9e37e6eaf9c",
+      "url_type": "official-website",
+      "source_url": "http://www.thebalconybar.in/",
+      "fetched_at_utc": "2026-09-17T13:55:59.462Z",
+      "http_status": 200,
+      "page_title": null,
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "BOHO Koramangala",
+      "service_area": "koramangala",
+      "overture_id": "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+      "url_type": "official-website",
+      "source_url": "http://www.bohothebar.com/",
+      "fetched_at_utc": "2026-09-17T13:56:02.438Z",
+      "http_status": 200,
+      "page_title": "BOHO Bar Bangalore – Rooftop Dining, Cocktails &amp; Nightlife Fun",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "The space is brought to life with live performances, themed events, and a playlist that sets the mood just right, making it the perfect destination for all your events. ​ ​ What&#39;s On Wild Saturday Featuring DJ Sulectro Saturday 8 pm onwards Join Us for Live Music Enjoy soulful music, band perfor…",
+          "Embrace the Open Air For a relaxed and refreshing dining experience, choose our spacious outdoor seating area.",
+          "Here&#39;s a curated list to help you discover more options: 1 Vegetarian Delights Find incredible restaurants specializing in delectable vegetarian cuisine. 2 Dinner Date Night Explore Whitefield&#39;s romantic restaurants perfect for a special evening out. 3 Brick Oven Bliss Discover other restaur…",
+          "Opening Hours Mon - Sun: 12pm - 12am ​ ​​ Boho Koramangala 105, 1st A cross Rd, KHB Colony, 5th Block, Koramangala, Bengaluru Boho Rooftop Restobar Brookefield Mall, ITPL Main Rd, AECS Layout, Brookefield, Bengaluru The Dhaba Co Fourth floor, 13/23, Harlur Road Over Axis Bank, Ambalipura, Karnataka,…"
+        ],
+        "pricing": [
+          "BOHO Bar Bangalore – Rooftop Dining, Cocktails & Nightlife Fun top of page Events Event Gallery Blog Contact Catering Dhaba More Use tab to navigate through the menu items.",
+          "Our menu is carefully curated to serve a delightful mix of delectable food and thirst-quenching drinks that cater to every palate.",
+          "Our expert mixologists take pride in their craft and are dedicated to cr eating exceptional craft cocktails that are sure to delight your palate. ​ Our menu boasts a wide range of scrumptious food and drink options, featuring an array of global cuisine.",
+          "A Culinary Adventure Awaits Top-Rated Whitefield Restaurants Boho Rooftop restaurant & Bar is consistently ranked among the best restaurants in Whitefield, offering a delectable menu featuring global flavors, impeccable service, and a stylish ambiance.",
+          "Our menu boasts delicious options for all ages, ensuring everyone enjoys their meal."
+        ],
+        "address": [
+          "BOHO Bar Bangalore – Rooftop Dining, Cocktails & Nightlife Fun top of page Events Event Gallery Blog Contact Catering Dhaba More Use tab to navigate through the menu items.",
+          "EXPERIENCE A Vibrant Nightlife Destination in Bangalore About What&#x27;s On Boho Bar Koramangala Nestled across two sprawling floors, our club is a vibrant and eclectic space designed to transport you straight into the heart of the bohemian vibe.",
+          "Whether you&rsquo;re planning a corporate lunch, a vibrant friends and family dinner, or an extravagant birthday celebration, our third location is the ultimate backdrop for any occasion. ​ Our chefs bring an innovative twist to global cuisine, presenting dishes that are as delightful to look at as …",
+          "Exquisite Rooftop Dining Imagine celebrating under the captivating Bangalore sky.",
+          "Opening Hours Mon - Sun: 12pm - 12am ​ ​​ Boho Koramangala 105, 1st A cross Rd, KHB Colony, 5th Block, Koramangala, Bengaluru Boho Rooftop Restobar Brookefield Mall, ITPL Main Rd, AECS Layout, Brookefield, Bengaluru The Dhaba Co Fourth floor, 13/23, Harlur Road Over Axis Bank, Ambalipura, Karnataka,…"
+        ],
+        "status": [
+          "Visit us today and experience the magic of delectable food, stylish ambiance, and unforgettable memories!"
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "By Chance - Resto Pub",
+      "service_area": "church-street",
+      "overture_id": "46fff692-3950-4c8d-98b9-c46ea9239b67",
+      "url_type": "official-website",
+      "source_url": "http://www.bycchancee.com/",
+      "fetched_at_utc": "2026-09-17T13:56:05.041Z",
+      "http_status": 200,
+      "page_title": "TONGKATWIN × 8ID : Daftar Layanan Game Online Jalur Crimson Mudah Wd Hari Ini",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [
+          "Indonesia / Bahasa Indonesia UK / English Other Countries Lanjutkan Tutup Cari Cari Troli Number of Products : Login Buka Menu Saya Navigation Kembali Cari FEATURED Galaxy Z Fold7 BARU Galaxy S25 FE Galaxy Tab S11 Galaxy Watch Ultra Galaxy Buds3 FE QLED 4K TV Crystal UHD 4K TV The Frame TV Q-series …",
+          "Buka Menu Saya Receive up to 5% of your purchase back in points.",
+          "Pesanan Product Registration Members TONGKATWIN LOGIN Buka Menu Saya Receive up to 5% of your purchase back in points.",
+          "Halaman Saya Pesanan Product Registration Rewards Saya Wishlist Members Komunitas Keluar Close menu Keranjang belanja Anda kosong OK Tutup Layar Popup Maaf, persediaan barang di keranjang belanja tidak cukup.",
+          "YA NANTI Tutup Preferensi Search Form Kosongkan Scan Barcode Tidak Ada Saran AI Suggested Searches Pencarian yang Disarankan PENCARIAN POPULER PENCARIAN TERBARU PRODUK TERKAIT DIREKOMENDASIKAN Tutup Dapatkan gratis hadiah - Gratis hadiah Travel Adapter 25W dan Case A07 (Stock Terbatas) - Bayar cuman…"
+        ],
+        "address": [
+          "BACK Terapkan Check the availabbility 1 of 3 Wrong address Unfortunately, we cannot make you a DSL offer for the address you have checked.The address you have given is not unique, please choose from the address suggestions.",
+          "Empfohlene Adresse Postcode Please provide a valid postcode Please enter correct information again.",
+          "Best&auml;tigen Layer Popup Close Extended Warranty Perpanjang durasi garansi pabrik untuk produk Anda Ketentuan Untuk Extended Warranty Tutup Yakin Close popup EXTENDED WARRANTY Tutup Layar Popup Pilih opsi paket kombo Produk terpilih ( 0 ) Harga awal: Kosongkan semua Tutup Yakin Tutup Layar Popup …"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "The Local Terrace Drinkery",
+      "service_area": "koramangala",
+      "overture_id": "db0455bd-9ddc-41a8-b416-57a586ea6fd8",
+      "url_type": "official-website",
+      "source_url": "http://www.thelocaldrinkery.com/",
+      "fetched_at_utc": "2026-09-17T13:56:11.643Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "The Grid",
+      "service_area": "koramangala",
+      "overture_id": "7ef6492f-c7c3-4890-b17a-d32d4afdabf5",
+      "url_type": "official-website",
+      "source_url": "http://www.thegridbangalore.com/",
+      "fetched_at_utc": "2026-09-17T13:56:14.647Z",
+      "http_status": 200,
+      "page_title": "Exciting Games ,Group Events, Birthdays &amp; Corporate Outings | The Grid BangaloreHome | The Grid - Gaming Arena",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Kalyan Nagar All Days Open 11 AM &ndash; 11 PM WHAT WE OFFER OUR GAMES Pick your game.",
+          "STARTING FROM ₹750 /player /hour MIN.",
+          "DURATION 2 hours DEDICATED Coordinator ACCESS All 7 Games REQUEST QUOTE → HOST WITH US FOR ALL TYPES OF OCCASIONS HOST WITH US HOST WITH US FOR ALL TYPES OF OCCASIONS FOR ALL TYPES OF OCCASIONS FOR ALL TYPES OF OCCASIONS RENTALS VR for your event, wheREver you are Organise Events at your company, or…",
+          "Hours Mon-Sun: 11 AM - 11 PM All Days Open GAMES Bowling Laser Tag Pixel Light Shooting Virtual Reality IB Cricket Air Hockey Quick Links Offers Birthdays Corporates Get Together Rentals Privacy Policy Air Hockey Shooting Birthdays Get Togethers Rentals Corporates GAMES Bowling Laser Tag Pixel Light…"
+        ],
+        "pricing": [
+          "The Grid - Gaming Arena top of page +91 9743200552 Book Now Log In Home Play Birthdays Menu Close Bowling Laser Tag Pixel Light Shooting Virtual Reality IB Cricket Air Hockey Bowling Laser Tag Pixel Light Shooting Virtual Reality IB Cricket Air Hockey Offers Host an Event Birthdays Corporates Get To…",
+          "All prices per person, GST included.",
+          "Close BOWLING ₹380 / person &middot; 10 Frames Close LASER TAG ₹380 / person &middot; 15 Min Close PIXEL LIGHT ₹350 / person ​ Close SHOOTING ₹320 / person &middot; 10/20 Shots Close VIRTUAL REALITY ₹300 / person &middot; 2 Games Close IB CRICKET ₹320 / person &middot; 2/5 Overs BOOK ANY ACTIVITY → …",
+          "STARTING FROM ₹750 /player /hour MIN."
+        ],
+        "address": [
+          "The Grid - Gaming Arena top of page +91 9743200552 Book Now Log In Home Play Birthdays Menu Close Bowling Laser Tag Pixel Light Shooting Virtual Reality IB Cricket Air Hockey Bowling Laser Tag Pixel Light Shooting Virtual Reality IB Cricket Air Hockey Offers Host an Event Birthdays Corporates Get To…",
+          "Among the best places to hang out and create unforgettable memories in Bangalore.",
+          "Come, Celebrate & Capture Moments at The Grid Bangalore.",
+          "DURATION 2 hours DEDICATED Coordinator ACCESS All 7 Games REQUEST QUOTE → HOST WITH US FOR ALL TYPES OF OCCASIONS HOST WITH US HOST WITH US FOR ALL TYPES OF OCCASIONS FOR ALL TYPES OF OCCASIONS FOR ALL TYPES OF OCCASIONS RENTALS VR for your event, wheREver you are Organise Events at your company, or…",
+          "Hours Mon-Sun: 11 AM - 11 PM All Days Open GAMES Bowling Laser Tag Pixel Light Shooting Virtual Reality IB Cricket Air Hockey Quick Links Offers Birthdays Corporates Get Together Rentals Privacy Policy Air Hockey Shooting Birthdays Get Togethers Rentals Corporates GAMES Bowling Laser Tag Pixel Light…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Good Shepherd Auditorium",
+      "service_area": "church-street",
+      "overture_id": "5b96d147-f6f8-42a6-bf2f-d05802e853b3",
+      "url_type": "official-website",
+      "source_url": "http://www.goodshepherdchurch.co.in",
+      "fetched_at_utc": "2026-09-17T13:56:22.528Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Amoeba",
+      "service_area": "church-street",
+      "overture_id": "9ca66fd1-ad63-4223-981a-308be6c20065",
+      "url_type": "official-website",
+      "source_url": "http://www.hmleisure.com",
+      "fetched_at_utc": "2026-09-17T13:56:25.909Z",
+      "http_status": 200,
+      "page_title": "Amoeba Bowling: The Ultimate Fun Experience - HM Leisure",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "About us Big deals Happy Hours 1 + 1 Mon &#8211; Thur(11 am &#8211; 4 pm) Mumbai (T & C apply) Every Tuesday 60% Off Game Hard Pay Easy (T & C apply) Enjoy 10% Off on Corporate Bookings Bring your Team Together At Amoeba!",
+          "Amoeba Dhanbad Timings: 10:00 AM &#8211; 11:00 PM Chanchani Colony, Dhanbad, Jharkhand &#8211; 826010 8867326644 Amoeba Meenakshi Mall Timings: 11:00 AM – 10:30 PM Royal Meenakshi Mall, 3rd Floor, Bannerghatta Main Road, Bangalore &#8211; 560076 8867686811 Amoeba ITPL Timings: 11:00 AM – 11:00 PM As…",
+          "F-33, 1st Floor, Phoenix Marketcity, Lbs Marg, Kurla (W), Kamini, Mumbai &#8211; 400070 9967836688 Amoeba Manisquare Timings: 11:15 AM &#8211; 10:00 PM Amoeba Mani Square Mall, 3rd Floor, Maniktala Main Road, Next To Apollo Hospital, Kolkata &#8211; 700054 8867087475 Amoeba Citycenter Timings: 11:00…"
+        ],
+        "pricing": [
+          "Get in touch enter the sports bar Simple, chef-crafted grub with a fully redesigned menu featuring global delicacies, served fresh and piping.",
+          "Refreshing, handcrafted signature cocktails and exclusive blended drinks are served while you score yet another perfect game. eyes on the bowl See the menu big drink energy drink up something for everyfun Game On: Who's Ready to Play?",
+          "(T & C apply) Birthday Fun Starts at Rs 599 For Mumbai: Celebrate Your Special Day with us!",
+          "(T & C apply) Birthday Fun Starts at Rs 499 Celebrate Your Special Day with us!"
+        ],
+        "address": [
+          "Amoeba Dhanbad Timings: 10:00 AM &#8211; 11:00 PM Chanchani Colony, Dhanbad, Jharkhand &#8211; 826010 8867326644 Amoeba Meenakshi Mall Timings: 11:00 AM – 10:30 PM Royal Meenakshi Mall, 3rd Floor, Bannerghatta Main Road, Bangalore &#8211; 560076 8867686811 Amoeba ITPL Timings: 11:00 AM – 11:00 PM As…",
+          "Visit crm website OR get in touch Location * Bharatiya Mall - Bengaluru Churchstreet - Bengaluru Jayanagar - Bengaluru ITPL - Bengaluru Mantri Mall - Bengaluru Meenakshi Mall - Bengaluru Hilite Mall - Calicut Prabhatham Mall - Dhanbad Mall D Goa - Goa Metro Mall - Gurugram U Mall Hubali - Hubali Atr…",
+          "Home About Loyalty Sports Bar Career Contact Us Home Locations Contact Us Book A Party About Us Loyalty Career Privacy Policy Terms and Conditions HM Leisure Office HM Geneva House #14, Cunningham Road Bangalore-560 001 hmleisure@hmleisure.com (080) 2238 2288 Copyright &copy; 2026 HM Leisure"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "ESCAPE ROOM Koramangala (Previously Mystery junkies)",
+      "service_area": "koramangala",
+      "overture_id": "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+      "url_type": "official-website",
+      "source_url": "https://escapemgm.com/",
+      "fetched_at_utc": "2026-09-17T13:56:29.017Z",
+      "http_status": 200,
+      "page_title": "Home",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "For rescheduling contact us over the phone 3 hours before depending upon the availability we can reschedule your slots.",
+          "You are suppose to inform us through call atleast 3 hours before your time schedule, and its non refundable only can be rescheduled based on the availbility .",
+          "You have complete 1 hour of time schedule to complete the game."
+        ],
+        "pricing": [
+          "Home About Games Gallery Bulk Booking Blogs Price List ContactUs corporate Escape Truck +91 76763 72273 Your browser does not support the video tag."
+        ],
+        "address": [
+          "The concept of Escape Rooms was started in 2011, and we introduced it in Bangalore in 2014.",
+          "We were surprised to find that the city didn’t have Escape Rooms. +91 76763 72273 USEFUL LINKS Home Games Gallery Bulk Booking About SOCIAL LINK Events ContactUs FAQs Privacy Policy Terms & Conditions CONTACT Address: No 12, 3rd Floor, Pragati Mansion, 1st Cross Rd, 5th Block, Koramangala, Karnataka…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Shades Creative Gallery",
+      "service_area": "koramangala",
+      "overture_id": "debcb6e0-1cb7-49ea-bc85-77009d6626c4",
+      "url_type": "official-website",
+      "source_url": "http://www.shadescreativegallery.com/",
+      "fetched_at_utc": "2026-09-17T13:56:31.778Z",
+      "http_status": 200,
+      "page_title": "SHADESCREATIVEGALLERY &#8211; Art Gallery, Art consultants, Art Museum",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Chat on WhatsApp VISIT US Google Instagram EXPLORE US AT INSTAGRAM www.instagram.com/shadescreativegallery Location ShadesCreativeGallery, Second floor,#50, 7TH BLOCK, 1st &#8216;A&#8217; Main KORAMANGALA,BANGALORE -560095 Hours Monday-Sunday 11:00am — 7:00pm Contact (+91)9036143948 SHADESCREATIVEGA…"
+        ],
+        "pricing": [
+          "SHADESCREATIVEGALLERY &#8211; Art Gallery, Art consultants, Art Museum Skip to content SHADESCREATIVEGALLERY Art Gallery, Art consultants, Art Museum Menu HOME EVENTS SCGALLERY CONTACT US ABOUT US Explore Shades Creative Gallery in Bangalore CONTEMPORARY ART GALLERY CURRENT EVENTS/EXHIBITIONS Galler…"
+        ],
+        "address": [
+          "SHADESCREATIVEGALLERY &#8211; Art Gallery, Art consultants, Art Museum Skip to content SHADESCREATIVEGALLERY Art Gallery, Art consultants, Art Museum Menu HOME EVENTS SCGALLERY CONTACT US ABOUT US Explore Shades Creative Gallery in Bangalore CONTEMPORARY ART GALLERY CURRENT EVENTS/EXHIBITIONS Galler…",
+          "I highly recommend this Shades Creative gallery.” &#8211; Febin Wilson If you&#8217;re looking for beautiful paintings in Bengaluru, Shades Creative Gallery is a great choice with a wide variety of artwork that supports local artists.",
+          "Chat on WhatsApp VISIT US Google Instagram EXPLORE US AT INSTAGRAM www.instagram.com/shadescreativegallery Location ShadesCreativeGallery, Second floor,#50, 7TH BLOCK, 1st &#8216;A&#8217; Main KORAMANGALA,BANGALORE -560095 Hours Monday-Sunday 11:00am — 7:00pm Contact (+91)9036143948 SHADESCREATIVEGA…"
+        ],
+        "status": [
+          "Chat on WhatsApp VISIT US Google Instagram EXPLORE US AT INSTAGRAM www.instagram.com/shadescreativegallery Location ShadesCreativeGallery, Second floor,#50, 7TH BLOCK, 1st &#8216;A&#8217; Main KORAMANGALA,BANGALORE -560095 Hours Monday-Sunday 11:00am — 7:00pm Contact (+91)9036143948 SHADESCREATIVEGA…"
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "St. Patrick's Church",
+      "service_area": "church-street",
+      "overture_id": "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+      "url_type": "official-website",
+      "source_url": "http://stpatricksblr.com",
+      "fetched_at_utc": "2026-09-17T13:56:35.084Z",
+      "http_status": 200,
+      "page_title": "St. Patrick's Church",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Patrick's Church was Estd in July 1841 Share with us: Home About us Parish Clergy Pious Associations Former Parish Priests History Church Services Mass Timings Way of the Cross Eucharistic Adoration Adoration Chapel Confession Counselling Centre Institutions Middle & High school Boys' Home Industria…",
+          "More+ Palm Sunday Palm Sunday will be celebrated on March 29, 2026.",
+          "The Blessing of Palms will take place before More+ Holy Week Services English Services for Maundy Thursday and Good Friday will be in the Main Church.",
+          "Tamil Services More+ Volunteers for Holy Week Services All those who would like to be volunteers for Holy Week Services More+ First Holy Communion The First Holy Communion will be administered to our children on June 7, 2026, the Feast of the Body More+ Mass Timings Other Religious Services Contact …"
+        ],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Zion A.G Church",
+      "service_area": "koramangala",
+      "overture_id": "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+      "url_type": "official-website",
+      "source_url": "https://www.zionagmadiwala.com/",
+      "fetched_at_utc": "2026-09-17T13:56:37.410Z",
+      "http_status": 200,
+      "page_title": "Zion AG Church",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "St Anthony's Friary Church",
+      "service_area": "koramangala",
+      "overture_id": "d46d91d5-3c6d-4611-9896-98164f39ee70",
+      "url_type": "official-website",
+      "source_url": "http://www.friaryparish.com/",
+      "fetched_at_utc": "2026-09-17T13:56:39.984Z",
+      "http_status": 200,
+      "page_title": "Welcome to St. Anthony's Friary Parish - Bengaluru",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [
+          "Anthony's Friary Parish - Bengaluru"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Corner House",
+      "service_area": "indiranagar",
+      "overture_id": "5d605750-8e59-4542-80f4-010a83787e60",
+      "url_type": "official-website",
+      "source_url": "https://linktr.ee/cornerhouseicecreams",
+      "fetched_at_utc": "2026-09-17T13:56:44.476Z",
+      "http_status": 200,
+      "page_title": "cornerhouseicecreams Restaurant - Visit to Find Food Options &amp; See cornerhouseicecreams Social Media &amp; Official Accounts | Linktree",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [
+          "Get to know us Get to know us Our locations in Bangalore & Mysore Our locations in Bangalore & Mysore Get it delivered Get it delivered Notice Notice Join cornerhouseicecreams on Linktree Cookie Preferences •",
+          "Our locations in Bangalore & Mysore •",
+          "Here’s how to fix it Read more How to make a QR code for your Linktree Here’s how to schedule Instagram posts and save time Linktree Teams Up With Olivia Rodrigo’s Daisy Chain Fields to Turn Fandom Into a Chain of Support The Best Time to Set Up Your Linktree Is Before the Spotlight Hits Ariana Gran…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Polar Bear Ice Cream Sundaes",
+      "service_area": "koramangala",
+      "overture_id": "5e0b86a0-0860-4bcd-be56-fc4ea08c4db3",
+      "url_type": "official-website",
+      "source_url": "http://www.polarbear.co.in/",
+      "fetched_at_utc": "2026-09-17T13:56:49.007Z",
+      "http_status": 200,
+      "page_title": "Best Ice Cream Sundae Bangalore| Ice Cream Parlour Near Me -Polarbear",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Connect with us As a proudly Made in India brand, we set out to un Your heart knows before your tummy does💗🍨� Our crew has spoken 👀🍨​ Between rush hours Freshly launched."
+        ],
+        "pricing": [
+          "Menu Gift Cards Franchise More Fun Sustainability Store Locator © 2023, Honeycomb Retail (India) Pvt.Ltd.",
+          "Mamtha - Cost Control Executive We've won some awards!",
+          "Well, we didn If math wasn’t really your subject, this one mig Load More Follow on Instagram About Menu Gift Cards Terms and Conditions Privacy Franchisee Sustainability Store Locator Nutritional Info Brownie Points &#8211; T&#038;C Contact Us Careers Blog Annual Returns © 2023, Honeycomb Retail (In…"
+        ],
+        "address": [
+          "Best Ice Cream Sundae Bangalore|"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Smoor Lounge",
+      "service_area": "koramangala",
+      "overture_id": "5ae1d62d-713f-4794-a7cf-8bbf068557fe",
+      "url_type": "official-website",
+      "source_url": "http://smoor.in/",
+      "fetched_at_utc": "2026-09-17T13:56:51.595Z",
+      "http_status": 200,
+      "page_title": "SMOOR – Premium Chocolate Gift Hampers Online In India",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "SMOOR – Premium Chocolate Gift Hampers Online In India Skip to content Get Exclusive 10% OFF On The MRP Of All Products, Except Celebration Cakes Experience Centre SMOOR Open search Open navigation menu Indian Cocoa Bean Collection Signature Cakes Celebration Cakes Theme Cakes Baby Shower Cakes Birt…"
+        ],
+        "pricing": [
+          "SMOOR – Premium Chocolate Gift Hampers Online In India Skip to content Get Exclusive 10% OFF On The MRP Of All Products, Except Celebration Cakes Experience Centre SMOOR Open search Open navigation menu Indian Cocoa Bean Collection Signature Cakes Celebration Cakes Theme Cakes Baby Shower Cakes Birt…",
+          "Shop for ₹1,500 or More & Get FREE Shipping |",
+          "Watch & Shop ₹0 MRP - 🏷️ 10% OFF ₹0 MRP - 🏷️ 10% OFF ₹0 MRP - 🏷️ 10% OFF ₹0 MRP - 🏷️ 10% OFF ₹0 MRP - 🏷️ 10% OFF ₹0 MRP - 🏷️ 10% OFF Crafted for Connoisseurs of Taste Just In People's Pick Previous Classic Medovik ₹855 MRP - ₹950 🏷️ 10% OFF Kunafa & pistachio dark bar ₹360 MRP - ₹400 🏷️ 10% …",
+          "Shop The Indulgence Go to item 1 Go to item 2 Go to item 3 Shop the Indulgence Product ₹0 MRP - 🏷️ 10% OFF Product ₹0 MRP - 🏷️ 10% OFF Product ₹0 MRP - 🏷️ 10% OFF View products Go to item 1 Go to item 2 Go to item 3 Product ₹0 MRP - 🏷️ 10% OFF s Product ₹0 MRP - 🏷️ 10% OFF s Product ₹0 MRP - 🏷…",
+          "Unveiled our 50th store — the flagship Signature Lounge at Lavelle Road. 2023 Won the tender to launch a Bakery Café at Bengaluru International Airport’s Terminal 2. 2024 Secured a landmark ₹2.5 crore corporate order from Titan."
+        ],
+        "address": [
+          "SMOOR – Premium Chocolate Gift Hampers Online In India Skip to content Get Exclusive 10% OFF On The MRP Of All Products, Except Celebration Cakes Experience Centre SMOOR Open search Open navigation menu Indian Cocoa Bean Collection Signature Cakes Celebration Cakes Theme Cakes Baby Shower Cakes Birt…",
+          "It's a must try if you're in Bangalore!",
+          "Well ,I felt proud to see international quality standards being implemented by Bangalore born company.",
+          "Plum cakes which are prepared only in December month are the best available in Bangalore City.",
+          "Unveiled our 50th store — the flagship Signature Lounge at Lavelle Road. 2023 Won the tender to launch a Bakery Café at Bengaluru International Airport’s Terminal 2. 2024 Secured a landmark ₹2.5 crore corporate order from Titan."
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Apsara Ice Creams",
+      "service_area": "indiranagar",
+      "overture_id": "2763b646-4b23-4401-a7e5-080d45964a4d",
+      "url_type": "official-website",
+      "source_url": "https://thrivenow.in/apsara-ice-creams-indiranagar",
+      "fetched_at_utc": "2026-09-17T13:57:02.230Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "The Amazing Escape - Escape Room Adventure",
+      "service_area": "indiranagar",
+      "overture_id": "b0e262d1-f29f-49d3-9463-4e2353119b69",
+      "url_type": "official-website",
+      "source_url": "https://www.theamazingescape.in/",
+      "fetched_at_utc": "2026-09-17T13:57:04.668Z",
+      "http_status": 200,
+      "page_title": "Best Escape Room in Bangalore | The Amazing Escape",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [
+          "Best Escape Room in Bangalore |",
+          "The Amazing Escape top of page Escape Room Adventure - Indiranagar , Bangalore 🧠 Can You Escape In 60 Minutes? | 🔥 Weekend Slots Filling Fast &mdash; Book Now! | ⭐ Trusted By 10,000+ Players In Bangalore Themes Pricing Gallery Team Outings / Birthdays themes themes themes themes Button Button Butt…",
+          "The Amazing Escape Bangalore (by Lalitha Ventures) #838 , 3rd floor, 7th Main Rd, Indiranagar, Bengaluru, Karnataka 560038 phone - 8884440258 Privacy Policy Terms of Service Booking Policy Cancellation and Refund Policy bottom of page"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Indiranagar Cornerstone Park",
+      "service_area": "indiranagar",
+      "overture_id": "2927a08c-d8e9-424a-859d-e378efe61116",
+      "url_type": "official-website",
+      "source_url": "http://www.cornerstoneindia.in/",
+      "fetched_at_utc": "2026-09-17T13:57:07.488Z",
+      "http_status": 200,
+      "page_title": "HOME | CornerStone India",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [
+          "CornerStone India top of page ABOUT US THE STORY MANAGEMENT VISION & MISSION PORTFOLIO LAND BANKING RESIDENTIAL COMMERCIAL & RETAIL WAREHOUSING & LOGISTICS CORNERSTONE ADVANTAGE NEWSROOM & RESOURCE CENTRE PRESSS COVERAGE EVENTS AWARDS & RECOGNITION PARTNERS JD PARTNERS FINANCIAL PARTNERS ARCHITECTS …"
+        ],
+        "address": [
+          "CornerStone India top of page ABOUT US THE STORY MANAGEMENT VISION & MISSION PORTFOLIO LAND BANKING RESIDENTIAL COMMERCIAL & RETAIL WAREHOUSING & LOGISTICS CORNERSTONE ADVANTAGE NEWSROOM & RESOURCE CENTRE PRESSS COVERAGE EVENTS AWARDS & RECOGNITION PARTNERS JD PARTNERS FINANCIAL PARTNERS ARCHITECTS …",
+          "Shaping Bengaluru&#39;s Real - Estate Landscape LAND BANKING RESIDENTIAL COMMERCIAL & RETAIL WAREHOUSING & LOGISTICS Upcoming Projects Cornerstone Peridot Tower Located in Hennur, Cornerstone Peridot Tower is a LEED Gold Rated Mixed-Use Commercial Project.",
+          "Cornerstone Icon Located in Bengaluru&rsquo;s Central Business District, Cornerstone Icon is a Grade A office park development, with approx. 1.2 million sqft of leasable space in an exquisitely designed Business Park in the heart of the city.",
+          "Cornerstone Business Park Built over a sprawling 35 acres, Cornerstone Business Park is strategically located close to major residential & commercial neighbourhoods in Bangalore Cornerstone Logistic Park Located in Bodanahosahalli (Whitefield), Bangalore, Cornerstone Logistic Park is based on a spra…",
+          "We pride ourselves on: TRUST AND TRANSPARENCY SUPERIOR DESIGN & EFFICIENCY OUTSTANDING LOCATIONS SUSTAINABLE DEVELOPMENT FOR POSITIVE IMPACT KNOW MORE Newsroom & Resource Centre Embassy Group ties up with Cornerstone for fourth business park in Bengaluru Real estate developer Embassy Group said it s…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "The Magical Garden",
+      "service_area": "koramangala",
+      "overture_id": "9f30227f-acf9-494a-b980-6fb729981452",
+      "url_type": "official-website",
+      "source_url": "http://www.nilgiris.nic.in/bot_garden.html",
+      "fetched_at_utc": "2026-09-17T13:57:15.350Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Police Traffic Park",
+      "service_area": "church-street",
+      "overture_id": "b658ced5-3ebe-45c0-924a-fa2b62ae1aee",
+      "url_type": "official-website",
+      "source_url": "http://www.bangaloretrafficpolice.gov.in",
+      "fetched_at_utc": "2026-09-17T13:57:51.903Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    }
+  ]
+}

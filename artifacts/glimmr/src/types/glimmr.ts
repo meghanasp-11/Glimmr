@@ -97,6 +97,12 @@ export interface PlannerRequest {
   transport: 'walk' | 'bike' | 'transit' | 'drive';
   outingType: 'Food crawl' | 'Low-key day' | 'Date night' | 'Arts & culture' | 'Fresh air';
   preference?: string;
+  /**
+   * Outing start as minutes since midnight (e.g. 540 = 9:00 AM).
+   * Optional: when absent the engine derives the start from the catalog's
+   * opening hours instead of assuming a fixed time.
+   */
+  startTimeMinutes?: number;
 }
 
 /**

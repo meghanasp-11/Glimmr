@@ -1,0 +1,4 @@
+# Overture discovery fetcher dependencies (Python 3).
+# Only the official `overturemaps` client (reads public S3 GeoParquet).
+# No geocoding, food-delivery, or paid-API packages.
+overturemaps>=1.0

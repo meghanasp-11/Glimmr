@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install",
+  "installCommand": "rm -f package-lock.json && npm install",
   "buildCommand": "npm run build -w @glimmr/app",
   "outputDirectory": "artifacts/glimmr/dist/public",
   "framework": "vite",

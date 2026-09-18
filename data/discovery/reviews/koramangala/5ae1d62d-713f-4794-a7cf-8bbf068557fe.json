@@ -1,0 +1,153 @@
+{
+  "overture_id": "5ae1d62d-713f-4794-a7cf-8bbf068557fe",
+  "service_area": "koramangala",
+  "dossier_rank": 7,
+  "dossier_completeness": 0.18518518518518517,
+  "dossier_flags": [
+    "ambiguous-address"
+  ],
+  "evidence": {
+    "source_url": "http://smoor.in/",
+    "fetched_at_utc": "2026-09-17T13:56:51.595Z",
+    "page_title": "SMOOR – Premium Chocolate Gift Hampers Online In India",
+    "website_reachable": true
+  },
+  "fields": {
+    "id": {
+      "value": "ov-5ae1d62d-713f-4794-a7cf-8bbf068557fe",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "name": {
+      "value": "Smoor Lounge",
+      "status": "verified",
+      "source": "http://smoor.in/"
+    },
+    "serviceArea": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"koramangala\" — confirm, do not assume. check http://smoor.in/."
+    },
+    "category": {
+      "value": "Dessert",
+      "status": "verified",
+      "source": "http://smoor.in/"
+    },
+    "address": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"No 113, C main, opposite to Raheja Arcade\" — confirm, do not assume. check http://smoor.in/."
+    },
+    "lat": {
+      "value": 12.93494874,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "lng": {
+      "value": 77.61300856,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "description": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "subcategory": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "priceMin": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "priceMax": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "priceBasis": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "openingHours": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "typicalVisitDuration": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "suitableFor": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "activities": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "vibe": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "rating": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "reviewCount": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "experienceScore": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check http://smoor.in/."
+    },
+    "websiteUrl": {
+      "value": "http://smoor.in/",
+      "status": "verified",
+      "source": "http://smoor.in/"
+    },
+    "mapsUrl": {
+      "value": "https://www.openstreetmap.org/#map=19/12.93494874/77.61300856",
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "source": {
+      "value": "overture:2026-08-19.0",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "sourceUrl": {
+      "value": "http://smoor.in/",
+      "status": "verified",
+      "source": "http://smoor.in/"
+    },
+    "verificationStatus": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"unverified\" — confirm, do not assume. check http://smoor.in/."
+    },
+    "confidence": {
+      "value": 0.9886304253339767,
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "lastVerified": {
+      "value": "2026-09-17",
+      "status": "verified",
+      "source": "http://smoor.in/"
+    }
+  },
+  "reviewed_at": "2026-09-17"
+}

@@ -1,0 +1,151 @@
+{
+  "overture_id": "ecd46ce8-af8c-49a5-820e-9c19777ecd40",
+  "service_area": "indiranagar",
+  "dossier_rank": 3,
+  "dossier_completeness": 0.2222222222222222,
+  "dossier_flags": [],
+  "evidence": {
+    "source_url": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB",
+    "fetched_at_utc": "2026-09-17T13:55:43.680Z",
+    "page_title": "Best Coffee house Cafe in Bengaluru East | Third Wave Coffee",
+    "website_reachable": true
+  },
+  "fields": {
+    "id": {
+      "value": "ov-ecd46ce8-af8c-49a5-820e-9c19777ecd40",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "name": {
+      "value": "Third Wave Coffee",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "serviceArea": {
+      "value": "indiranagar",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "category": {
+      "value": "Cafe",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "address": {
+      "value": "12th Main Road, HAL 2nd Stage, Appareddipalya, Indiranagar, Bengaluru East, Bengaluru, Karnataka 560008",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "lat": {
+      "value": 12.970126,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "lng": {
+      "value": 77.63867183,
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "description": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "subcategory": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "priceMin": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "priceMax": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "priceBasis": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "openingHours": {
+      "value": "8:00 AM - 11:00 PM",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "typicalVisitDuration": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "suitableFor": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "activities": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "vibe": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "rating": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "reviewCount": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "experienceScore": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "websiteUrl": {
+      "value": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "mapsUrl": {
+      "value": "https://www.openstreetmap.org/#map=19/12.970126/77.63867183",
+      "status": "verified",
+      "source": "OpenStreetMap via Overpass (single name+proximity match, 2026-09-17)"
+    },
+    "source": {
+      "value": "overture:2026-08-19.0",
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "sourceUrl": {
+      "value": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    },
+    "verificationStatus": {
+      "value": null,
+      "status": "missing",
+      "reason": "Not verified yet. Overture reports \"unverified\" — confirm, do not assume. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+    },
+    "confidence": {
+      "value": 0.9994331581294537,
+      "status": "verified",
+      "source": "overture:2026-08-19.0"
+    },
+    "lastVerified": {
+      "value": "2026-09-17",
+      "status": "verified",
+      "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
+    }
+  },
+  "reviewed_at": "2026-09-17"
+}

@@ -10,6 +10,12 @@ service cloud.firestore {
       allow write: if admin();
     }
 
+    // Public place catalog metadata, same sensitivity as places.
+    match /serviceAreas/{areaId} {
+      allow read: if true;
+      allow write: if admin();
+    }
+
     match /outings/{outingId} {
       allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
       allow read, delete: if admin() || owner(resource.data.userId);

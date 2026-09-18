@@ -1,0 +1,19 @@
+{
+  "overture_release": "2026-08-19.0",
+  "drafts": 180,
+  "production_ready": 0,
+  "missing_histogram": {
+    "priceMin": 180,
+    "priceMax": 180,
+    "priceBasis": 180,
+    "openingHours": 180,
+    "typicalVisitDuration": 180,
+    "suitableFor": 180,
+    "activities": 180,
+    "vibe": 180,
+    "experienceScore": 180,
+    "sourceUrl": 180,
+    "verificationStatus": 180,
+    "lastVerified": 180
+  }
+}
