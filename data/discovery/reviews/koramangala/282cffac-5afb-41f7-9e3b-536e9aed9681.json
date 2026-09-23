@@ -79,9 +79,9 @@
       "source": "http://www.dyuartcafe.com/"
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.dyuartcafe.com/."
+      "value": 35,
+      "status": "curated",
+      "source": "rubric v1 — Art-cafe coffee stop per the Cafe planning band."
     },
     "suitableFor": {
       "value": null,
@@ -89,14 +89,16 @@
       "reason": "Not verified yet. check http://www.dyuartcafe.com/."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.dyuartcafe.com/."
+      "value": [
+        "coffee"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Signature coffee menu on the official site."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.dyuartcafe.com/."
+      "value": "Lively yet peaceful art cafe",
+      "status": "curated",
+      "source": "rubric v1 — Official site describes an atmosphere both lively and peaceful with art throughout."
     },
     "rating": {
       "value": null,

@@ -358,19 +358,31 @@ export const SavedPlanSchema = z.object({
 
 export type SavedPlan = z.infer<typeof SavedPlanSchema>;
 
+export const OutingStatusSchema = z.enum(['in_progress', 'completed', 'abandoned']);
+
+/**
+ * Canonical outing shape used by the schema, the glimmr service, Firebase
+ * helpers, and the plan-detail / outing pages alike. `userId` is present on
+ * Firestore copies and absent on local-only copies; `planData` is an
+ * optional snapshot for history views (the live flow re-reads the plan).
+ * All timestamps are ISO strings — never Firestore Timestamps — so local,
+ * remote, and migrated copies compare and resume identically.
+ */
 export const OutingRecordSchema = z.object({
   id: z.string().min(1),
-  userId: z.string().min(1),
   planId: z.string().min(1),
-  planData: z.any(),
-  startedAt: z.string().optional(),
+  userId: z.string().min(1).optional(),
+  planData: z.any().optional(),
+  startedAt: z.string().min(1),
+  updatedAt: z.string().min(1).optional(),
   currentStepId: z.string().min(1),
   completedStepIds: z.array(z.string()),
-  status: z.enum(['in_progress', 'completed', 'abandoned']),
+  status: OutingStatusSchema,
   completedAt: z.string().optional(),
 });
 
 export type OutingRecord = z.infer<typeof OutingRecordSchema>;
+export type OutingStatus = z.infer<typeof OutingStatusSchema>;
 
 // ============================================================================
 // VALIDATION UTILITIES

@@ -79,24 +79,30 @@
       "source": "http://www.hmleisure.com"
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.hmleisure.com."
+      "value": 75,
+      "status": "curated",
+      "source": "rubric v1 — Bowling-alley session per the Activity planning band."
     },
     "suitableFor": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.hmleisure.com."
+      "value": [
+        "couple",
+        "friends",
+        "family"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Official site addresses dates for two, besties groups, and extended family."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.hmleisure.com."
+      "value": [
+        "active"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Bowling, arcade, and sports bar per the official site."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.hmleisure.com."
+      "value": "Neon-lit, high-energy arcade",
+      "status": "curated",
+      "source": "rubric v1 — Official site presents neon, high-energy bowling and arcade play."
     },
     "rating": {
       "value": null,

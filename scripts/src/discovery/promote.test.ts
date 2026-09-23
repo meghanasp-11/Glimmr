@@ -10,7 +10,9 @@ import { describe, expect, it } from "vitest";
 import {
   assemblePlace,
   evaluatePromotion,
+  formatCandidatesFile,
   promotionReport,
+  selectProductionCandidates,
   type ReviewedPlace,
 } from "./promote";
 import type { ServiceArea } from "../../../artifacts/glimmr/src/schemas/glimmr.schema";
@@ -137,7 +139,58 @@ describe("promotionReport", () => {  it("reports exactly who is ready and why ot
   it("handles an empty review set", () => {
     expect(promotionReport([])).toMatch(/0 of 0/);
   });
+});
 
+describe("selectProductionCandidates", () => {
+  it("keeps only records passing both recommendation readiness and promotion", () => {
+    const ready = fullReview();
+    const blocked = fullReview();
+    blocked.overture_id = "blocked-id";
+    blocked.fields["priceMin"] = { value: null, status: "missing", reason: "menu not found" };
+    const closed = fullReview();
+    closed.overture_id = "closed-id";
+    closed.rejected = true;
+    closed.rejection_reason = "Permanently closed.";
+    const records = selectProductionCandidates([blocked, closed, ready], AREAS);
+    expect(records.map((place) => place.id)).toEqual(["ov-test-id"]);
+  });
+
+  it("returns an empty list when nothing is ready", () => {
+    expect(selectProductionCandidates([], AREAS)).toEqual([]);
+    const blocked = fullReview();
+    blocked.fields["verificationStatus"] = { value: "unverified", status: "missing", reason: "not checked" };
+    expect(selectProductionCandidates([blocked], AREAS)).toEqual([]);
+  });
+});
+
+describe("formatCandidatesFile", () => {
+  it("writes a labeled candidate file matching its count", () => {
+    const records = selectProductionCandidates([fullReview()], AREAS);
+    const parsed = JSON.parse(formatCandidatesFile(records, "2026-09-20T00:00:00.000Z")) as {
+      generated_at_utc: string;
+      source: string;
+      readiness: string;
+      count: number;
+      records: unknown[];
+    };
+    expect(parsed.generated_at_utc).toBe("2026-09-20T00:00:00.000Z");
+    expect(parsed.source).toBe("glimmr-promotion-dry-run");
+    expect(parsed.readiness).toBe("recommendation");
+    expect(parsed.count).toBe(1);
+    expect(parsed.records).toHaveLength(1);
+  });
+
+  it("writes an empty but well-formed file when nothing passes", () => {
+    const parsed = JSON.parse(formatCandidatesFile([], "2026-09-20T00:00:00.000Z")) as {
+      count: number;
+      records: unknown[];
+    };
+    expect(parsed.count).toBe(0);
+    expect(parsed.records).toEqual([]);
+  });
+});
+
+describe("promotionReport rejections", () => {
   it("excludes record-level rejections with their reason", () => {
     const closed = fullReview();
     closed.rejected = true;

@@ -1,0 +1,294 @@
+{
+  "source": "glimmr_batch_02_identity_audit",
+  "overture_release": "2026-08-19.0",
+  "generated_at_utc": "2026-09-20T12:28:47.613Z",
+  "counts": {
+    "total": 10,
+    "verified": 0,
+    "conflicting": 1,
+    "needs_manual_review": 9
+  },
+  "places": [
+    {
+      "overture_id": "e9845292-8c3a-4ed7-b470-0a06ac43d241",
+      "overture_name": "Cafe Grey",
+      "service_area": "indiranagar",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"Café Grey – A Premium Workspace Café in Indiranagar\").",
+        "On-file pin (12.97920036, 77.64320514) falls inside \"indiranagar\" V1 bounds (lat 12.97..12.985, lng 77.635..77.645); pin itself still needs human confirmation.",
+        "Recorded address corroborated by excerpts; preserved verbatim."
+      ],
+      "coordinates": {
+        "lat": 12.97920036,
+        "lng": 77.64320514
+      },
+      "address": "3rd Floor, No, 421/J, Shri Krishna Temple Rd",
+      "sources": {
+        "website_url": "https://dongle.community/cafe-to-work-in-indiranagar/",
+        "page_title": "Café Grey – A Premium Workspace Café in Indiranagar",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 1
+    },
+    {
+      "overture_id": "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+      "overture_name": "ESCAPE ROOM Koramangala (Previously Mystery junkies)",
+      "service_area": "koramangala",
+      "verdict": "conflicting",
+      "reasons": [
+        "Recorded name is conflicting in dossier: fetched page title \"Home\" does not corroborate \"ESCAPE ROOM Koramangala (Previously Mystery junkies)\". Resolve the operating name against the cited source before enrichment.",
+        "Name records rename history (\"ESCAPE ROOM Koramangala (Previously Mystery junkies)\"); confirm the current operating name on site, keep the Overture original.",
+        "On-file pin (12.9334769, 77.621912) falls inside \"koramangala\" V1 bounds (lat 12.925..12.945, lng 77.61..77.625); pin itself still needs human confirmation.",
+        "Recorded address corroborated by excerpts; preserved verbatim."
+      ],
+      "coordinates": {
+        "lat": 12.9334769,
+        "lng": 77.621912
+      },
+      "address": "12, 3rd Floor Pragati Mansion, 1st Cross Road, 5th Block",
+      "sources": {
+        "website_url": "https://escapemgm.com/",
+        "page_title": "Home",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [
+        "No on-file link to b0e262d1-f29f-49d3-9463-4e2353119b69 (The Amazing Escape - Escape Room Adventure) in this record's own source — stays a separate entity."
+      ],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: resolve the conflict(s) above against the cited source; confirm the pin on site; keep separate from the listed entity until its own source proves identity; verify independently of the service-area assignment.",
+      "rank": 2
+    },
+    {
+      "overture_id": "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+      "overture_name": "BOHO Koramangala",
+      "service_area": "koramangala",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"BOHO Bar Bangalore – Rooftop Dining, Cocktails &amp; Nightlife Fun\").",
+        "On-file pin (12.9345105, 77.61602946) falls inside \"koramangala\" V1 bounds (lat 12.925..12.945, lng 77.61..77.625); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.9345105,
+        "lng": 77.61602946
+      },
+      "address": "105, 1st A cross Rd",
+      "sources": {
+        "website_url": "http://www.bohothebar.com/",
+        "page_title": "BOHO Bar Bangalore – Rooftop Dining, Cocktails &amp; Nightlife Fun",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 3
+    },
+    {
+      "overture_id": "2927a08c-d8e9-424a-859d-e378efe61116",
+      "overture_name": "Indiranagar Cornerstone Park",
+      "service_area": "indiranagar",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"HOME | CornerStone India\").",
+        "On-file pin (12.977951, 77.641457) falls inside \"indiranagar\" V1 bounds (lat 12.97..12.985, lng 77.635..77.645); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.977951,
+        "lng": 77.641457
+      },
+      "address": "Indiranagar 100 Ft Road",
+      "sources": {
+        "website_url": "http://www.cornerstoneindia.in/",
+        "page_title": "HOME | CornerStone India",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 4
+    },
+    {
+      "overture_id": "fbda4f0c-4e7b-4f2e-a8cf-d3c6fe032c77",
+      "overture_name": "Blue Tokai Coffee",
+      "service_area": "koramangala",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"Buy Freshly Roasted Coffee Beans | Blue Tokai Coffee Roasters\").",
+        "On-file pin (12.94071388, 77.62023735) falls inside \"koramangala\" V1 bounds (lat 12.925..12.945, lng 77.61..77.625); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.94071388,
+        "lng": 77.62023735
+      },
+      "address": "583 80 Feet Road, 8th Block",
+      "sources": {
+        "website_url": "http://www.bluetokaicoffee.com/",
+        "page_title": "Buy Freshly Roasted Coffee Beans | Blue Tokai Coffee Roasters",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 5
+    },
+    {
+      "overture_id": "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+      "overture_name": "St. Patrick's Church",
+      "service_area": "church-street",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"St. Patrick's Church\").",
+        "On-file pin (12.97076231, 77.60699654) falls inside \"church-street\" V1 bounds (lat 12.97..12.975, lng 77.6..77.61); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.97076231,
+        "lng": 77.60699654
+      },
+      "address": "At Museum Road",
+      "sources": {
+        "website_url": "http://stpatricksblr.com",
+        "page_title": "St. Patrick's Church",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": true,
+      "review_notes": [
+        "Confirm whether the on-file Museum Road record denotes the Brigade Road church entity or a distinct entity; verify independently of the church-street area assignment."
+      ],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 6
+    },
+    {
+      "overture_id": "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+      "overture_name": "Zion A.G Church",
+      "service_area": "koramangala",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"Zion AG Church\").",
+        "On-file pin (12.92561631, 77.61541886) falls inside \"koramangala\" V1 bounds (lat 12.925..12.945, lng 77.61..77.625); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.92561631,
+        "lng": 77.61541886
+      },
+      "address": "22, Maruthi Nagar Main Rd, beside Amravati Hotel",
+      "sources": {
+        "website_url": "https://www.zionagmadiwala.com/",
+        "page_title": "Zion AG Church",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": true,
+      "review_notes": [
+        "Preserve the on-file address verbatim; confirm which address the venue's own site states before any correction."
+      ],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 7
+    },
+    {
+      "overture_id": "8c723c0f-8463-49de-9d39-d71d6ad53471",
+      "overture_name": "Domino's Pizza | Garuda Mall, Bangalore, Karnataka",
+      "service_area": "church-street",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each\").",
+        "On-file pin (12.97036447, 77.60858344) falls inside \"church-street\" V1 bounds (lat 12.97..12.975, lng 77.6..77.61); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.97036447,
+        "lng": 77.60858344
+      },
+      "address": "Third Floor, Store No. 16, Food Court, Garuda Mall, CTS No. 15, 17, 18, 27, Magarath Road, Mahanagara Palike Ward No. 76",
+      "sources": {
+        "website_url": "https://dominos.co.in/",
+        "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+        "reachable": true
+      },
+      "branch_notes": [
+        "Treat as a separate entity from 924377cd-2db0-40c9-ae31-764ee81fe71a (Domino's Pizza | M.G Road, Bangalore); each branch cites only its own source below."
+      ],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; confirm this branch outlet (never merge branches); verify independently of the service-area assignment.",
+      "rank": 8
+    },
+    {
+      "overture_id": "924377cd-2db0-40c9-ae31-764ee81fe71a",
+      "overture_name": "Domino's Pizza | M.G Road, Bangalore",
+      "service_area": "church-street",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each\").",
+        "On-file pin (12.97489423, 77.60661881) falls inside \"church-street\" V1 bounds (lat 12.97..12.975, lng 77.6..77.61); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.97489423,
+        "lng": 77.60661881
+      },
+      "address": "Church Street Side Entrance Ground Floor, M G Road Metro Station",
+      "sources": {
+        "website_url": "https://dominos.co.in/",
+        "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+        "reachable": true
+      },
+      "branch_notes": [
+        "Treat as a separate entity from 8c723c0f-8463-49de-9d39-d71d6ad53471 (Domino's Pizza | Garuda Mall, Bangalore, Karnataka); each branch cites only its own source below."
+      ],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; confirm this branch outlet (never merge branches); verify independently of the service-area assignment.",
+      "rank": 9
+    },
+    {
+      "overture_id": "ee5baef3-0dbe-4e25-9c23-07f0418314f3",
+      "overture_name": "Café Coffee Day",
+      "service_area": "indiranagar",
+      "verdict": "needs_manual_review",
+      "reasons": [
+        "Recorded name corroborated by cited source (\"Cafe Coffee Day (cafecoffeeday) - Profile | Pinterest\").",
+        "On-file pin (12.97547242, 77.64118128) falls inside \"indiranagar\" V1 bounds (lat 12.97..12.985, lng 77.635..77.645); pin itself still needs human confirmation.",
+        "Recorded address unconfirmed (status: needs_manual_review); confirm on site, do not rewrite."
+      ],
+      "coordinates": {
+        "lat": 12.97547242,
+        "lng": 77.64118128
+      },
+      "address": "MSK Plaza, 100 Feet Rd",
+      "sources": {
+        "website_url": "http://www.pinterest.com/cafecoffeeday",
+        "page_title": "Cafe Coffee Day (cafecoffeeday) - Profile | Pinterest",
+        "reachable": true
+      },
+      "branch_notes": [],
+      "separate_entity_notes": [],
+      "explicit_review": false,
+      "review_notes": [],
+      "recommended_action": "Before enrichment: confirm the address on site; confirm the pin on site; verify independently of the service-area assignment.",
+      "rank": 10
+    }
+  ]
+}

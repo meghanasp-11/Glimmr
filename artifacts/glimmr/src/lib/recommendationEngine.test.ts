@@ -298,6 +298,55 @@ describe('3-plan generation', () => {
   });
 });
 
+describe('injected service areas (Firestore catalog)', () => {
+  const hsr = { id: 'hsr-layout', name: 'HSR Layout', city: 'Bengaluru', active: true };
+  const other = { id: 'other-area', name: 'Other Area', city: 'Bengaluru', active: true };
+
+  it('resolves Firestore areas instead of the static list', () => {
+    const plans = generatePlans(
+      makeRequest({ from: 'HSR Layout', to: 'HSR Layout', startTimeMinutes: 540, availableMinutes: 600, budget: 2000 }),
+      areaFixtures('hsr-layout'),
+      [hsr],
+    );
+    expect(plans.length).toBe(3);
+    for (const plan of plans) {
+      expect(plan.steps.length).toBeGreaterThan(0);
+      for (const step of plan.steps) {
+        expect(step.place.serviceArea).toBe('hsr-layout');
+      }
+    }
+  });
+
+  it('falls back to the first active injected area, never a static one', () => {
+    const plans = generatePlans(
+      makeRequest({ from: 'Nowhere', to: 'Nowhere', startTimeMinutes: 540, availableMinutes: 600, budget: 2000 }),
+      areaFixtures('other-area'),
+      [other],
+    );
+    expect(plans.length).toBe(3);
+    for (const plan of plans) {
+      for (const step of plan.steps) {
+        expect(step.place.serviceArea).toBe('other-area');
+      }
+    }
+  });
+
+  it('prefers an explicit name match among injected areas', () => {
+    const mixed = [...areaFixtures('hsr-layout'), ...areaFixtures('other-area')];
+    const plans = generatePlans(
+      makeRequest({ from: 'Other Area', to: 'Other Area', startTimeMinutes: 540, availableMinutes: 600, budget: 2000 }),
+      mixed,
+      [hsr, other],
+    );
+    expect(plans.length).toBe(3);
+    for (const plan of plans) {
+      for (const step of plan.steps) {
+        expect(step.place.serviceArea).toBe('other-area');
+      }
+    }
+  });
+});
+
 describe('start time and edit consistency', () => {
   const catalog = areaFixtures('indiranagar');
 

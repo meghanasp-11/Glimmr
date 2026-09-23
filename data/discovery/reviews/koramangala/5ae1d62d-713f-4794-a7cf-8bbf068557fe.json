@@ -79,9 +79,9 @@
       "reason": "Not verified yet. check http://smoor.in/."
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://smoor.in/."
+      "value": 20,
+      "status": "curated",
+      "source": "rubric v1 — Chocolate lounge tasting stop per the Dessert planning band."
     },
     "suitableFor": {
       "value": null,
@@ -89,14 +89,16 @@
       "reason": "Not verified yet. check http://smoor.in/."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://smoor.in/."
+      "value": [
+        "food"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Chocolates and desserts per the official brand site."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://smoor.in/."
+      "value": "Premium chocolate lounge",
+      "status": "curated",
+      "source": "rubric v1 — Official site positions premium couverture indulgence."
     },
     "rating": {
       "value": null,

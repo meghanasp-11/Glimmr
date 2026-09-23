@@ -6,9 +6,8 @@ import { EditDialog, Header, RouteLegend, TimelineStep } from '@/components/glim
 import { PlanMap } from '@/components/plan-map';
 import { ValueTransition } from '@/components/motion/ValueTransition';
 import { duration as motionDuration, ease } from '@/lib/motion';
-import { editPlan, getPlanById } from '@/services/glimmrService';
-import { places } from '@/data/mockData';
-import type { Plan, PlanStatus, PlanStep } from '@/types/glimmr';
+import { editPlan, getPlanById, listPlaces } from '@/services/glimmrService';
+import type { Place, Plan, PlanStatus, PlanStep } from '@/types/glimmr';
 import { formatDuration, formatINR } from '@/lib/glimmr-format';
 
 type DialogState = { mode: 'edit' | 'replace' | 'add'; step?: PlanStep } | null;
@@ -21,11 +20,20 @@ export default function PlanDetail() {
   const [loading, setLoading] = useState(true);
   const [operation, setOperation] = useState<PlanStatus>('idle');
   const [changeNotice, setChangeNotice] = useState<string | null>(null);
+  // Same Firestore-first catalog the engine plans from, so swap/add options
+  // never diverge from generation. Undefined falls back to the static list
+  // inside EditDialog.
+  const [catalogPlaces, setCatalogPlaces] = useState<Place[] | undefined>(undefined);
   useEffect(() => {
     let cancelled = false;
-    getPlanById(id ?? '').then((loadedPlan) => { if (!cancelled) setPlan(loadedPlan); }).finally(() => { if (!cancelled) setLoading(false); });
+    getPlanById(id ?? '').then((loadedPlan) => { if (!cancelled) setPlan(loadedPlan); }).catch(() => { if (!cancelled) setPlan(null); }).finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
   }, [id]);
+  useEffect(() => {
+    let cancelled = false;
+    listPlaces().then((places) => { if (!cancelled) setCatalogPlaces(places); }).catch(() => { if (!cancelled) setCatalogPlaces(undefined); });
+    return () => { cancelled = true; };
+  }, []);
   if (loading) return <div className="glimmr-app"><Header compact /><main className="page container-shell"><div className="skeleton" /></main></div>;
   if (!plan) return <div className="glimmr-app"><Header compact /><main className="page container-shell"><div className="surface error-card"><h2 className="display">That plan wandered off.</h2><Link href="/results" className="btn btn-blue">Back to plans</Link></div></main></div>;
   const applyEdit = async (value: { kind: 'place' | 'duration' | 'instruction'; value: string; instruction?: string }) => {
@@ -102,7 +110,7 @@ export default function PlanDetail() {
     </section>
      <aside className="surface summary-card"><h3>Plan math</h3><div className="summary-stat"><span>Per person</span><strong data-testid="text-plan-cost"><ValueTransition value={formatINR(plan.pricePerPerson)} /></strong></div><div className="summary-stat"><span>Group total</span><strong data-testid="text-plan-group-total"><ValueTransition value={formatINR(plan.groupTotal)} /></strong></div><div className="summary-stat"><span>Total time</span><strong data-testid="text-plan-duration"><ValueTransition value={formatDuration(plan.totalMinutes)} /></strong></div><div className="summary-stat"><span>Travel time</span><strong data-testid="text-plan-travel"><ValueTransition value={`${plan.travelMinutes} min`} /></strong></div><div className="summary-stat"><span>Route distance</span><strong data-testid="text-plan-distance"><ValueTransition value={`${plan.totalDistanceKm} km`} /></strong></div><div className={`feasibility ${plan.feasible ? '' : 'warning'}`} data-testid="status-feasibility">{plan.feasible ? 'Fits your window with room to breathe.' : `This adds ${formatDuration(plan.totalMinutes - plan.request.availableMinutes)} beyond your available time. Trim a stop or widen your window.`}</div><PlanMap steps={plan.steps} /></aside></div>
     <AnimatePresence>
-      {dialog && <EditDialog step={dialog.step} mode={dialog.mode} onClose={() => setDialog(null)} onSave={(value) => void applyEdit(value)} />}
+      {dialog && <EditDialog step={dialog.step} mode={dialog.mode} places={catalogPlaces} onClose={() => setDialog(null)} onSave={(value) => void applyEdit(value)} />}
     </AnimatePresence>
   </main></div>;
 }

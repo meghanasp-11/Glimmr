@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { RouteVisual } from '@/components/glimmr-ui';
+import { hasValidPoints, stepsToPoints } from '@/lib/maps';
 import type { PlanStep } from '@/types/glimmr';
 
 const TILE_URL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -10,10 +11,11 @@ const TILE_ATTRIBUTION =
 
 /**
  * Real stop map for a plan: OpenStreetMap tiles with numbered stop markers
- * joined in visit order. Decorative RouteVisual remains the fallback when
- * the map cannot render (no coordinates, or a tile/lifecycle failure).
+ * joined in visit order. Optional outing progress dims completed stops and
+ * highlights the current one. Decorative RouteVisual remains the fallback
+ * when the map cannot render (no coordinates, or a tile/lifecycle failure).
  */
-export function PlanMap({ steps }: { steps: PlanStep[] }) {
+export function PlanMap({ steps, activeStepId, completedStepIds = [], className }: { steps: PlanStep[]; activeStepId?: string; completedStepIds?: string[]; className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
 
@@ -22,8 +24,8 @@ export function PlanMap({ steps }: { steps: PlanStep[] }) {
     if (!container || steps.length === 0) return;
     let map: L.Map | null = null;
     try {
-      const points = steps.map((step) => ({ lat: step.place.lat, lng: step.place.lng }));
-      if (points.some((point) => !Number.isFinite(point.lat) || !Number.isFinite(point.lng))) {
+      const points = stepsToPoints(steps);
+      if (!hasValidPoints(points)) {
         setFailed(true);
         return;
       }
@@ -31,9 +33,11 @@ export function PlanMap({ steps }: { steps: PlanStep[] }) {
       L.tileLayer(TILE_URL, { maxZoom: 19, attribution: TILE_ATTRIBUTION }).addTo(map);
       const latLngs = points.map((point) => L.latLng(point.lat, point.lng));
       steps.forEach((step, index) => {
+        const done = completedStepIds.includes(step.id);
+        const active = step.id === activeStepId;
         L.marker(latLngs[index], {
           icon: L.divIcon({
-            className: 'plan-map-pin',
+            className: `plan-map-pin${done ? ' plan-map-pin--done' : ''}${active ? ' plan-map-pin--active' : ''}`,
             html: `<span>${index + 1}</span>`,
             iconSize: [26, 26],
             iconAnchor: [13, 13],
@@ -53,13 +57,13 @@ export function PlanMap({ steps }: { steps: PlanStep[] }) {
       map?.remove();
       map = null;
     };
-  }, [steps]);
+  }, [steps, activeStepId, completedStepIds]);
 
   if (failed || steps.length === 0) return <RouteVisual small />;
   return (
     <div
       ref={containerRef}
-      className="plan-map"
+      className={className ? `plan-map ${className}` : 'plan-map'}
       data-testid="plan-map"
       role="img"
       aria-label={`Map of ${steps.length} planned stops`}

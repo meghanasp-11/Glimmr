@@ -1,6 +1,6 @@
-import type { OutingType, Place, Plan, PlannerRequest, PlanStep, TransportMode } from '@/types/glimmr';
+import type { OutingType, Place, Plan, PlannerRequest, PlanStep, ServiceArea, TransportMode } from '@/types/glimmr';
 import { placePrice, formatINR } from '@/lib/glimmr-format';
-import { serviceAreas } from '@/data/places';
+import { serviceAreas as staticServiceAreas } from '@/data/places';
 
 /**
  * ============================================================================
@@ -336,16 +336,22 @@ function totalsFor(steps: PlanStep[]) {
   return { pricePerPerson, totalMinutes, travelMinutes, totalDistanceKm };
 }
 
-function resolveServiceArea(request: PlannerRequest): string {
-  const match = serviceAreas.find(
+/**
+ * Resolve the request to a service-area id against the provided areas.
+ * Callers pass the Firestore-first catalog (`serviceAreasCatalog()`); the
+ * static local areas are only the default so pure callers and existing
+ * tests keep working unchanged.
+ */
+export function resolveServiceArea(request: PlannerRequest, areas: ServiceArea[] = staticServiceAreas): string {
+  const match = areas.find(
     (area) => area.active && (request.from.toLowerCase().includes(area.name.toLowerCase()) || request.to.toLowerCase().includes(area.name.toLowerCase())),
   );
-  // MVP fallback: default to the first active area.
-  return match?.id ?? serviceAreas.find((area) => area.active)?.id ?? serviceAreas[0].id;
+  // Fallback: default to the first active area.
+  return match?.id ?? areas.find((area) => area.active)?.id ?? areas[0].id;
 }
 
-export function generatePlans(request: PlannerRequest, allPlaces: Place[]): Plan[] {
-  const serviceArea = resolveServiceArea(request);
+export function generatePlans(request: PlannerRequest, allPlaces: Place[], areas: ServiceArea[] = staticServiceAreas): Plan[] {
+  const serviceArea = resolveServiceArea(request, areas);
   const candidates = allPlaces.filter((place) => place.serviceArea === serviceArea);
 
   // The resolved start travels with the plan so edits reschedule on the same

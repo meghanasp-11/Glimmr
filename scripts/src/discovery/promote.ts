@@ -22,6 +22,7 @@ import {
   type Place,
   type ServiceArea,
 } from "../../../artifacts/glimmr/src/schemas/glimmr.schema";
+import { evaluateRecommendationReadiness } from "./readiness";
 
 export type ReviewStatus = "verified" | "curated" | "missing" | "rejected";
 
@@ -137,6 +138,48 @@ export function evaluatePromotion(
     problems,
     field_status,
   };
+}
+
+/**
+ * Production-candidate selection: only records passing BOTH recommendation
+ * readiness (the engine can plan with them) and promotion (schema +
+ * production profile). Record-level rejections never qualify. Deterministic
+ * id order so repeated runs diff cleanly.
+ */
+export function selectProductionCandidates(
+  reviewed: ReviewedPlace[],
+  areaById: Map<string, ServiceArea>,
+): Place[] {
+  const records: Place[] = [];
+  for (const place of reviewed) {
+    if (place.rejected === true) continue;
+    if (!evaluateRecommendationReadiness(place, areaById).ready) continue;
+    const promotion = evaluatePromotion(place, areaById);
+    if (!promotion.ready || promotion.place === null) continue;
+    records.push(promotion.place as Place);
+  }
+  records.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  return records;
+}
+
+export interface ProductionCandidatesFile {
+  generated_at_utc: string;
+  source: "glimmr-promotion-dry-run";
+  readiness: "recommendation";
+  count: number;
+  records: Place[];
+}
+
+/** Labeled candidate file body; count always matches records. */
+export function formatCandidatesFile(records: Place[], generatedAtUtc: string): string {
+  const file: ProductionCandidatesFile = {
+    generated_at_utc: generatedAtUtc,
+    source: "glimmr-promotion-dry-run",
+    readiness: "recommendation",
+    count: records.length,
+    records,
+  };
+  return `${JSON.stringify(file, null, 2)}\n`;
 }
 
 /** Human-readable dry-run report: exactly which places are ready and why (not). */

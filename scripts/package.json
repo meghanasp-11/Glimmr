@@ -21,8 +21,14 @@
     "discovery:batch": "tsx ./src/discovery/build-batch.ts",
     "discovery:propose": "tsx ./src/discovery/propose-curation.ts",
     "discovery:promote": "tsx ./src/discovery/promote-places.ts",
+    "discovery:apply": "tsx ./src/discovery/apply-curation.ts",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "discovery:select-batch-02": "tsx ./src/discovery/select-batch-02.ts",
+    "discovery:evaluate-batch-02": "tsx ./src/discovery/evaluate-batch-02.ts",
+    "discovery:research-manifest": "tsx ./src/discovery/build-research-manifest.ts",
+    "discovery:audit-batch-areas": "tsx ./src/discovery/audit-batch-areas.ts",
+    "discovery:audit-identity": "tsx ./src/discovery/audit-identity.ts"
   },
   "dependencies": {
     "firebase-admin": "^14.4.0",

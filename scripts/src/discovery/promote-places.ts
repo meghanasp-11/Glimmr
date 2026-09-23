@@ -10,23 +10,33 @@
  * which places are production-ready and why the rest wait.
  *
  * Usage:
- *   npm run discovery:promote -w @glimmr/scripts -- [--reviews-dir <path>] [--areas-dir <path>] [--dry-run]
+ *   npm run discovery:promote -w @glimmr/scripts -- [--reviews-dir <path>] [--areas-dir <path>] [--dry-run] [--candidates-out <path>]
  */
 
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { evaluatePromotion, promotionReport, type ReviewedPlace } from "./promote";
-import type { ServiceArea } from "../../../artifacts/glimmr/src/schemas/glimmr.schema";
+import {
+  evaluatePromotion,
+  formatCandidatesFile,
+  promotionReport,
+  selectProductionCandidates,
+  type ReviewedPlace,
+} from "./promote";
+import {
+  PlaceSchema,
+  type ServiceArea,
+} from "../../../artifacts/glimmr/src/schemas/glimmr.schema";
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 const DEFAULT_REVIEWS = path.join(REPO_ROOT, "data", "discovery", "reviews");
 const DEFAULT_AREAS = path.join(REPO_ROOT, "data", "production");
 
-function parseArgs(argv: string[]): { reviewsDir: string; areasDir: string; dryRun: boolean } {
+function parseArgs(argv: string[]): { reviewsDir: string; areasDir: string; dryRun: boolean; candidatesOut: string | null } {
   let reviewsDir = DEFAULT_REVIEWS;
   let areasDir = DEFAULT_AREAS;
   let dryRun = true;
+  let candidatesOut: string | null = null;
   const takeValue = (flag: string, i: number): string => {
     const value = argv[i + 1];
     if (!value) throw new Error(`${flag} requires a value.`);
@@ -40,15 +50,17 @@ function parseArgs(argv: string[]): { reviewsDir: string; areasDir: string; dryR
       reviewsDir = path.resolve(takeValue(arg, i)); i += 1;
     } else if (arg === "--areas-dir") {
       areasDir = path.resolve(takeValue(arg, i)); i += 1;
+    } else if (arg === "--candidates-out") {
+      candidatesOut = path.resolve(takeValue(arg, i)); i += 1;
     } else {
       throw new Error(`Unknown argument: "${arg}". This command is dry-run only.`);
     }
   }
-  return { reviewsDir, areasDir, dryRun };
+  return { reviewsDir, areasDir, dryRun, candidatesOut };
 }
 
 async function main(): Promise<void> {
-  const { reviewsDir, areasDir } = parseArgs(process.argv.slice(2));
+  const { reviewsDir, areasDir, candidatesOut } = parseArgs(process.argv.slice(2));
 
   const areaById = new Map<string, ServiceArea>();
   const areaFiles = await readdir(areasDir).catch((err: unknown) => {
@@ -97,6 +109,27 @@ async function main(): Promise<void> {
 
   const results = reviewed.map((place) => evaluatePromotion(place, areaById));
   console.log(promotionReport(results));
+  if (candidatesOut !== null) {
+    // Candidate output only: ready records that passed recommendation
+    // readiness AND promotion. Never touches Firestore or production data.
+    const records = selectProductionCandidates(reviewed, areaById);
+    const generatedAt = new Date().toISOString();
+    await writeFile(candidatesOut, formatCandidatesFile(records, generatedAt));
+    // Verify what was written: re-read and re-validate every record.
+    const written = JSON.parse(await readFile(candidatesOut, "utf8")) as { records?: unknown[] };
+    if (!Array.isArray(written.records) || written.records.length !== records.length) {
+      throw new Error(`Candidate file verification failed: record count mismatch in "${candidatesOut}".`);
+    }
+    for (const record of written.records) {
+      const parsed = PlaceSchema.safeParse(record);
+      if (!parsed.success) {
+        throw new Error(
+          `Candidate file verification failed: a record fails PlaceSchema in "${candidatesOut}".`,
+        );
+      }
+    }
+    console.log(`  wrote ${candidatesOut} (${records.length} candidate record(s), schema-verified).`);
+  }
   console.log("Dry run: nothing was written to production data.");
 }
 

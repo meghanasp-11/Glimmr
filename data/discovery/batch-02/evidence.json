@@ -1,0 +1,469 @@
+{
+  "source": "glimmr_place_evidence",
+  "overture_release": "2026-08-19.0",
+  "fetched": 20,
+  "evidence": [
+    {
+      "name": "Domino's Pizza | Garuda Mall, Bangalore, Karnataka",
+      "service_area": "church-street",
+      "overture_id": "8c723c0f-8463-49de-9d39-d71d6ad53471",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-20T08:16:04.778Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Domino's Pizza | M.G Road, Bangalore",
+      "service_area": "church-street",
+      "overture_id": "924377cd-2db0-40c9-ae31-764ee81fe71a",
+      "url_type": "official-website",
+      "source_url": "https://dominos.co.in/",
+      "fetched_at_utc": "2026-09-20T08:16:06.883Z",
+      "http_status": 200,
+      "page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Burger King",
+      "service_area": "indiranagar",
+      "overture_id": "a7258898-9ce2-473f-9069-0de015f703b8",
+      "url_type": "official-website",
+      "source_url": "http://restaurants.burgerking.in/burger-king-indira-nagar-bangalore-fast-food-restaurant-indira-nagar-bengaluru-81552/Home?utm_source=locator&utm_medium=facebook",
+      "fetched_at_utc": "2026-09-20T08:16:43.431Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "KFC",
+      "service_area": "indiranagar",
+      "overture_id": "f38bbb0f-f0aa-4aff-bf32-0574565b169b",
+      "url_type": "official-website",
+      "source_url": "http://kfc.co.in/",
+      "fetched_at_utc": "2026-09-20T08:17:19.961Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "timeout",
+        "detail": "timed out after 10000ms",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Starbucks",
+      "service_area": "church-street",
+      "overture_id": "ffd91163-9766-48aa-b09e-00a0f8dd4145",
+      "url_type": "official-website",
+      "source_url": "http://www.starbucks.in/",
+      "fetched_at_utc": "2026-09-20T08:17:26.725Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Café Coffee Day",
+      "service_area": "indiranagar",
+      "overture_id": "ee5baef3-0dbe-4e25-9c23-07f0418314f3",
+      "url_type": "official-website",
+      "source_url": "http://www.pinterest.com/cafecoffeeday",
+      "fetched_at_utc": "2026-09-20T08:17:29.739Z",
+      "http_status": 200,
+      "page_title": "Cafe Coffee Day (cafecoffeeday) - Profile | Pinterest",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Blue Tokai Coffee",
+      "service_area": "koramangala",
+      "overture_id": "fbda4f0c-4e7b-4f2e-a8cf-d3c6fe032c77",
+      "url_type": "official-website",
+      "source_url": "http://www.bluetokaicoffee.com/",
+      "fetched_at_utc": "2026-09-20T08:17:32.212Z",
+      "http_status": 200,
+      "page_title": "Buy Freshly Roasted Coffee Beans | Blue Tokai Coffee Roasters",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [
+          "Blue Tokai Coffee Roasters Skip to content Pause slideshow Play slideshow Get 10% off on your first coffee purchase, use code - TRY10 icon-X Close menu Roasted Coffee + - Single Origins & Blends Capsules Ready to Brew + - Easy Pour Cold Brew Bags Ready to Drink + - Drop Cold Brew Cans Value packs Su…",
+          "Drop - Specialty Coffee Concentrate Add ₹250 Signature |",
+          "Drop - Specialty Coffee Concentrate Add ₹600 Cold Brew Bags - Bold Add ₹600 Cold Brew Bags - Kalledeverapura Add ₹300 Mixed |",
+          "Light to Dark Roasts - Easy Pour Add PEOPLE ALSO BOUGHT Special instructions for seller Order for someone else Name of the recipient Message for recipient Subtotal Rs. 0 Shipping, taxes, and discount codes calculated at checkout.",
+          "Your cart is currently empty. icon-hamburger Site navigation Blue Tokai Coffee Roasters Roasted Coffee Single Origins & Blends + Capsules + Ready to Brew + Easy Pour Cold Brew Bags Ready to Drink + Drop Cold Brew Cans Value packs + Subscriptions + All Collection + Offers Coffee + French Press Combo …"
+        ],
+        "address": [],
+        "status": [
+          "(We promise not to spam!) Shop Online Shop Online Coffee Equipment Merchandise Track Order Wholesale Terms and Conditions Offers T&C Sitemap About Us About Us Our Roasteries Our Beliefs Our Farms Play Bar Project Press Careers Packaging Contact Us About Us Visit Us Our Farms Learn Blog FOLLOW US Pow…"
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "Cafe Grey",
+      "service_area": "indiranagar",
+      "overture_id": "e9845292-8c3a-4ed7-b470-0a06ac43d241",
+      "url_type": "official-website",
+      "source_url": "https://dongle.community/cafe-to-work-in-indiranagar/",
+      "fetched_at_utc": "2026-09-20T08:17:34.375Z",
+      "http_status": 200,
+      "page_title": "Café Grey – A Premium Workspace Café in Indiranagar",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Contact us +91 9606 333284 hello@dongle.community Dongle&Co 2004, 100 Feet Rd, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka Email:hello@dongle.community Phone:+91 9606 333284 Working Hours 24/7 Monday – Sunday About Us Events & Updates Gallery Contact Us Work With Us Terms and Conditions Refund …"
+        ],
+        "pricing": [
+          "Café Grey – A Premium Workspace Café in Indiranagar Skip to content Dongle Desk Cafe Grey Kitchens United TPT Menu Dongle Desk Cafe Grey Kitchens United TPT Customize Your Office Celebrate with Stunning Sunsets at Café Grey Schedule a Tasting – Let’s Create an Unforgettable Experience!",
+          "Need a change of scenery from your home office but want to avoid the high prices of big-name chains?",
+          "SpecialS Breakfast Delights Start your day right with our all-day breakfast menu.",
+          "Lunchtime Escape Take a break from the workday with our diverse lunch menu.",
+          "Explore our Menu Quick Bites Sample a variety of appetizers and snacks perfect for sharing or satisfying a light craving."
+        ],
+        "address": [
+          "Cafe Grey, 3rd Floor, No, 421/J, Shri Krishna Temple Rd, Stage 1, Indiranagar, Bengaluru, Karnataka 560038 At Dongle & Co, we redefine the essence of work.",
+          "Contact us +91 9606 333284 hello@dongle.community Dongle&Co 2004, 100 Feet Rd, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka Email:hello@dongle.community Phone:+91 9606 333284 Working Hours 24/7 Monday – Sunday About Us Events & Updates Gallery Contact Us Work With Us Terms and Conditions Refund …"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "The Balcony Bar",
+      "service_area": "indiranagar",
+      "overture_id": "dad85d48-6431-4925-bc5c-b9e37e6eaf9c",
+      "url_type": "official-website",
+      "source_url": "http://www.thebalconybar.in/",
+      "fetched_at_utc": "2026-09-20T08:17:37.551Z",
+      "http_status": 200,
+      "page_title": null,
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "BOHO Koramangala",
+      "service_area": "koramangala",
+      "overture_id": "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+      "url_type": "official-website",
+      "source_url": "http://www.bohothebar.com/",
+      "fetched_at_utc": "2026-09-20T08:17:42.267Z",
+      "http_status": 200,
+      "page_title": "BOHO Bar Bangalore – Rooftop Dining, Cocktails &amp; Nightlife Fun",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "The space is brought to life with live performances, themed events, and a playlist that sets the mood just right, making it the perfect destination for all your events. ​ ​ What&#39;s On Wild Saturday Featuring DJ Sulectro Saturday 8 pm onwards Join Us for Live Music Enjoy soulful music, band perfor…",
+          "Embrace the Open Air For a relaxed and refreshing dining experience, choose our spacious outdoor seating area.",
+          "Here&#39;s a curated list to help you discover more options: 1 Vegetarian Delights Find incredible restaurants specializing in delectable vegetarian cuisine. 2 Dinner Date Night Explore Whitefield&#39;s romantic restaurants perfect for a special evening out. 3 Brick Oven Bliss Discover other restaur…",
+          "Opening Hours Mon - Sun: 12pm - 12am ​ ​​ Boho Koramangala 105, 1st A cross Rd, KHB Colony, 5th Block, Koramangala, Bengaluru Boho Rooftop Restobar Brookefield Mall, ITPL Main Rd, AECS Layout, Brookefield, Bengaluru The Dhaba Co Fourth floor, 13/23, Harlur Road Over Axis Bank, Ambalipura, Karnataka,…"
+        ],
+        "pricing": [
+          "BOHO Bar Bangalore – Rooftop Dining, Cocktails & Nightlife Fun top of page Events Event Gallery Blog Contact Catering Dhaba More Use tab to navigate through the menu items.",
+          "Our menu is carefully curated to serve a delightful mix of delectable food and thirst-quenching drinks that cater to every palate.",
+          "Our expert mixologists take pride in their craft and are dedicated to cr eating exceptional craft cocktails that are sure to delight your palate. ​ Our menu boasts a wide range of scrumptious food and drink options, featuring an array of global cuisine.",
+          "A Culinary Adventure Awaits Top-Rated Whitefield Restaurants Boho Rooftop restaurant & Bar is consistently ranked among the best restaurants in Whitefield, offering a delectable menu featuring global flavors, impeccable service, and a stylish ambiance.",
+          "Our menu boasts delicious options for all ages, ensuring everyone enjoys their meal."
+        ],
+        "address": [
+          "BOHO Bar Bangalore – Rooftop Dining, Cocktails & Nightlife Fun top of page Events Event Gallery Blog Contact Catering Dhaba More Use tab to navigate through the menu items.",
+          "EXPERIENCE A Vibrant Nightlife Destination in Bangalore About What&#x27;s On Boho Bar Koramangala Nestled across two sprawling floors, our club is a vibrant and eclectic space designed to transport you straight into the heart of the bohemian vibe.",
+          "Whether you&rsquo;re planning a corporate lunch, a vibrant friends and family dinner, or an extravagant birthday celebration, our third location is the ultimate backdrop for any occasion. ​ Our chefs bring an innovative twist to global cuisine, presenting dishes that are as delightful to look at as …",
+          "Exquisite Rooftop Dining Imagine celebrating under the captivating Bangalore sky.",
+          "Opening Hours Mon - Sun: 12pm - 12am ​ ​​ Boho Koramangala 105, 1st A cross Rd, KHB Colony, 5th Block, Koramangala, Bengaluru Boho Rooftop Restobar Brookefield Mall, ITPL Main Rd, AECS Layout, Brookefield, Bengaluru The Dhaba Co Fourth floor, 13/23, Harlur Road Over Axis Bank, Ambalipura, Karnataka,…"
+        ],
+        "status": [
+          "Visit us today and experience the magic of delectable food, stylish ambiance, and unforgettable memories!"
+        ]
+      },
+      "failure": null
+    },
+    {
+      "name": "By Chance - Resto Pub",
+      "service_area": "church-street",
+      "overture_id": "46fff692-3950-4c8d-98b9-c46ea9239b67",
+      "url_type": "official-website",
+      "source_url": "http://www.bycchancee.com/",
+      "fetched_at_utc": "2026-09-20T08:17:44.795Z",
+      "http_status": 200,
+      "page_title": "TONGKATWIN × 8ID : Daftar Layanan Game Online Jalur Crimson Mudah Wd Hari Ini",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [
+          "Indonesia / Bahasa Indonesia UK / English Other Countries Lanjutkan Tutup Cari Cari Troli Number of Products : Login Buka Menu Saya Navigation Kembali Cari FEATURED Galaxy Z Fold7 BARU Galaxy S25 FE Galaxy Tab S11 Galaxy Watch Ultra Galaxy Buds3 FE QLED 4K TV Crystal UHD 4K TV The Frame TV Q-series …",
+          "Buka Menu Saya Receive up to 5% of your purchase back in points.",
+          "Pesanan Product Registration Members TONGKATWIN LOGIN Buka Menu Saya Receive up to 5% of your purchase back in points.",
+          "Halaman Saya Pesanan Product Registration Rewards Saya Wishlist Members Komunitas Keluar Close menu Keranjang belanja Anda kosong OK Tutup Layar Popup Maaf, persediaan barang di keranjang belanja tidak cukup.",
+          "YA NANTI Tutup Preferensi Search Form Kosongkan Scan Barcode Tidak Ada Saran AI Suggested Searches Pencarian yang Disarankan PENCARIAN POPULER PENCARIAN TERBARU PRODUK TERKAIT DIREKOMENDASIKAN Tutup Dapatkan gratis hadiah - Gratis hadiah Travel Adapter 25W dan Case A07 (Stock Terbatas) - Bayar cuman…"
+        ],
+        "address": [
+          "BACK Terapkan Check the availabbility 1 of 3 Wrong address Unfortunately, we cannot make you a DSL offer for the address you have checked.The address you have given is not unique, please choose from the address suggestions.",
+          "Empfohlene Adresse Postcode Please provide a valid postcode Please enter correct information again.",
+          "Best&auml;tigen Layer Popup Close Extended Warranty Perpanjang durasi garansi pabrik untuk produk Anda Ketentuan Untuk Extended Warranty Tutup Yakin Close popup EXTENDED WARRANTY Tutup Layar Popup Pilih opsi paket kombo Produk terpilih ( 0 ) Harga awal: Kosongkan semua Tutup Yakin Tutup Layar Popup …"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "The Local Terrace Drinkery",
+      "service_area": "koramangala",
+      "overture_id": "db0455bd-9ddc-41a8-b416-57a586ea6fd8",
+      "url_type": "official-website",
+      "source_url": "http://www.thelocaldrinkery.com/",
+      "fetched_at_utc": "2026-09-20T08:17:51.373Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Good Shepherd Auditorium",
+      "service_area": "church-street",
+      "overture_id": "5b96d147-f6f8-42a6-bf2f-d05802e853b3",
+      "url_type": "official-website",
+      "source_url": "http://www.goodshepherdchurch.co.in",
+      "fetched_at_utc": "2026-09-20T08:18:12.526Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "ESCAPE ROOM Koramangala (Previously Mystery junkies)",
+      "service_area": "koramangala",
+      "overture_id": "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+      "url_type": "official-website",
+      "source_url": "https://escapemgm.com/",
+      "fetched_at_utc": "2026-09-20T08:18:15.671Z",
+      "http_status": 200,
+      "page_title": "Home",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "For rescheduling contact us over the phone 3 hours before depending upon the availability we can reschedule your slots.",
+          "You are suppose to inform us through call atleast 3 hours before your time schedule, and its non refundable only can be rescheduled based on the availbility .",
+          "You have complete 1 hour of time schedule to complete the game."
+        ],
+        "pricing": [
+          "Home About Games Gallery Bulk Booking Blogs Price List ContactUs corporate Escape Truck +91 76763 72273 Your browser does not support the video tag."
+        ],
+        "address": [
+          "The concept of Escape Rooms was started in 2011, and we introduced it in Bangalore in 2014.",
+          "We were surprised to find that the city didn’t have Escape Rooms. +91 76763 72273 USEFUL LINKS Home Games Gallery Bulk Booking About SOCIAL LINK Events ContactUs FAQs Privacy Policy Terms & Conditions CONTACT Address: No 12, 3rd Floor, Pragati Mansion, 1st Cross Rd, 5th Block, Koramangala, Karnataka…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "St. Patrick's Church",
+      "service_area": "church-street",
+      "overture_id": "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+      "url_type": "official-website",
+      "source_url": "http://stpatricksblr.com",
+      "fetched_at_utc": "2026-09-20T08:18:19.152Z",
+      "http_status": 200,
+      "page_title": "St. Patrick's Church",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [
+          "Patrick's Church was Estd in July 1841 Share with us: Home About us Parish Clergy Pious Associations Former Parish Priests History Church Services Mass Timings Way of the Cross Eucharistic Adoration Adoration Chapel Confession Counselling Centre Institutions Middle & High school Boys' Home Industria…",
+          "More+ Palm Sunday Palm Sunday will be celebrated on March 29, 2026.",
+          "The Blessing of Palms will take place before More+ Holy Week Services English Services for Maundy Thursday and Good Friday will be in the Main Church.",
+          "Tamil Services More+ Volunteers for Holy Week Services All those who would like to be volunteers for Holy Week Services More+ First Holy Communion The First Holy Communion will be administered to our children on June 7, 2026, the Feast of the Body More+ Mass Timings Other Religious Services Contact …"
+        ],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Zion A.G Church",
+      "service_area": "koramangala",
+      "overture_id": "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+      "url_type": "official-website",
+      "source_url": "https://www.zionagmadiwala.com/",
+      "fetched_at_utc": "2026-09-20T08:18:21.642Z",
+      "http_status": 200,
+      "page_title": "Zion AG Church",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "Corner House",
+      "service_area": "indiranagar",
+      "overture_id": "5d605750-8e59-4542-80f4-010a83787e60",
+      "url_type": "official-website",
+      "source_url": "https://linktr.ee/cornerhouseicecreams",
+      "fetched_at_utc": "2026-09-20T08:18:28.271Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Apsara Ice Creams",
+      "service_area": "indiranagar",
+      "overture_id": "2763b646-4b23-4401-a7e5-080d45964a4d",
+      "url_type": "official-website",
+      "source_url": "https://thrivenow.in/apsara-ice-creams-indiranagar",
+      "fetched_at_utc": "2026-09-20T08:18:44.099Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "Indiranagar Cornerstone Park",
+      "service_area": "indiranagar",
+      "overture_id": "2927a08c-d8e9-424a-859d-e378efe61116",
+      "url_type": "official-website",
+      "source_url": "http://www.cornerstoneindia.in/",
+      "fetched_at_utc": "2026-09-20T08:18:47.006Z",
+      "http_status": 200,
+      "page_title": "HOME | CornerStone India",
+      "website_reachable": true,
+      "snippets": {
+        "hours": [],
+        "pricing": [
+          "CornerStone India top of page ABOUT US THE STORY MANAGEMENT VISION & MISSION PORTFOLIO LAND BANKING RESIDENTIAL COMMERCIAL & RETAIL WAREHOUSING & LOGISTICS CORNERSTONE ADVANTAGE NEWSROOM & RESOURCE CENTRE PRESSS COVERAGE EVENTS AWARDS & RECOGNITION PARTNERS JD PARTNERS FINANCIAL PARTNERS ARCHITECTS …"
+        ],
+        "address": [
+          "CornerStone India top of page ABOUT US THE STORY MANAGEMENT VISION & MISSION PORTFOLIO LAND BANKING RESIDENTIAL COMMERCIAL & RETAIL WAREHOUSING & LOGISTICS CORNERSTONE ADVANTAGE NEWSROOM & RESOURCE CENTRE PRESSS COVERAGE EVENTS AWARDS & RECOGNITION PARTNERS JD PARTNERS FINANCIAL PARTNERS ARCHITECTS …",
+          "Shaping Bengaluru&#39;s Real - Estate Landscape LAND BANKING RESIDENTIAL COMMERCIAL & RETAIL WAREHOUSING & LOGISTICS Upcoming Projects Cornerstone Peridot Tower Located in Hennur, Cornerstone Peridot Tower is a LEED Gold Rated Mixed-Use Commercial Project.",
+          "Cornerstone Icon Located in Bengaluru&rsquo;s Central Business District, Cornerstone Icon is a Grade A office park development, with approx. 1.2 million sqft of leasable space in an exquisitely designed Business Park in the heart of the city.",
+          "Cornerstone Business Park Built over a sprawling 35 acres, Cornerstone Business Park is strategically located close to major residential & commercial neighbourhoods in Bangalore Cornerstone Logistic Park Located in Bodanahosahalli (Whitefield), Bangalore, Cornerstone Logistic Park is based on a spra…",
+          "We pride ourselves on: TRUST AND TRANSPARENCY SUPERIOR DESIGN & EFFICIENCY OUTSTANDING LOCATIONS SUSTAINABLE DEVELOPMENT FOR POSITIVE IMPACT KNOW MORE Newsroom & Resource Centre Embassy Group ties up with Cornerstone for fourth business park in Bengaluru Real estate developer Embassy Group said it s…"
+        ],
+        "status": []
+      },
+      "failure": null
+    },
+    {
+      "name": "The Magical Garden",
+      "service_area": "koramangala",
+      "overture_id": "9f30227f-acf9-494a-b980-6fb729981452",
+      "url_type": "official-website",
+      "source_url": "http://www.nilgiris.nic.in/bot_garden.html",
+      "fetched_at_utc": "2026-09-20T08:18:53.611Z",
+      "http_status": null,
+      "page_title": null,
+      "website_reachable": false,
+      "snippets": {
+        "hours": [],
+        "pricing": [],
+        "address": [],
+        "status": []
+      },
+      "failure": {
+        "reason": "network-error",
+        "detail": "fetch failed",
+        "attempts": 3
+      }
+    }
+  ]
+}

@@ -77,9 +77,9 @@
       "source": "https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB"
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+      "value": 35,
+      "status": "curated",
+      "source": "rubric v1 — Coffeehouse stop per the Cafe planning band."
     },
     "suitableFor": {
       "value": null,
@@ -87,9 +87,11 @@
       "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check https://cafe.thirdwavecoffee.in/coffee-cafe-12th-main-indiranagar-bengaluru-29962/home?utm_source=FB."
+      "value": [
+        "coffee"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Specialty coffee house per the official store page."
     },
     "vibe": {
       "value": null,

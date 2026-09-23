@@ -3,16 +3,17 @@ import { ArrowRight, Car, CircleHelp, Footprints, TrainFront } from 'lucide-reac
 import { useLocation } from 'wouter';
 import { defaultRequest } from '@/data/mockData';
 import { Header, LocationField } from '@/components/glimmr-ui';
+import { geocodeEndpoints } from '@/services/glimmrService';
 import type { OutingType, PlannerRequest, TransportMode } from '@/types/glimmr';
 
-const outingTypes: OutingType[] = ['Food crawl', 'Low-key day', 'Date night', 'Arts & culture', 'Fresh air'];
-const transports: { id: TransportMode; label: string; icon: typeof Car }[] = [
+export const outingTypes: OutingType[] = ['Food crawl', 'Low-key day', 'Date night', 'Arts & culture', 'Fresh air'];
+export const transports: { id: TransportMode; label: string; icon: typeof Car }[] = [
   { id: 'walk', label: 'Walk', icon: Footprints },
   { id: 'bike', label: 'Bike', icon: Footprints },
   { id: 'transit', label: 'Transit', icon: TrainFront },
   { id: 'drive', label: 'Drive', icon: Car },
 ];
-const timeOptions = [
+export const timeOptions = [
   [30, '30 min'],
   [60, '1 hr'],
   [120, '2 hrs'],
@@ -20,23 +21,51 @@ const timeOptions = [
   [240, '4 hrs'],
   [300, '5+ hrs']
 ] as const;
-const budgetOptions = [
+export const budgetOptions = [
   [100, '₹100 · keep it light'],
   [250, '₹250 · comfortable'],
   [500, '₹500 · make it count'],
   [1000, '₹1,000+ · stretch a little']
 ] as const;
 
+export type PlannerFormErrors = Partial<Record<'from' | 'to' | 'availableMinutes' | 'budget' | 'people', string>>;
+
+/** Pure submit gate: returns errors, empty when the form may submit. */
+export function validatePlannerRequest(form: PlannerRequest): PlannerFormErrors {
+  const nextErrors: PlannerFormErrors = {};
+  if (!form.from.trim()) nextErrors.from = 'Add a starting neighbourhood or location.';
+  if (!form.to.trim()) nextErrors.to = 'Add a destination or neighbourhood.';
+  if (!timeOptions.some(([value]) => value === form.availableMinutes)) nextErrors.availableMinutes = 'Choose an available time.';
+  if (!budgetOptions.some(([value]) => value === form.budget)) nextErrors.budget = 'Choose a budget per person.';
+  if (!Number.isInteger(form.people) || form.people < 1 || form.people > 6) nextErrors.people = 'Choose how many people are coming.';
+  return nextErrors;
+}
+
+export const PLANNER_REQUEST_KEY = 'glimmr-request';
+
+/** Best-effort session write: private-mode failures never block navigation. */
+export function persistPlannerRequest(form: PlannerRequest): void {
+  try {
+    sessionStorage.setItem(PLANNER_REQUEST_KEY, JSON.stringify(form));
+  } catch {
+    // Private-mode writes must never block navigation.
+  }
+}
+
+/** Session read with default fallback for first visits and corrupt entries. */
+export function readPlannerRequest(): PlannerRequest {
+  try {
+    return JSON.parse(sessionStorage.getItem(PLANNER_REQUEST_KEY) ?? JSON.stringify(defaultRequest)) as PlannerRequest;
+  } catch {
+    return defaultRequest;
+  }
+}
+
 export default function Planner() {
   const [, setLocation] = useLocation();
-  const [form, setForm] = useState<PlannerRequest>(() => {
-    try {
-      return JSON.parse(sessionStorage.getItem('glimmr-request') ?? JSON.stringify(defaultRequest)) as PlannerRequest;
-    } catch {
-      return defaultRequest;
-    }
-  });
-  const [errors, setErrors] = useState<Partial<Record<'from' | 'to' | 'availableMinutes' | 'budget' | 'people', string>>>({});
+  const [form, setForm] = useState<PlannerRequest>(() => readPlannerRequest());
+  const [errors, setErrors] = useState<PlannerFormErrors>({});
+  const [geocoding, setGeocoding] = useState(false);
 
   const update = <K extends keyof PlannerRequest>(key: K, value: PlannerRequest[K]) => {
     setForm((current) => ({ ...current, [key]: value }));
@@ -45,16 +74,21 @@ export default function Planner() {
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
-    const nextErrors: typeof errors = {};
-    if (!form.from.trim()) nextErrors.from = 'Add a starting neighbourhood or location.';
-    if (!form.to.trim()) nextErrors.to = 'Add a destination or neighbourhood.';
-    if (!timeOptions.some(([value]) => value === form.availableMinutes)) nextErrors.availableMinutes = 'Choose an available time.';
-    if (!budgetOptions.some(([value]) => value === form.budget)) nextErrors.budget = 'Choose a budget per person.';
-    if (!Number.isInteger(form.people) || form.people < 1 || form.people > 6) nextErrors.people = 'Choose how many people are coming.';
+    if (geocoding) return;
+    const nextErrors = validatePlannerRequest(form);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
-    sessionStorage.setItem('glimmr-request', JSON.stringify(form));
-    setLocation('/results');
+    // Single-shot Nominatim lookups for exactly these two submitted queries —
+    // no autocomplete, no bulk requests. Best-effort: failures cache as null
+    // and planning continues on place coordinates.
+    setGeocoding(true);
+    void geocodeEndpoints(form.from.trim(), form.to.trim())
+      .catch(() => undefined)
+      .finally(() => {
+        persistPlannerRequest(form);
+        setGeocoding(false);
+        setLocation('/results');
+      });
   };
 
   return (
@@ -228,7 +262,7 @@ export default function Planner() {
             </section>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 25 }}>
-              <button type="submit" className="btn btn-blue" data-testid="button-generate-plans">
+              <button type="submit" className="btn btn-blue" disabled={geocoding} data-testid="button-generate-plans">
                 Plan an Outing <ArrowRight size={16} />
               </button>
             </div>

@@ -79,9 +79,9 @@
       "source": "http://www.thegridbangalore.com/"
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.thegridbangalore.com/."
+      "value": 75,
+      "status": "curated",
+      "source": "rubric v1 — Multi-game arena session per the Activity planning band."
     },
     "suitableFor": {
       "value": [
@@ -92,14 +92,16 @@
       "source": "http://www.thegridbangalore.com/"
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.thegridbangalore.com/."
+      "value": [
+        "active"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Seven bookable games (bowling, laser tag, VR) on the official pricing page."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.thegridbangalore.com/."
+      "value": "High-energy gaming arena",
+      "status": "curated",
+      "source": "rubric v1 — Official site frames high-energy excitement across all attractions."
     },
     "rating": {
       "value": null,

@@ -19,7 +19,10 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { getDb } from '../lib/firebase';
-import { ServiceAreaSchema } from '../schemas/glimmr.schema';
+import { OutingRecordSchema, ServiceAreaSchema } from '../schemas/glimmr.schema';
+import type { OutingRecord } from '../schemas/glimmr.schema';
+
+export type { OutingRecord } from '../schemas/glimmr.schema';
 
 /**
  * Firestore service for managing data
@@ -406,28 +409,54 @@ export const isPlaceSavedByUser = async (userId: string, placeId: string): Promi
 };
 
 // ============================================================================
-// OUTINGS (Enhanced)
+// OUTINGS (unified shape: see OutingRecordSchema — ISO-string timestamps)
 // ============================================================================
 
-export interface OutingRecord {
-  id: string;
-  userId: string;
-  planId: string;
-  planData: any; // Serialized Plan
-  startedAt: Timestamp;
-  currentStepId: string;
-  completedStepIds: string[];
-  status: 'in_progress' | 'completed' | 'abandoned';
-  completedAt?: Timestamp;
+/**
+ * Firestore `Timestamp`/`Date`/string → ISO string. Stored outing copies
+ * written by older clients or server timestamps normalize to the same
+ * shape the live flow persists, so resume compares identically.
+ */
+function timestampToISO(value: unknown): string | undefined {
+  if (typeof value === 'string' && value) return value;
+  if (value instanceof Date && !Number.isNaN(value.getTime())) return value.toISOString();
+  if (typeof value === 'object' && value !== null && typeof (value as { toDate?: unknown }).toDate === 'function') {
+    try {
+      const date = (value as { toDate: () => Date }).toDate();
+      if (date instanceof Date && !Number.isNaN(date.getTime())) return date.toISOString();
+    } catch {
+      return undefined;
+    }
+  }
+  return undefined;
+}
+
+/** Validate + normalize a raw outing document to the canonical shape. */
+export function normalizeOutingRecord(doc: unknown): OutingRecord | null {
+  if (typeof doc !== 'object' || doc === null) return null;
+  const raw = doc as Record<string, unknown>;
+  const parsed = OutingRecordSchema.safeParse({
+    ...raw,
+    startedAt: timestampToISO(raw.startedAt) ?? raw.startedAt,
+    updatedAt: timestampToISO(raw.updatedAt) ?? raw.updatedAt,
+    completedAt: timestampToISO(raw.completedAt) ?? raw.completedAt,
+  });
+  if (!parsed.success) {
+    console.warn('[glimmr] Ignoring outing record that fails OutingRecordSchema:', (raw as { id?: unknown }).id ?? '(missing id)');
+    return null;
+  }
+  return parsed.data;
 }
 
 export const saveOuting = async (userId: string, plan: any, currentStepId: string): Promise<string> => {
   const planData = JSON.parse(JSON.stringify(plan));
+  const now = new Date().toISOString();
   return await addDocument('outings', {
     userId,
     planId: plan.id,
     planData,
-    startedAt: serverTimestamp(),
+    startedAt: now,
+    updatedAt: now,
     currentStepId,
     completedStepIds: [],
     status: 'in_progress',
@@ -435,11 +464,17 @@ export const saveOuting = async (userId: string, plan: any, currentStepId: strin
 };
 
 export const getUserOutings = async (userId: string): Promise<OutingRecord[]> => {
-  return await queryDocuments<OutingRecord>(
+  const docs = await queryDocuments(
     'outings',
     [{ field: 'userId', operator: '==', value: userId }],
     'startedAt'
   );
+  const records: OutingRecord[] = [];
+  for (const doc of docs) {
+    const record = normalizeOutingRecord(doc);
+    if (record) records.push(record);
+  }
+  return records;
 };
 
 export const updateOutingProgress = async (
@@ -447,13 +482,15 @@ export const updateOutingProgress = async (
   currentStepId: string,
   completedStepIds: string[]
 ): Promise<void> => {
-  await updateDocument('outings', outingId, { currentStepId, completedStepIds });
+  await updateDocument('outings', outingId, { currentStepId, completedStepIds, updatedAt: new Date().toISOString() });
 };
 
 export const completeOuting = async (outingId: string): Promise<void> => {
-  await updateDocument('outings', outingId, { 
-    status: 'completed', 
-    completedAt: serverTimestamp() 
+  const now = new Date().toISOString();
+  await updateDocument('outings', outingId, {
+    status: 'completed',
+    completedAt: now,
+    updatedAt: now,
   });
 };
 
@@ -495,14 +532,17 @@ export const migrateSessionPlansToFirestore = async (
 
   for (const [planId, outing] of Object.entries(outings)) {
     const outingRef = doc(collection(db, 'outings'));
+    const now = new Date().toISOString();
     batch.set(outingRef, {
       userId: uid,
       planId,
       planData: outing.planData ?? {},
-      startedAt: outing.startedAt ? new Date(outing.startedAt) : serverTimestamp(),
+      startedAt: timestampToISO(outing.startedAt) ?? now,
+      updatedAt: timestampToISO(outing.updatedAt) ?? now,
       currentStepId: outing.currentStepId,
       completedStepIds: outing.completedStepIds ?? [],
-      status: 'in_progress',
+      status: outing.status ?? 'in_progress',
+      ...(timestampToISO(outing.completedAt) ? { completedAt: timestampToISO(outing.completedAt) } : {}),
     });
   }
 

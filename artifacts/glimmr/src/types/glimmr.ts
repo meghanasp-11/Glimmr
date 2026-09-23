@@ -22,6 +22,7 @@ export type {
   SavedPlace,
   SavedPlan,
   OutingRecord,
+  OutingStatus,
 } from '@/schemas/glimmr.schema';
 
 export {
@@ -39,12 +40,15 @@ export {
   SavedPlaceSchema,
   SavedPlanSchema,
   OutingRecordSchema,
+  OutingStatusSchema,
   TransportModeSchema,
   OutingTypeSchema,
   PriceBasisSchema,
   VerificationStatusSchema,
   validateSchema,
 } from '@/schemas/glimmr.schema';
+
+
 
 // Type exports for enums
 export type TransportMode = z.infer<typeof import('@/schemas/glimmr.schema').TransportModeSchema>;
@@ -152,12 +156,7 @@ export interface PlanEdit {
 }
 
 /**
- * @deprecated Legacy UI type
+ * Unified outing shape (see `OutingRecordSchema`): pages, the service, and
+ * Firebase helpers all share this one definition.
  */
-export interface Outing {
-  id: string;
-  planId: string;
-  startedAt: string;
-  currentStepId: string;
-  completedStepIds: string[];
-}
+export type { OutingRecord as Outing } from '@/schemas/glimmr.schema';

@@ -15,8 +15,10 @@ import {
   NominatimGeocoder,
   OSRMRoutingProvider,
   createMapsService,
+  hasValidPoints,
   haversineKm,
   haversineLeg,
+  stepsToPoints,
 } from '@/lib/maps';
 import { scheduleStepsWithLegs } from '@/lib/recommendationEngine';
 import type { Place, PlanStep } from '@/types/glimmr';
@@ -218,6 +220,27 @@ describe('NominatimGeocoder', () => {
     });
     const geocoder = new NominatimGeocoder({ fetchFn: fetch as unknown as typeof fetch });
     expect(await geocoder.geocode('Bengaluru')).toBeNull();
+  });
+});
+
+describe('route rendering inputs (stepsToPoints/hasValidPoints)', () => {
+  const steps = [
+    { place: { lat: 12.978, lng: 77.64 } },
+    { place: { lat: 12.935, lng: 77.624 } },
+  ];
+
+  it('extracts stop coordinates in visit order', () => {
+    expect(stepsToPoints(steps)).toEqual([
+      { lat: 12.978, lng: 77.64 },
+      { lat: 12.935, lng: 77.624 },
+    ]);
+  });
+
+  it('accepts finite coordinates and rejects the rest', () => {
+    expect(hasValidPoints(stepsToPoints(steps))).toBe(true);
+    expect(hasValidPoints([])).toBe(false);
+    expect(hasValidPoints([{ lat: Number.NaN, lng: 77.64 }])).toBe(false);
+    expect(hasValidPoints([{ lat: 12.978, lng: Number.POSITIVE_INFINITY }])).toBe(false);
   });
 });
 

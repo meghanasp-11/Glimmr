@@ -77,9 +77,9 @@
       "source": "http://www.shadescreativegallery.com/"
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+      "value": 60,
+      "status": "curated",
+      "source": "rubric v1 — Gallery walkthrough of current exhibitions, per the Culture planning band."
     },
     "suitableFor": {
       "value": null,
@@ -87,14 +87,17 @@
       "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+      "value": [
+        "culture",
+        "art"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Contemporary art gallery with rotating exhibitions on the official site."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.shadescreativegallery.com/."
+      "value": "Spacious, inspiring gallery",
+      "status": "curated",
+      "source": "rubric v1 — Official site presents a spacious venue for viewing diverse paintings."
     },
     "rating": {
       "value": null,

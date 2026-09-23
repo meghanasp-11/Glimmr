@@ -82,19 +82,24 @@
       "source": "https://www.theamazingescape.in/"
     },
     "suitableFor": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+      "value": [
+        "family",
+        "friends"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Official site addresses families and friends directly for games and parties."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+      "value": [
+        "active"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Escape rooms plus mini-golf per the official site; participatory play."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check https://www.theamazingescape.in/."
+      "value": "High-energy and playful",
+      "status": "curated",
+      "source": "rubric v1 — Official site frames high-energy excitement and playful competition."
     },
     "rating": {
       "value": null,

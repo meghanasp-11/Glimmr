@@ -1,0 +1,155 @@
+{
+  "source": "glimmr_batch_02_area_audit",
+  "overture_release": "2026-08-19.0",
+  "findings": [
+    {
+      "overture_id": "e9845292-8c3a-4ed7-b470-0a06ac43d241",
+      "name": "Cafe Grey",
+      "assigned_area": "indiranagar",
+      "lat": 12.97920036,
+      "lng": 77.64320514,
+      "address": "3rd Floor, No, 421/J, Shri Krishna Temple Rd",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.97920036, 77.64320514) fall inside \"indiranagar\" bounds (lat 12.97..12.985, lng 77.635..77.645).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+      "name": "ESCAPE ROOM Koramangala (Previously Mystery junkies)",
+      "assigned_area": "koramangala",
+      "lat": 12.9334769,
+      "lng": 77.621912,
+      "address": "12, 3rd Floor Pragati Mansion, 1st Cross Road, 5th Block",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.9334769, 77.621912) fall inside \"koramangala\" bounds (lat 12.925..12.945, lng 77.61..77.625).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+      "name": "BOHO Koramangala",
+      "assigned_area": "koramangala",
+      "lat": 12.9345105,
+      "lng": 77.61602946,
+      "address": "105, 1st A cross Rd",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.9345105, 77.61602946) fall inside \"koramangala\" bounds (lat 12.925..12.945, lng 77.61..77.625).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "2927a08c-d8e9-424a-859d-e378efe61116",
+      "name": "Indiranagar Cornerstone Park",
+      "assigned_area": "indiranagar",
+      "lat": 12.977951,
+      "lng": 77.641457,
+      "address": "Indiranagar 100 Ft Road",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.977951, 77.641457) fall inside \"indiranagar\" bounds (lat 12.97..12.985, lng 77.635..77.645).",
+      "address_note": "address names its assigned area"
+    },
+    {
+      "overture_id": "fbda4f0c-4e7b-4f2e-a8cf-d3c6fe032c77",
+      "name": "Blue Tokai Coffee",
+      "assigned_area": "koramangala",
+      "lat": 12.94071388,
+      "lng": 77.62023735,
+      "address": "583 80 Feet Road, 8th Block",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.94071388, 77.62023735) fall inside \"koramangala\" bounds (lat 12.925..12.945, lng 77.61..77.625).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+      "name": "St. Patrick's Church",
+      "assigned_area": "church-street",
+      "lat": 12.97076231,
+      "lng": 77.60699654,
+      "address": "At Museum Road",
+      "explicit_review": true,
+      "verdict": "in-bounds",
+      "detail": "Explicit review case. (12.97076231, 77.60699654) fall inside \"church-street\" bounds (lat 12.97..12.975, lng 77.6..77.61).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+      "name": "Zion A.G Church",
+      "assigned_area": "koramangala",
+      "lat": 12.92561631,
+      "lng": 77.61541886,
+      "address": "22, Maruthi Nagar Main Rd, beside Amravati Hotel",
+      "explicit_review": true,
+      "verdict": "in-bounds",
+      "detail": "Explicit review case. (12.92561631, 77.61541886) fall inside \"koramangala\" bounds (lat 12.925..12.945, lng 77.61..77.625).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "8c723c0f-8463-49de-9d39-d71d6ad53471",
+      "name": "Domino's Pizza | Garuda Mall, Bangalore, Karnataka",
+      "assigned_area": "church-street",
+      "lat": 12.97036447,
+      "lng": 77.60858344,
+      "address": "Third Floor, Store No. 16, Food Court, Garuda Mall, CTS No. 15, 17, 18, 27, Magarath Road, Mahanagara Palike Ward No. 76",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.97036447, 77.60858344) fall inside \"church-street\" bounds (lat 12.97..12.975, lng 77.6..77.61).",
+      "address_note": "address names no V1 area"
+    },
+    {
+      "overture_id": "924377cd-2db0-40c9-ae31-764ee81fe71a",
+      "name": "Domino's Pizza | M.G Road, Bangalore",
+      "assigned_area": "church-street",
+      "lat": 12.97489423,
+      "lng": 77.60661881,
+      "address": "Church Street Side Entrance Ground Floor, M G Road Metro Station",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.97489423, 77.60661881) fall inside \"church-street\" bounds (lat 12.97..12.975, lng 77.6..77.61).",
+      "address_note": "address names its assigned area"
+    },
+    {
+      "overture_id": "ee5baef3-0dbe-4e25-9c23-07f0418314f3",
+      "name": "Café Coffee Day",
+      "assigned_area": "indiranagar",
+      "lat": 12.97547242,
+      "lng": 77.64118128,
+      "address": "MSK Plaza, 100 Feet Rd",
+      "explicit_review": false,
+      "verdict": "in-bounds",
+      "detail": "(12.97547242, 77.64118128) fall inside \"indiranagar\" bounds (lat 12.97..12.985, lng 77.635..77.645).",
+      "address_note": "address names no V1 area"
+    }
+  ],
+  "replacements": [],
+  "coverage": {
+    "areas": {
+      "indiranagar": 3,
+      "koramangala": 4,
+      "church-street": 3
+    },
+    "categories": {
+      "Cafe": 3,
+      "Activity": 1,
+      "Drinks": 1,
+      "Outdoor": 1,
+      "Culture": 2,
+      "Dinner": 2
+    }
+  },
+  "duplicates": [],
+  "final_top10": [
+    "e9845292-8c3a-4ed7-b470-0a06ac43d241",
+    "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+    "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+    "2927a08c-d8e9-424a-859d-e378efe61116",
+    "fbda4f0c-4e7b-4f2e-a8cf-d3c6fe032c77",
+    "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+    "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+    "8c723c0f-8463-49de-9d39-d71d6ad53471",
+    "924377cd-2db0-40c9-ae31-764ee81fe71a",
+    "ee5baef3-0dbe-4e25-9c23-07f0418314f3"
+  ]
+}

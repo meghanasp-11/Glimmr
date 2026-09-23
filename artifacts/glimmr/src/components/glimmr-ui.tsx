@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Check, Clock3, Footprints, MapPin, RefreshCw, Route, Sparkles, Trash2, User, X } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { useAuth } from '@/lib/auth';
-import { places } from '@/data/mockData';
-import type { LocationStatus, Plan, PlanStep } from '@/types/glimmr';
+import { places as staticPlaces } from '@/data/mockData';
+import type { LocationStatus, Place, Plan, PlanStep } from '@/types/glimmr';
 import { formatDuration, formatINR, placePrice } from '@/lib/glimmr-format';
 import { duration as motionDuration, ease, useMatchMedia, usePrefersReducedMotion } from '@/lib/motion';
 
@@ -107,7 +107,7 @@ export function PlanCard({ plan }: { plan: Plan }) {
   return <article className={`surface plan-card ${plan.recommendationLabel === 'Best fit' ? 'recommended' : ''}`} data-testid={`card-plan-${plan.id}`}>
     <div className="plan-top">
       <span className="recommend-label">{plan.recommendationLabel}</span>
-      <span className="eyebrow" style={{ color: plan.recommendationLabel === 'Best fit' ? '#9ec2ff' : undefined }}>{plan.vibe}</span>
+      <span className="eyebrow">{plan.vibe}</span>
       <h2>{plan.title}</h2>
       <p>{plan.subtitle}</p>
     </div>
@@ -121,7 +121,7 @@ export function PlanCard({ plan }: { plan: Plan }) {
       <ul className="mini-timeline">
         {plan.steps.map((step) => <li key={step.id}><span className="mini-dot" />{step.place.name}</li>)}
       </ul>
-      <div className="plan-reason"><strong>Why we picked this</strong><ul>{plan.recommendationReason?.slice(0, 3).map((reason) => <li key={reason}>✓ {reason}</li>)}</ul></div>
+      <div className="plan-reason"><strong>Why we picked this</strong><ul>{plan.recommendationReason?.slice(0, 3).map((reason) => <li key={reason}>[+] {reason}</li>)}</ul></div>
     </div>
     <div className="plan-footer">
       <Link href={`/plan/${plan.id}`} className={`btn ${plan.recommendationLabel === 'Best fit' ? 'btn-blue' : 'btn-soft'}`} data-testid={`button-view-plan-${plan.id}`}>View Plan <ArrowRight size={15} /></Link>
@@ -139,7 +139,7 @@ export function TimelineStep({ step, index, onEdit, onReplace, onDelete, canDele
       <h3>{step.place.name}</h3>
       <p>{step.place.category} · {step.place.address}</p>
       <div className="timeline-meta"><span>{step.arrival}</span><span>{step.durationMinutes} min here</span><span>{placePrice(step.place) ? formatINR(placePrice(step.place)) : 'free'}</span></div>
-      {step.note && <p style={{ marginTop: 9, color: '#2563eb' }}>{step.note}</p>}
+      {step.note && <p style={{ marginTop: 8, color: 'var(--design-accent)' }}>{step.note}</p>}
     </div>
     <div className="timeline-actions">
       <button className="btn btn-icon btn-ghost" onClick={onEdit} aria-label={`Edit ${step.place.name}`} title={`Edit ${step.place.name}`} data-testid={`button-edit-${step.id}`}><Clock3 size={16} /></button>
@@ -151,10 +151,29 @@ export function TimelineStep({ step, index, onEdit, onReplace, onDelete, canDele
 
 type EditValue = { kind: 'place' | 'duration' | 'instruction'; value: string; instruction?: string };
 
-export function EditDialog({ step, mode, onClose, onSave }: { step?: PlanStep; mode: 'edit' | 'replace' | 'add'; onClose: () => void; onSave: (value: EditValue) => void }) {
+/**
+ * Pure option lists for the edit dialog, computed over the caller's catalog
+ * (Firestore-first via `listPlaces()`). Same-category swaps keep the shape
+ * of the plan; category candidates power the add-stop picker.
+ */
+export function replaceCandidates(catalog: Place[], step?: PlanStep): Place[] {
   // Same category as the stop being replaced, so a coffee stop swaps for
   // another coffee stop rather than a random category jump.
-  const replaceOptions = step ? places.filter((place) => place.category === step.place.category && place.id !== step.place.id).slice(0, 6) : [];
+  if (!step) return [];
+  return catalog.filter((place) => place.category === step.place.category && place.id !== step.place.id).slice(0, 6);
+}
+
+export function addCandidates(catalog: Place[], category: string | null): Place[] {
+  if (!category || category === 'Custom') return [];
+  return catalog.filter((place) => {
+    if (category === 'Food') return place.category === 'Dinner';
+    return place.category === category;
+  });
+}
+
+export function EditDialog({ step, mode, onClose, onSave, places }: { step?: PlanStep; mode: 'edit' | 'replace' | 'add'; onClose: () => void; onSave: (value: EditValue) => void; places?: Place[] }) {
+  const catalog = places ?? staticPlaces;
+  const replaceOptions = replaceCandidates(catalog, step);
   const addCategories = ['Food', 'Cafe', 'Dessert', 'Activity', 'Drinks', 'Custom'];
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const instructionId = mode === 'edit' ? 'edit-instruction' : 'place-instruction';
@@ -195,7 +214,7 @@ export function EditDialog({ step, mode, onClose, onSave }: { step?: PlanStep; m
        {mode === 'edit' && <div className="field"><label htmlFor="duration">Time at stop (minutes)</label><input id="duration" className="input" type="number" defaultValue={step?.durationMinutes ?? 30} min="10" max="180" onKeyDown={(event) => { if (event.key === 'Enter') onSave({ kind: 'duration', value: (event.target as HTMLInputElement).value }); }} /></div>}
       {mode === 'edit' && <div className="quick-edits"><span className="field-label">Quick changes</span><div className="choice-grid"><button type="button" className="choice" onClick={() => onSave({ kind: 'instruction', value: 'Make it cheaper' })}>Make it cheaper</button><button type="button" className="choice" onClick={() => onSave({ kind: 'instruction', value: 'Choose something farther' })}>Choose something farther</button><button type="button" className="choice" onClick={() => onSave({ kind: 'instruction', value: 'Change category' })}>Change category</button></div></div>}
        {mode === 'replace' && (replaceOptions.length ? <div className="choice-grid">{replaceOptions.map((place) => <button type="button" key={place.id} className="choice" onClick={() => onSave({ kind: 'place', value: place.id })} data-testid={`button-option-${place.id}`}>{place.name}</button>)}</div> : <p className="muted">No other {step?.place.category.toLowerCase()} spots in this area yet — try a custom instruction below.</p>)}
-        {mode === 'add' && <div className="add-stop-picker"><span className="field-label">What kind of stop?</span><div className="choice-grid">{addCategories.map((category) => <button type="button" key={category} className={`choice ${selectedCategory === category ? 'selected' : ''}`} onClick={() => setSelectedCategory(category)} data-testid={`button-add-category-${category.toLowerCase()}`}>{category}</button>)}</div>{selectedCategory && selectedCategory !== 'Custom' && <div className="candidate-list"><span className="field-label">Candidates for {selectedCategory.toLowerCase()}</span><div className="choice-grid">{places.filter((place) => { if (selectedCategory === 'Food') return place.category === 'Dinner'; return place.category === selectedCategory; }).map((place) => <button type="button" key={place.id} className="choice" onClick={() => onSave({ kind: 'place', value: place.id })} data-testid={`button-candidate-${place.id}`}>{place.name}</button>)}</div></div>}{selectedCategory === 'Custom' && <p className="muted add-stop-note">Use the instruction below to describe a custom stop.</p>}</div>}
+        {mode === 'add' && <div className="add-stop-picker"><span className="field-label">What kind of stop?</span><div className="choice-grid">{addCategories.map((category) => <button type="button" key={category} className={`choice ${selectedCategory === category ? 'selected' : ''}`} onClick={() => setSelectedCategory(category)} data-testid={`button-add-category-${category.toLowerCase()}`}>{category}</button>)}</div>{selectedCategory && selectedCategory !== 'Custom' && <div className="candidate-list"><span className="field-label">Candidates for {selectedCategory.toLowerCase()}</span><div className="choice-grid">{addCandidates(catalog, selectedCategory).map((place) => <button type="button" key={place.id} className="choice" onClick={() => onSave({ kind: 'place', value: place.id })} data-testid={`button-candidate-${place.id}`}>{place.name}</button>)}</div></div>}{selectedCategory === 'Custom' && <p className="muted add-stop-note">Use the instruction below to describe a custom stop.</p>}</div>}
        <div className="field instruction-field"><label htmlFor={instructionId}>Custom instruction <span className="muted">optional</span></label><textarea id={instructionId} className="input" placeholder={mode === 'add' ? 'A bakery, a gallery, somewhere quiet...' : 'Make it cheaper, go farther, keep it outdoors...'} rows={3} /></div>
        <div className="dialog-actions"><button className="btn btn-soft" onClick={onClose} data-testid="button-cancel-dialog">Cancel</button>{mode === 'edit' && <button className="btn btn-blue" onClick={() => { const durationInput = document.getElementById('duration') as HTMLInputElement; const instructionInput = document.getElementById(instructionId) as HTMLTextAreaElement; onSave({ kind: 'duration', value: durationInput.value, instruction: instructionInput.value.trim() || undefined }); }} data-testid="button-save-dialog">Save changes <Check size={15} /></button>}{mode !== 'edit' && <button className="btn btn-blue" onClick={() => { const input = document.getElementById(instructionId) as HTMLTextAreaElement; if (input.value.trim()) onSave({ kind: 'instruction', value: input.value.trim() }); }} disabled={mode === 'add' && selectedCategory !== 'Custom'} data-testid="button-save-instruction">Use instruction <Check size={15} /></button>}</div>
     </motion.section>
@@ -203,7 +222,7 @@ export function EditDialog({ step, mode, onClose, onSave }: { step?: PlanStep; m
 }
 
 export function EmptyState({ onReset }: { onReset: () => void }) {
-  return <div className="surface error-card"><Sparkles size={28} color="#3b82f6" style={{ margin: '0 auto 14px' }} /><h2 className="display">Nothing fits those constraints yet.</h2><p className="muted">Try widening your time window, raising the budget, or choosing a nearby destination. GLIMMR will keep your next attempt grounded.</p><button className="btn btn-blue" onClick={onReset} data-testid="button-empty-reset">Tune the constraints <ArrowRight size={15} /></button></div>;
+  return <div className="surface error-card"><Sparkles size={28} color="#201d1d" style={{ margin: '0 auto 14px' }} /><h2 className="display">Nothing fits those constraints yet.</h2><p className="muted">Try widening your time window, raising the budget, or choosing a nearby destination. GLIMMR will keep your next attempt grounded.</p><button className="btn btn-blue" onClick={onReset} data-testid="button-empty-reset">Tune the constraints <ArrowRight size={15} /></button></div>;
 }
 
 export function RouteLegend() {

@@ -1,0 +1,818 @@
+{
+  "source": "glimmr_batch_02_research_manifest",
+  "overture_release": "2026-08-19.0",
+  "generated_at_utc": "2026-09-20T08:41:38.780Z",
+  "ranked": "batch-02/readiness.json top10 order",
+  "count": 10,
+  "places": [
+    {
+      "rank": 1,
+      "overture_id": "e9845292-8c3a-4ed7-b470-0a06ac43d241",
+      "name": "Cafe Grey",
+      "service_area": "indiranagar",
+      "glimmr_category": "Cafe",
+      "address": {
+        "value": "3rd Floor, No, 421/J, Shri Krishna Temple Rd",
+        "status": "verified"
+      },
+      "coordinates": {
+        "lat": 12.97920036,
+        "lng": 77.64320514,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "https://dongle.community/cafe-to-work-in-indiranagar/",
+        "website_host": "dongle.community",
+        "website_reachable": true,
+        "evidence_source_url": "https://dongle.community/cafe-to-work-in-indiranagar/",
+        "evidence_page_title": "Café Grey – A Premium Workspace Café in Indiranagar",
+        "evidence_fetched_at_utc": "2026-09-20T08:17:34.375Z"
+      },
+      "source_confidence": 0.9972457826137543,
+      "ambiguity_flags": [],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "verified",
+          "current_lead": "3rd Floor, No, 421/J, Shri Krishna Temple Rd",
+          "search_target": "Location / find-us / contact section of dongle.community; cross-check pin on a map listing. On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.97920036, 77.64320514",
+          "search_target": "Verify pin via dongle.community location page + map listing cross-check. On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "openingHours",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Hours / timings section of dongle.community (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "priceMin",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dongle.community (per-person band + basis). On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "priceMax",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dongle.community (per-person band + basis). On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dongle.community (per-person band + basis). On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: https://dongle.community/cafe-to-work-in-indiranagar/"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "overture_id": "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+      "name": "ESCAPE ROOM Koramangala (Previously Mystery junkies)",
+      "service_area": "koramangala",
+      "glimmr_category": "Activity",
+      "address": {
+        "value": "12, 3rd Floor Pragati Mansion, 1st Cross Road, 5th Block",
+        "status": "verified"
+      },
+      "coordinates": {
+        "lat": 12.9334769,
+        "lng": 77.621912,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "https://escapemgm.com/",
+        "website_host": "escapemgm.com",
+        "website_reachable": true,
+        "evidence_source_url": "https://escapemgm.com/",
+        "evidence_page_title": "Home",
+        "evidence_fetched_at_utc": "2026-09-20T08:18:15.671Z"
+      },
+      "source_confidence": 0.9910922751426697,
+      "ambiguity_flags": [
+        {
+          "type": "dossier-flag",
+          "detail": "title-mismatch"
+        },
+        {
+          "type": "rename-history",
+          "detail": "Name records a rename (\"ESCAPE ROOM Koramangala (Previously Mystery junkies)\"); confirm the current operating name on site."
+        }
+      ],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "verified",
+          "current_lead": "12, 3rd Floor Pragati Mansion, 1st Cross Road, 5th Block",
+          "search_target": "Location / find-us / contact section of escapemgm.com; cross-check pin on a map listing. On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.9334769, 77.621912",
+          "search_target": "Verify pin via escapemgm.com location page + map listing cross-check. On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "openingHours",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Hours / timings section of escapemgm.com (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "priceMin",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of escapemgm.com (per-person band + basis). On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "priceMax",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of escapemgm.com (per-person band + basis). On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of escapemgm.com (per-person band + basis). On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: https://escapemgm.com/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: https://escapemgm.com/"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "overture_id": "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+      "name": "BOHO Koramangala",
+      "service_area": "koramangala",
+      "glimmr_category": "Drinks",
+      "address": {
+        "value": "105, 1st A cross Rd",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.9345105,
+        "lng": 77.61602946,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "http://www.bohothebar.com/",
+        "website_host": "www.bohothebar.com",
+        "website_reachable": true,
+        "evidence_source_url": "http://www.bohothebar.com/",
+        "evidence_page_title": "BOHO Bar Bangalore – Rooftop Dining, Cocktails &amp; Nightlife Fun",
+        "evidence_fetched_at_utc": "2026-09-20T08:17:42.267Z"
+      },
+      "source_confidence": 0.9972673028707504,
+      "ambiguity_flags": [
+        {
+          "type": "dossier-flag",
+          "detail": "ambiguous-address"
+        }
+      ],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "105, 1st A cross Rd",
+          "search_target": "Location / find-us / contact section of www.bohothebar.com; cross-check pin on a map listing. On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.9345105, 77.61602946",
+          "search_target": "Verify pin via www.bohothebar.com location page + map listing cross-check. On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "openingHours",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Hours / timings section of www.bohothebar.com (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "priceMin",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.bohothebar.com (per-person band + basis). On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "priceMax",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.bohothebar.com (per-person band + basis). On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.bohothebar.com (per-person band + basis). On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: http://www.bohothebar.com/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: http://www.bohothebar.com/"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "overture_id": "2927a08c-d8e9-424a-859d-e378efe61116",
+      "name": "Indiranagar Cornerstone Park",
+      "service_area": "indiranagar",
+      "glimmr_category": "Outdoor",
+      "address": {
+        "value": "Indiranagar 100 Ft Road",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.977951,
+        "lng": 77.641457,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "http://www.cornerstoneindia.in/",
+        "website_host": "www.cornerstoneindia.in",
+        "website_reachable": true,
+        "evidence_source_url": "http://www.cornerstoneindia.in/",
+        "evidence_page_title": "HOME | CornerStone India",
+        "evidence_fetched_at_utc": "2026-09-20T08:18:47.006Z"
+      },
+      "source_confidence": 0.9552733898162842,
+      "ambiguity_flags": [
+        {
+          "type": "dossier-flag",
+          "detail": "ambiguous-address"
+        }
+      ],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "Indiranagar 100 Ft Road",
+          "search_target": "Location / find-us / contact section of www.cornerstoneindia.in; cross-check pin on a map listing. On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.977951, 77.641457",
+          "search_target": "Verify pin via www.cornerstoneindia.in location page + map listing cross-check. On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "openingHours",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Hours / timings section of www.cornerstoneindia.in (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "priceMin",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.cornerstoneindia.in (per-person band + basis). On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "priceMax",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.cornerstoneindia.in (per-person band + basis). On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.cornerstoneindia.in (per-person band + basis). On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: http://www.cornerstoneindia.in/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: http://www.cornerstoneindia.in/"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "overture_id": "fbda4f0c-4e7b-4f2e-a8cf-d3c6fe032c77",
+      "name": "Blue Tokai Coffee",
+      "service_area": "koramangala",
+      "glimmr_category": "Cafe",
+      "address": {
+        "value": "583 80 Feet Road, 8th Block",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.94071388,
+        "lng": 77.62023735,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "http://www.bluetokaicoffee.com/",
+        "website_host": "www.bluetokaicoffee.com",
+        "website_reachable": true,
+        "evidence_source_url": "http://www.bluetokaicoffee.com/",
+        "evidence_page_title": "Buy Freshly Roasted Coffee Beans | Blue Tokai Coffee Roasters",
+        "evidence_fetched_at_utc": "2026-09-20T08:17:32.212Z"
+      },
+      "source_confidence": 0.9980795672237873,
+      "ambiguity_flags": [],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "583 80 Feet Road, 8th Block",
+          "search_target": "Location / find-us / contact section of www.bluetokaicoffee.com; cross-check pin on a map listing. On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.94071388, 77.62023735",
+          "search_target": "Verify pin via www.bluetokaicoffee.com location page + map listing cross-check. On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "openingHours",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Hours / timings section of www.bluetokaicoffee.com (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "priceMin",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.bluetokaicoffee.com (per-person band + basis). On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "priceMax",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.bluetokaicoffee.com (per-person band + basis). On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.bluetokaicoffee.com (per-person band + basis). On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: http://www.bluetokaicoffee.com/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: http://www.bluetokaicoffee.com/"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "overture_id": "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+      "name": "St. Patrick's Church",
+      "service_area": "church-street",
+      "glimmr_category": "Culture",
+      "address": {
+        "value": "At Museum Road",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.97076231,
+        "lng": 77.60699654,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "http://stpatricksblr.com",
+        "website_host": "stpatricksblr.com",
+        "website_reachable": true,
+        "evidence_source_url": "http://stpatricksblr.com",
+        "evidence_page_title": "St. Patrick's Church",
+        "evidence_fetched_at_utc": "2026-09-20T08:18:19.152Z"
+      },
+      "source_confidence": 0.9838630694150925,
+      "ambiguity_flags": [],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "At Museum Road",
+          "search_target": "Location / find-us / contact section of stpatricksblr.com; cross-check pin on a map listing. On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.97076231, 77.60699654",
+          "search_target": "Verify pin via stpatricksblr.com location page + map listing cross-check. On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "openingHours",
+          "status": "needs_manual_review",
+          "current_lead": null,
+          "search_target": "Hours / timings section of stpatricksblr.com (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "priceMin",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of stpatricksblr.com (per-person band + basis). On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "priceMax",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of stpatricksblr.com (per-person band + basis). On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "priceBasis",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of stpatricksblr.com (per-person band + basis). On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: http://stpatricksblr.com"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: http://stpatricksblr.com"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "overture_id": "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+      "name": "Zion A.G Church",
+      "service_area": "koramangala",
+      "glimmr_category": "Culture",
+      "address": {
+        "value": "22, Maruthi Nagar Main Rd, beside Amravati Hotel",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.92561631,
+        "lng": 77.61541886,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "https://www.zionagmadiwala.com/",
+        "website_host": "www.zionagmadiwala.com",
+        "website_reachable": true,
+        "evidence_source_url": "https://www.zionagmadiwala.com/",
+        "evidence_page_title": "Zion AG Church",
+        "evidence_fetched_at_utc": "2026-09-20T08:18:21.642Z"
+      },
+      "source_confidence": 0.982903778553009,
+      "ambiguity_flags": [],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "22, Maruthi Nagar Main Rd, beside Amravati Hotel",
+          "search_target": "Location / find-us / contact section of www.zionagmadiwala.com; cross-check pin on a map listing. On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.92561631, 77.61541886",
+          "search_target": "Verify pin via www.zionagmadiwala.com location page + map listing cross-check. On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "openingHours",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Hours / timings section of www.zionagmadiwala.com (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "priceMin",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.zionagmadiwala.com (per-person band + basis). On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "priceMax",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.zionagmadiwala.com (per-person band + basis). On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.zionagmadiwala.com (per-person band + basis). On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: https://www.zionagmadiwala.com/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: https://www.zionagmadiwala.com/"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "overture_id": "8c723c0f-8463-49de-9d39-d71d6ad53471",
+      "name": "Domino's Pizza | Garuda Mall, Bangalore, Karnataka",
+      "service_area": "church-street",
+      "glimmr_category": "Dinner",
+      "address": {
+        "value": "Third Floor, Store No. 16, Food Court, Garuda Mall, CTS No. 15, 17, 18, 27, Magarath Road, Mahanagara Palike Ward No. 76",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.97036447,
+        "lng": 77.60858344,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "https://dominos.co.in/",
+        "website_host": "dominos.co.in",
+        "website_reachable": true,
+        "evidence_source_url": "https://dominos.co.in/",
+        "evidence_page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+        "evidence_fetched_at_utc": "2026-09-20T08:16:04.778Z"
+      },
+      "source_confidence": 1,
+      "ambiguity_flags": [
+        {
+          "type": "shared-chain",
+          "detail": "Shares outlet chain with 924377cd-2db0-40c9-ae31-764ee81fe71a (Domino's Pizza | M.G Road, Bangalore); verify this branch independently — never merge evidence across branches."
+        }
+      ],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "Third Floor, Store No. 16, Food Court, Garuda Mall, CTS No. 15, 17, 18, 27, Magarath Road, Mahanagara Palike Ward No. 76",
+          "search_target": "Location / find-us / contact section of dominos.co.in; cross-check pin on a map listing. On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.97036447, 77.60858344",
+          "search_target": "Verify pin via dominos.co.in location page + map listing cross-check. On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "openingHours",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Hours / timings section of dominos.co.in (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "priceMin",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dominos.co.in (per-person band + basis). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "priceMax",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dominos.co.in (per-person band + basis). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dominos.co.in (per-person band + basis). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: https://dominos.co.in/"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "overture_id": "924377cd-2db0-40c9-ae31-764ee81fe71a",
+      "name": "Domino's Pizza | M.G Road, Bangalore",
+      "service_area": "church-street",
+      "glimmr_category": "Dinner",
+      "address": {
+        "value": "Church Street Side Entrance Ground Floor, M G Road Metro Station",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.97489423,
+        "lng": 77.60661881,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "https://dominos.co.in/",
+        "website_host": "dominos.co.in",
+        "website_reachable": true,
+        "evidence_source_url": "https://dominos.co.in/",
+        "evidence_page_title": "Domino’s Pizza – Order Online | Get 2 Regular Pizza @99 Each",
+        "evidence_fetched_at_utc": "2026-09-20T08:16:06.883Z"
+      },
+      "source_confidence": 1,
+      "ambiguity_flags": [
+        {
+          "type": "shared-chain",
+          "detail": "Shares outlet chain with 8c723c0f-8463-49de-9d39-d71d6ad53471 (Domino's Pizza | Garuda Mall, Bangalore, Karnataka); verify this branch independently — never merge evidence across branches."
+        }
+      ],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "Church Street Side Entrance Ground Floor, M G Road Metro Station",
+          "search_target": "Location / find-us / contact section of dominos.co.in; cross-check pin on a map listing. On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.97489423, 77.60661881",
+          "search_target": "Verify pin via dominos.co.in location page + map listing cross-check. On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "openingHours",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Hours / timings section of dominos.co.in (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "priceMin",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dominos.co.in (per-person band + basis). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "priceMax",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dominos.co.in (per-person band + basis). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "priceBasis",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of dominos.co.in (per-person band + basis). On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: https://dominos.co.in/"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: https://dominos.co.in/"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "overture_id": "ee5baef3-0dbe-4e25-9c23-07f0418314f3",
+      "name": "Café Coffee Day",
+      "service_area": "indiranagar",
+      "glimmr_category": "Cafe",
+      "address": {
+        "value": "MSK Plaza, 100 Feet Rd",
+        "status": "needs_manual_review"
+      },
+      "coordinates": {
+        "lat": 12.97547242,
+        "lng": 77.64118128,
+        "lat_status": "needs_manual_review",
+        "lng_status": "needs_manual_review",
+        "status": "needs_manual_review"
+      },
+      "source_urls": {
+        "website_url": "http://www.pinterest.com/cafecoffeeday",
+        "website_host": "www.pinterest.com",
+        "website_reachable": true,
+        "evidence_source_url": "http://www.pinterest.com/cafecoffeeday",
+        "evidence_page_title": "Cafe Coffee Day (cafecoffeeday) - Profile | Pinterest",
+        "evidence_fetched_at_utc": "2026-09-20T08:17:29.739Z"
+      },
+      "source_confidence": 0.9987599057853221,
+      "ambiguity_flags": [],
+      "missing_fields": [
+        {
+          "field": "address",
+          "status": "needs_manual_review",
+          "current_lead": "MSK Plaza, 100 Feet Rd",
+          "search_target": "Location / find-us / contact section of www.pinterest.com; cross-check pin on a map listing. On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "coordinates",
+          "status": "needs_manual_review",
+          "current_lead": "12.97547242, 77.64118128",
+          "search_target": "Verify pin via www.pinterest.com location page + map listing cross-check. On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "openingHours",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Hours / timings section of www.pinterest.com (engine format, e.g. 9:00 AM - 9:00 PM). On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "priceMin",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.pinterest.com (per-person band + basis). On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "priceMax",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.pinterest.com (per-person band + basis). On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "priceBasis",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "Menu / pricing page of www.pinterest.com (per-person band + basis). On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "verificationStatus",
+          "status": "needs_manual_review",
+          "current_lead": "unverified",
+          "search_target": "Flip only after every required field above is confirmed against its cited source. On-file site: http://www.pinterest.com/cafecoffeeday"
+        },
+        {
+          "field": "experienceScore",
+          "status": "missing",
+          "current_lead": null,
+          "search_target": "On-site quality signals only (craft, ambience, service) — never ratings or review counts. On-file site: http://www.pinterest.com/cafecoffeeday"
+        }
+      ]
+    }
+  ]
+}

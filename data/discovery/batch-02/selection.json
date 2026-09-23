@@ -1,0 +1,186 @@
+{
+  "source": "glimmr_follow_up_selection",
+  "overture_release": "2026-08-19.0",
+  "size": 20,
+  "counts": {
+    "pool": 180,
+    "excluded": 10,
+    "picked": 20,
+    "areas": {
+      "church-street": 6,
+      "indiranagar": 8,
+      "koramangala": 6
+    },
+    "categories": {
+      "Dinner": 4,
+      "Cafe": 4,
+      "Drinks": 4,
+      "Activity": 2,
+      "Culture": 2,
+      "Dessert": 2,
+      "Outdoor": 2
+    }
+  },
+  "picked": [
+    {
+      "overture_id": "8c723c0f-8463-49de-9d39-d71d6ad53471",
+      "name": "Domino's Pizza | Garuda Mall, Bangalore, Karnataka",
+      "service_area": "church-street",
+      "glimmr_category": "Dinner",
+      "evidence_score": 8,
+      "verification_rank": 1
+    },
+    {
+      "overture_id": "924377cd-2db0-40c9-ae31-764ee81fe71a",
+      "name": "Domino's Pizza | M.G Road, Bangalore",
+      "service_area": "church-street",
+      "glimmr_category": "Dinner",
+      "evidence_score": 8,
+      "verification_rank": 2
+    },
+    {
+      "overture_id": "a7258898-9ce2-473f-9069-0de015f703b8",
+      "name": "Burger King",
+      "service_area": "indiranagar",
+      "glimmr_category": "Dinner",
+      "evidence_score": 8,
+      "verification_rank": 6
+    },
+    {
+      "overture_id": "f38bbb0f-f0aa-4aff-bf32-0574565b169b",
+      "name": "KFC",
+      "service_area": "indiranagar",
+      "glimmr_category": "Dinner",
+      "evidence_score": 8,
+      "verification_rank": 7
+    },
+    {
+      "overture_id": "ffd91163-9766-48aa-b09e-00a0f8dd4145",
+      "name": "Starbucks",
+      "service_area": "church-street",
+      "glimmr_category": "Cafe",
+      "evidence_score": 8,
+      "verification_rank": 41
+    },
+    {
+      "overture_id": "ee5baef3-0dbe-4e25-9c23-07f0418314f3",
+      "name": "Café Coffee Day",
+      "service_area": "indiranagar",
+      "glimmr_category": "Cafe",
+      "evidence_score": 8,
+      "verification_rank": 42
+    },
+    {
+      "overture_id": "fbda4f0c-4e7b-4f2e-a8cf-d3c6fe032c77",
+      "name": "Blue Tokai Coffee",
+      "service_area": "koramangala",
+      "glimmr_category": "Cafe",
+      "evidence_score": 8,
+      "verification_rank": 43
+    },
+    {
+      "overture_id": "e9845292-8c3a-4ed7-b470-0a06ac43d241",
+      "name": "Cafe Grey",
+      "service_area": "indiranagar",
+      "glimmr_category": "Cafe",
+      "evidence_score": 8,
+      "verification_rank": 44
+    },
+    {
+      "overture_id": "dad85d48-6431-4925-bc5c-b9e37e6eaf9c",
+      "name": "The Balcony Bar",
+      "service_area": "indiranagar",
+      "glimmr_category": "Drinks",
+      "evidence_score": 8,
+      "verification_rank": 62
+    },
+    {
+      "overture_id": "df923a9d-91f0-4fc2-b7d3-c02d23fd389d",
+      "name": "BOHO Koramangala",
+      "service_area": "koramangala",
+      "glimmr_category": "Drinks",
+      "evidence_score": 8,
+      "verification_rank": 63
+    },
+    {
+      "overture_id": "46fff692-3950-4c8d-98b9-c46ea9239b67",
+      "name": "By Chance - Resto Pub",
+      "service_area": "church-street",
+      "glimmr_category": "Drinks",
+      "evidence_score": 8,
+      "verification_rank": 64
+    },
+    {
+      "overture_id": "db0455bd-9ddc-41a8-b416-57a586ea6fd8",
+      "name": "The Local Terrace Drinkery",
+      "service_area": "koramangala",
+      "glimmr_category": "Drinks",
+      "evidence_score": 8,
+      "verification_rank": 65
+    },
+    {
+      "overture_id": "5b96d147-f6f8-42a6-bf2f-d05802e853b3",
+      "name": "Good Shepherd Auditorium",
+      "service_area": "church-street",
+      "glimmr_category": "Activity",
+      "evidence_score": 8,
+      "verification_rank": 87
+    },
+    {
+      "overture_id": "bbdefb0a-8995-4ec0-99a9-cdd34fc4a713",
+      "name": "ESCAPE ROOM Koramangala (Previously Mystery junkies)",
+      "service_area": "koramangala",
+      "glimmr_category": "Activity",
+      "evidence_score": 8,
+      "verification_rank": 89
+    },
+    {
+      "overture_id": "4cbd052b-2c6a-4af3-8597-1e3bf79e95e8",
+      "name": "St. Patrick's Church",
+      "service_area": "church-street",
+      "glimmr_category": "Culture",
+      "evidence_score": 8,
+      "verification_rank": 111
+    },
+    {
+      "overture_id": "6c240e5f-8591-49e6-b4cc-1a30fa5abfe9",
+      "name": "Zion A.G Church",
+      "service_area": "koramangala",
+      "glimmr_category": "Culture",
+      "evidence_score": 8,
+      "verification_rank": 112
+    },
+    {
+      "overture_id": "5d605750-8e59-4542-80f4-010a83787e60",
+      "name": "Corner House",
+      "service_area": "indiranagar",
+      "glimmr_category": "Dessert",
+      "evidence_score": 8,
+      "verification_rank": 130
+    },
+    {
+      "overture_id": "2763b646-4b23-4401-a7e5-080d45964a4d",
+      "name": "Apsara Ice Creams",
+      "service_area": "indiranagar",
+      "glimmr_category": "Dessert",
+      "evidence_score": 8,
+      "verification_rank": 133
+    },
+    {
+      "overture_id": "2927a08c-d8e9-424a-859d-e378efe61116",
+      "name": "Indiranagar Cornerstone Park",
+      "service_area": "indiranagar",
+      "glimmr_category": "Outdoor",
+      "evidence_score": 8,
+      "verification_rank": 156
+    },
+    {
+      "overture_id": "9f30227f-acf9-494a-b980-6fb729981452",
+      "name": "The Magical Garden",
+      "service_area": "koramangala",
+      "glimmr_category": "Outdoor",
+      "evidence_score": 7,
+      "verification_rank": 160
+    }
+  ]
+}

@@ -77,9 +77,9 @@
       "source": "http://www.thereservoire.com/"
     },
     "typicalVisitDuration": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.thereservoire.com/."
+      "value": 75,
+      "status": "curated",
+      "source": "rubric v1 — Evening cocktail-bar visit: drinks plus music, per the Drinks planning band."
     },
     "suitableFor": {
       "value": null,
@@ -87,14 +87,16 @@
       "reason": "Not verified yet. check http://www.thereservoire.com/."
     },
     "activities": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.thereservoire.com/."
+      "value": [
+        "drinks"
+      ],
+      "status": "curated",
+      "source": "rubric v1 — Over 200 cocktails on the official menu; music nights support drinks-first outing."
     },
     "vibe": {
-      "value": null,
-      "status": "missing",
-      "reason": "Not verified yet. check http://www.thereservoire.com/."
+      "value": "Lively Manhattan-style cocktail bar",
+      "status": "curated",
+      "source": "rubric v1 — Official site describes Manhattan-style cocktail culture with music nights."
     },
     "rating": {
       "value": null,

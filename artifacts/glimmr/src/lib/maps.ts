@@ -68,6 +68,20 @@ export function haversineKm(a: GeoPoint, b: GeoPoint): number {
   return earthRadiusKm * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 }
 
+/**
+ * Route rendering inputs: stop coordinates in visit order for the Leaflet
+ * map. Pure and provider-agnostic — the same points feed markers and the
+ * visit-order polyline.
+ */
+export function stepsToPoints(steps: Array<{ place: { lat: number; lng: number } }>): GeoPoint[] {
+  return steps.map((step) => ({ lat: step.place.lat, lng: step.place.lng }));
+}
+
+/** Every point must be a finite coordinate or the map falls back. */
+export function hasValidPoints(points: GeoPoint[]): boolean {
+  return points.length > 0 && points.every((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
+}
+
 /** Offline estimator with the engine's exact rounding: 0.1 km, min 5 min/leg. */
 export function haversineLeg(from: GeoPoint, to: GeoPoint, mode: TransportMode): RouteLeg {
   const distanceKm = Number(haversineKm(from, to).toFixed(1));

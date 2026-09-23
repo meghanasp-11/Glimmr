@@ -32,6 +32,9 @@ const CURATED_FIELDS: ReadonlySet<string> = new Set([
   "experienceScore",
 ]);
 
+/** The only keys curated application may ever write (defense in depth). */
+export const CURATED_FIELD_NAMES: ReadonlySet<string> = CURATED_FIELDS;
+
 /** Verification-gated keys curation must never touch: identity, verification
  * workflow fields, and source-verified facts (prices, hours, coordinates).
  * Curated attributes are only the five in CURATED_FIELDS. */
